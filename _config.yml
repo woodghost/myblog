@@ -1,6 +1,6 @@
 # Basic
 title: WoodGhost
-subtitle: 渡头余落日 墟里上孤烟
+subtitle: 渡頭余落日 墟里上孤煙
 welcome_message: This place is for little ghost and her fellows to read, write and learn. Welcome to this world :)
 description: Technical discuss & Poems & Offshore
 # creator:
@@ -23,13 +23,13 @@ cover_color: blue
 # The blog button should not be removed.
 blog_button:
     title: Blog
-    description: Visit blog
+    description: 博客
 
 # Navigation buttons in the front page.
 nav:
-    - {title: Projects, description: My Projects, url: ''}
-    - {title: Life, description: My Journeys, url: ''}
-    - {title: About, description: Self Introduction, url: ''}
+    - {title: Projects, description: 項目與工作, url: ''}
+    - {title: Life, description: 人生, url: ''}
+    - {title: About, description: 我, url: ''}
     # - {title: Another Button, description: A button, url: 'http://example.com'}
 
 # Pagination
