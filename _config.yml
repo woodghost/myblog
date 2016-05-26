@@ -5,8 +5,9 @@ welcome_message: <a href="https://github.com/onevcat/vno-jekyll" target="_blank"
 description: Vno Jekyll is a port of @onevcat's theme vno.
 creator: <a href="http://onev.cat">@onevcat</a>
 
-url: "http://woodghost.github.io"
-baseurl: myblog/
+url: "http://kugaogao.github.io"
+
+# baseurl: /myblog
 
 permalink: /:year/:month/:title/
 
