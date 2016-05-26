@@ -28,6 +28,8 @@ blog_button:
 # Navigation buttons in the front page.
 nav:
     - {title: Projects, description: My Projects, url: ''}
+    - {title: Life, description: My Journeys, url: ''}
+    - {title: About, description: Self Introduction, url: ''}
     # - {title: Another Button, description: A button, url: 'http://example.com'}
 
 # Pagination
@@ -42,10 +44,10 @@ comment:
 
 # Social
 social:
-    weibo: woodghost
+    weibo: 2576328977
     github: woodghost
     twitter: woodghost36
-    gplus: 107108267983477358170
+    gplus: 117752045392286741953
     mail: woodghost0960@gmail.com
 
 # Google Analytics
