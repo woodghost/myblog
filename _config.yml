@@ -1,11 +1,11 @@
 # Basic
 title: Woodghost
-subtitle: Hi, trying to build my blog.
-welcome_message: <a href="https://github.com/onevcat/vno-jekyll" target="_blank">Download the theme</a>
-description: Vno Jekyll is a port of @onevcat's theme vno.
-creator: <a href="http://onev.cat">@onevcat</a>
+subtitle: Hi, moew (>^ω^<).
+welcome_message: This place is for little ghost and her fellows to read, write and learn. Welcome to this world :)
+description: Poems & Offshore
+# creator:
 
-url: "http://kugaogao.github.io"
+url: "http://woodghost.github.io"
 
 baseurl: /myblog
 
