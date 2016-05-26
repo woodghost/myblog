@@ -1,8 +1,8 @@
 # Basic
-title: Vno Jekyll
-subtitle: A blog-orientation theme for Jekyll
+title: Woodghost
+subtitle: Hi, trying to build my blog.
 welcome_message: <a href="https://github.com/onevcat/vno-jekyll" target="_blank">Download the theme</a>
-description: Vno Jekyll is a port of my Ghost theme vno.
+description: Vno Jekyll is a port of @onevcat's theme vno.
 creator: <a href="http://onev.cat">@onevcat</a>
 
 url: "http://vno.onevcat.com"
@@ -36,15 +36,15 @@ paginate_path: "page/:num/"
 # Comment
 comment:
     disqus: vno-jekyll
-    # duoshuo: 
-    
+    # duoshuo:
+
 # Social
 social:
     weibo: onevcat
     github: onevcat
     twitter: onevcat
     gplus: 107108267983477358170
-    mail: onev@onevcat.com
+    mail: woodghost0960@gmail.com
 
 # Google Analytics
 ga:
