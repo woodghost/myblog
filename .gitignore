@@ -4,6 +4,7 @@
 ### Jekyll ###
 .sass-cache/
 .jekyll-metadata
+.idea/
 
 
 ### OSX ###
