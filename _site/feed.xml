@@ -5,9 +5,42 @@
     <description>Technical discuss &amp; Poems &amp; Offshore Fantasy</description>
     <link>http://woodghost.github.io/myblog/</link>
     <atom:link href="http://woodghost.github.io/myblog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 30 Jun 2016 12:03:50 +0800</pubDate>
-    <lastBuildDate>Thu, 30 Jun 2016 12:03:50 +0800</lastBuildDate>
+    <pubDate>Thu, 30 Jun 2016 15:29:00 +0800</pubDate>
+    <lastBuildDate>Thu, 30 Jun 2016 15:29:00 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Starting the Journey with LeetCode &amp; CC150</title>
+        <description>&lt;p&gt;打算记录漫漫刷题打怪路
+在此立个flag
+以下是代码段，检验样式用&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;process.stdin.resume();
+process.stdin.setEncoding(&amp;#39;ascii&amp;#39;);
+
+var input_stdin = &amp;quot;&amp;quot;;
+var input_stdin_array = &amp;quot;&amp;quot;;
+var input_currentline = 0;
+
+process.stdin.on(&amp;#39;data&amp;#39;, function (data) {
+    input_stdin += data;
+});
+
+process.stdin.on(&amp;#39;end&amp;#39;, function () {
+    input_stdin_array = input_stdin.split(&amp;quot;\n&amp;quot;);
+    main();
+});
+
+// Reads complete line from STDIN
+function readLine() {
+    return input_stdin_array[input_currentline++];
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</description>
+        <pubDate>Thu, 30 Jun 2016 15:13:24 +0800</pubDate>
+        <link>http://woodghost.github.io/myblog/2016/06/leetcode-cc150/</link>
+        <guid isPermaLink="true">http://woodghost.github.io/myblog/2016/06/leetcode-cc150/</guid>
+        
+        
+      </item>
     
       <item>
         <title>Hello World - Vno</title>
@@ -33,9 +66,7 @@ $ bundler exec jekyll serve
 
 &lt;p&gt;You could replace the background and avatar image in &lt;code&gt;assets/images&lt;/code&gt; folder to change them.&lt;/p&gt;
 
-&lt;h4&gt;Sites using Vno&lt;/h4&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://onevcat.com&quot;&gt;My blog&lt;/a&gt; is using &lt;code&gt;Vno Jekyll&lt;/code&gt; as well, you could see how it works in real. There are some other sites using the same theme. You can find them below:&lt;/p&gt;
+&lt;h4&gt;Sites using Vno(just for testing table style)&lt;/h4&gt;
 
 &lt;table&gt;&lt;thead&gt;
 &lt;tr&gt;
@@ -44,22 +75,18 @@ $ bundler exec jekyll serve
 &lt;/tr&gt;
 &lt;/thead&gt;&lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;OneV&amp;#39;s Den&lt;/td&gt;
-&lt;td&gt;&lt;a href=&quot;http://onevcat.com&quot;&gt;http://onevcat.com&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Woodghost&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;http://woodghost.github.io/myblog/&quot;&gt;http://woodghost.github.io/myblog/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;&lt;/table&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;If you happen to be using this theme, welcome to &lt;a href=&quot;https://github.com/onevcat/vno-jekyll/pulls&quot;&gt;send me a pull request&lt;/a&gt; to add your site link here. :)&lt;/p&gt;
-&lt;/blockquote&gt;
 
 &lt;h4&gt;License&lt;/h4&gt;
 
 &lt;p&gt;Great thanks to &lt;a href=&quot;https://github.com/daleanthony&quot;&gt;Dale Anthony&lt;/a&gt; and his &lt;a href=&quot;https://github.com/daleanthony/uno&quot;&gt;Uno&lt;/a&gt;. Vno Jekyll is based on Uno, and contains a lot of modification on page layout, animation, font and some more things I can not remember. Vno Jekyll is followed with Uno and be licensed as &lt;a href=&quot;http://creativecommons.org/licenses/by/4.0/&quot;&gt;Creative Commons Attribution 4.0 International&lt;/a&gt;. See the link for more information.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 16 Feb 2016 14:32:24 +0800</pubDate>
-        <link>http://woodghost.github.io/myblog/2016/02/hello-world-vno/</link>
-        <guid isPermaLink="true">http://woodghost.github.io/myblog/2016/02/hello-world-vno/</guid>
+        <pubDate>Thu, 16 Jun 2016 15:32:24 +0800</pubDate>
+        <link>http://woodghost.github.io/myblog/2016/06/hello-world-vno/</link>
+        <guid isPermaLink="true">http://woodghost.github.io/myblog/2016/06/hello-world-vno/</guid>
         
         
       </item>

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Hello World - Vno
-date: 2016-02-16 15:32:24.000000000 +09:00
+date: 2016-06-16 15:32:24.000000000 +08:00
 ---
 
 #### What's this
@@ -29,15 +29,12 @@ All configuration could be done in `_config.yml`. Remember you need to restart t
 
 You could replace the background and avatar image in `assets/images` folder to change them.
 
-#### Sites using Vno
-
-[My blog](http://onevcat.com) is using `Vno Jekyll` as well, you could see how it works in real. There are some other sites using the same theme. You can find them below:
+#### Sites using Vno(just for testing table style)
 
 | Site Name    | URL                          |
 | ------------ | -----------------------------|
-| OneV's Den   | http://onevcat.com           |
+| Woodghost   | http://woodghost.github.io/myblog/  |
 
-> If you happen to be using this theme, welcome to [send me a pull request](https://github.com/onevcat/vno-jekyll/pulls) to add your site link here. :)
 
 #### License
 

@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>Hello World - Vno</title>
-  <meta name="description" content="What&#39;s this">
+  <title>Starting the Journey with LeetCode &amp; CC150</title>
+  <meta name="description" content="打算记录漫漫刷题打怪路在此立个flag以下是代码段，检验样式用">
   <meta name="author" content="Tingyue Wang">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Hello World - Vno">
-  <meta name="twitter:description" content="What&#39;s this">
+  <meta name="twitter:title" content="Starting the Journey with LeetCode &amp; CC150">
+  <meta name="twitter:description" content="打算记录漫漫刷题打怪路在此立个flag以下是代码段，检验样式用">
 
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Hello World - Vno">
-  <meta property="og:description" content="What&#39;s this">
+  <meta property="og:title" content="Starting the Journey with LeetCode &amp; CC150">
+  <meta property="og:description" content="打算记录漫漫刷题打怪路在此立个flag以下是代码段，检验样式用">
 
   <link rel="icon" type="image/jpg" href="/myblog/assets/images/favicon.jpg"/>
   <link href="/myblog/assets/images/favicon.jpg" rel="shortcut icon" type="image/jpg">
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/myblog/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://woodghost.github.io/myblog/2016/02/hello-world-vno/">
+  <link rel="canonical" href="http://woodghost.github.io/myblog/2016/06/leetcode-cc150/">
   <link rel="alternate" type="application/rss+xml" title="WoodGhost" href="http://woodghost.github.io/myblog/feed.xml">
 
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -150,58 +150,36 @@
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2016-02-16 14:32:24 +0800" itemprop="datePublished" class="post-meta__date date">2016-02-16</time> &#8226; <span class="post-meta__tags tags"></span>
+      <time datetime="2016-06-30 15:13:24 +0800" itemprop="datePublished" class="post-meta__date date">2016-06-30</time> &#8226; <span class="post-meta__tags tags"></span>
     </div>
-    <h1 class="post-title">Hello World - Vno</h1>
+    <h1 class="post-title">Starting the Journey with LeetCode & CC150</h1>
   </header>
 
   <section class="post">
-    <h4>What&#39;s this</h4>
+    <p>打算记录漫漫刷题打怪路
+在此立个flag
+以下是代码段，检验样式用</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">process.stdin.resume();
+process.stdin.setEncoding(&#39;ascii&#39;);
 
-<p><a href="https://github.com/onevcat/vno-jekyll">Vno Jekyll</a> is a theme for <a href="http://jekyllrb.com">Jekyll</a>. It is a port of my Ghost theme <a href="https://github.com/onevcat/vno">vno</a>, which is originally developed from <a href="https://github.com/daleanthony/uno">Dale Anthony&#39;s Uno</a>.</p>
+var input_stdin = &quot;&quot;;
+var input_stdin_array = &quot;&quot;;
+var input_currentline = 0;
 
-<h4>Usage</h4>
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">$ git clone https://github.com/onevcat/vno-jekyll.git your_site
-$ cd your_site
-$ bundler install
-$ bundler exec jekyll serve
+process.stdin.on(&#39;data&#39;, function (data) {
+    input_stdin += data;
+});
+
+process.stdin.on(&#39;end&#39;, function () {
+    input_stdin_array = input_stdin.split(&quot;\n&quot;);
+    main();
+});
+
+// Reads complete line from STDIN
+function readLine() {
+    return input_stdin_array[input_currentline++];
+}
 </code></pre></figure>
-<p>Your site with <code>Vno Jekyll</code> enabled should be accessible in <a href="http://127.0.0.1:4000">http://127.0.0.1:4000</a>.</p>
-
-<p>For more information about Jekyll, please visit <a href="http://jekyllrb.com">Jekyll&#39;s site</a>.</p>
-
-<h4>Configuration</h4>
-
-<p>All configuration could be done in <code>_config.yml</code>. Remember you need to restart to serve the page when after changing the config file. Everything in the config file should be self-explanatory.</p>
-
-<h4>Background image and avatar</h4>
-
-<p>You could replace the background and avatar image in <code>assets/images</code> folder to change them.</p>
-
-<h4>Sites using Vno</h4>
-
-<p><a href="http://onevcat.com">My blog</a> is using <code>Vno Jekyll</code> as well, you could see how it works in real. There are some other sites using the same theme. You can find them below:</p>
-
-<table><thead>
-<tr>
-<th>Site Name</th>
-<th>URL</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>OneV&#39;s Den</td>
-<td><a href="http://onevcat.com">http://onevcat.com</a></td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>If you happen to be using this theme, welcome to <a href="https://github.com/onevcat/vno-jekyll/pulls">send me a pull request</a> to add your site link here. :)</p>
-</blockquote>
-
-<h4>License</h4>
-
-<p>Great thanks to <a href="https://github.com/daleanthony">Dale Anthony</a> and his <a href="https://github.com/daleanthony/uno">Uno</a>. Vno Jekyll is based on Uno, and contains a lot of modification on page layout, animation, font and some more things I can not remember. Vno Jekyll is followed with Uno and be licensed as <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a>. See the link for more information.</p>
-
   </section>
 </article>
 
@@ -212,9 +190,9 @@ $ bundler exec jekyll serve
    
    <div class="read-more-item">
        <span class="read-more-item-dim">Earlier Post</span>
-       <h2 class="post-list__post-title post-title"><a href="/2016/02/sample-post/" title="link to Sample Post">Sample Post</a></h2>
-       <p class="excerpt">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-r...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2016-02-15 14:32:24 +0800" class="post-list__meta--date date">2016-02-15</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/myblog/2016/02/sample-post/>More...</a></div>
+       <h2 class="post-list__post-title post-title"><a href="/2016/06/hello-world-vno/" title="link to Hello World - Vno">Hello World - Vno</a></h2>
+       <p class="excerpt">What&#39;s thisVno Jekyll is a theme for Jekyll. It is a port of my Ghost theme vno, which is originally developed from Dale Anthony&#39;s Uno.Usage$ git clone https://github.com/onevcat/vno-jekyll.git your_site$ cd your_site$ bundler install$ bun...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2016-06-16 15:32:24 +0800" class="post-list__meta--date date">2016-06-16</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/myblog/2016/06/hello-world-vno/>More...</a></div>
    </div>
    
 </section>
@@ -225,8 +203,8 @@ $ bundler exec jekyll serve
     <script>
 
     var disqus_config = function () {
-        this.page.url = "http://woodghost.github.io/myblog/2016/02/hello-world-vno/";
-        this.page.identifier = "/2016/02/hello-world-vno/";
+        this.page.url = "http://woodghost.github.io/myblog/2016/06/leetcode-cc150/";
+        this.page.identifier = "/2016/06/leetcode-cc150/";
     };
 
     var disqus_shortname = 'vno-jekyll';
