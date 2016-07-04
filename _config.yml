@@ -20,6 +20,10 @@ redcarpet:
 # supported colors: blue, green, purple, red, orange or slate. If you need clear, leave it empty.
 cover_color: blue
 
+#config
+port: 4869
+
+
 # The blog button should not be removed.
 blog_button:
     title: Blog
@@ -30,7 +34,7 @@ nav:
     - {title: Projects, description: 項目與工作, url: 'http://woodghost.github.io/'}
 #    - {title: Life, description: 人生, url: ''}
 #    - {title: About, description: 我, url: ''}
-    # - {title: Another Button, description: A button, url: 'http://example.com'}
+# - {title: Another Button, description: A button, url: 'http://example.com'}
 
 # Pagination
 gems: [jekyll-paginate]
@@ -47,8 +51,11 @@ social:
     weibo: 2576328977
     github: woodghost
     twitter: woodghost36
+    instagram: woodghost.io
+    linkedin: /nhome/
     gplus: 117752045392286741953
     mail: woodghost0960@gmail.com
+
 
 # Google Analytics
 ga:

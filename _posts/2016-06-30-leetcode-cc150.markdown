@@ -9,9 +9,6 @@ date: 2016-06-30 15:13:24.000000000 +08:00
 以下是代码段，检验样式用
 
 
-
-
-
 ```javascript
 process.stdin.resume();
 process.stdin.setEncoding('ascii');
@@ -34,6 +31,7 @@ function readLine() {
     return input_stdin_array[input_currentline++];
 }
 ```
+
 
 
 

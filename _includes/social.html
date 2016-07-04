@@ -31,6 +31,27 @@
   </li>
   {% endif %}
 
+  {% if site.social.instagram %}
+  <!-- instagram -->
+  <li class="navigation__item">
+    <a href="http://www.instagram.com/{{site.social.instagram}}" title="@{{site.social.instagram}}" target="_blank">
+      <i class='social fa fa-instagram'></i>
+      <span class="label">Instagram</span>
+    </a>
+  </li>
+  {% endif %}
+
+  {% if site.social.linkedin %}
+  <!-- linkedin -->
+  <li class="navigation__item">
+    <a href="http://www.linkedin.com/{{site.social.linkedin}}" title="@{{site.social.linkedin}}" target="_blank">
+      <i class='social fa fa-linkedin'></i>
+      <span class="label">Linkedin</span>
+    </a>
+  </li>
+  {% endif %}
+
+
   {% if site.social.gplus %}
   <!-- Google Plus -->
   <li class="navigation__item">
