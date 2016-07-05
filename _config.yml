@@ -43,7 +43,7 @@ paginate_path: "page/:num/"
 
 # Comment
 comment:
-    disqus: woodghost
+    disqus: vno-jekyll
     # duoshuo:
 
 # Social
