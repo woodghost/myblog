@@ -31,7 +31,7 @@ blog_button:
 
 # Navigation buttons in the front page.
 nav:
-    - {title: Projects, description: 项目, url: 'http://woodghost.github.io/'}
+    - {title: About Me, description: cv, url: 'http://woodghost.github.io/'}
 #    - {title: Life, description: 人生, url: ''}
 #    - {title: About, description: 我, url: ''}
 # - {title: Another Button, description: A button, url: 'http://example.com'}
