@@ -65,7 +65,7 @@
               <ul class="navigation">
                 <li class="navigation__item"><a href="/myblog/#blog" title="博客" class="blog-button">Blog</a></li>
                 
-                  <li class="navigation__item"><a href="http://woodghost.github.io/" target="_blank" title="项目">Projects</a></li>
+                  <li class="navigation__item"><a href="http://woodghost.github.io/" target="_blank" title="cv">About Me</a></li>
                 
               </ul>
             </nav>
@@ -164,7 +164,7 @@
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2016-06-30 15:13:24 +0800" itemprop="datePublished" class="post-meta__date date">2016-06-30</time> &#8226; <span class="post-meta__tags tags"></span>
+      <time datetime="2016-06-30 15:13:24 +0800" itemprop="datePublished" class="post-meta__date date">2016-06-30</time> &#8226; <span class="post-meta__tags tags">algorithm</span>
     </div>
     <h1 class="post-title">Starting the Journey with LeetCode & CC150</h1>
   </header>
@@ -173,27 +173,30 @@
     <p>打算记录漫漫刷题打怪路
 在此立个flag
 以下是代码段，检验样式用</p>
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">process.stdin.resume();
-process.stdin.setEncoding(&#39;ascii&#39;);
 
-var input_stdin = &quot;&quot;;
-var input_stdin_array = &quot;&quot;;
-var input_currentline = 0;
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">process</span><span class="p">.</span><span class="nx">stdin</span><span class="p">.</span><span class="nx">resume</span><span class="p">();</span>
+<span class="nx">process</span><span class="p">.</span><span class="nx">stdin</span><span class="p">.</span><span class="nx">setEncoding</span><span class="p">(</span><span class="s1">'ascii'</span><span class="p">);</span>
 
-process.stdin.on(&#39;data&#39;, function (data) {
-    input_stdin += data;
-});
+<span class="kd">var</span> <span class="nx">input_stdin</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">input_stdin_array</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">input_currentline</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-process.stdin.on(&#39;end&#39;, function () {
-    input_stdin_array = input_stdin.split(&quot;\n&quot;);
-    main();
-});
+<span class="nx">process</span><span class="p">.</span><span class="nx">stdin</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'data'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">input_stdin</span> <span class="o">+=</span> <span class="nx">data</span><span class="p">;</span>
+<span class="p">});</span>
 
-// Reads complete line from STDIN
-function readLine() {
-    return input_stdin_array[input_currentline++];
-}
-</code></pre></figure>
+<span class="nx">process</span><span class="p">.</span><span class="nx">stdin</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'end'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">input_stdin_array</span> <span class="o">=</span> <span class="nx">input_stdin</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">"\n"</span><span class="p">);</span>
+    <span class="nx">main</span><span class="p">();</span>
+<span class="p">});</span>
+
+<span class="c1">// Reads complete line from STDIN</span>
+<span class="kd">function</span> <span class="nx">readLine</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">input_stdin_array</span><span class="p">[</span><span class="nx">input_currentline</span><span class="o">++</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
   </section>
 </article>
 
@@ -205,8 +208,8 @@ function readLine() {
    <div class="read-more-item">
        <span class="read-more-item-dim">Earlier Post</span>
        <h2 class="post-list__post-title post-title"><a href="/2016/06/hello-world-vno/" title="link to Hello World - Vno">Hello World - Vno</a></h2>
-       <p class="excerpt">What&#39;s thisVno Jekyll is a theme for Jekyll. It is a port of my Ghost theme vno, which is originally developed from Dale Anthony&#39;s Uno.Usage$ git clone https://github.com/onevcat/vno-jekyll.git your_site$ cd your_site$ bundler install$ bun...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2016-06-16 15:32:24 +0800" class="post-list__meta--date date">2016-06-16</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/myblog/2016/06/hello-world-vno/>More...</a></div>
+       <p class="excerpt">What’s thisVno Jekyll is a theme for Jekyll. It is a port of my Ghost theme vno, which is originally developed from Dale Anthony’s Uno.Usage$ git clone https://github.com/onevcat/vno-jekyll.git your_site$ cd your_site$ bundler install$ bundler exe...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2016-06-16 15:32:24 +0800" class="post-list__meta--date date">2016-06-16</time> &#8226; <span class="post-list__meta--tags tags">sample</span><a class="btn-border-small" href=/myblog/2016/06/hello-world-vno/>More...</a></div>
    </div>
    
 </section>
@@ -242,7 +245,7 @@ function readLine() {
             <section class="footer">
     <footer>
     	<span class="footer__copyright">Site adopted <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Attribution-NonCommercial-ShareAlike 4.0 Internationa</a></span>
-        <span class="footer__copyright">Generated by <a href="https://jekyllrb.com">Jekyll</a> at 2016-07-05, acknowledgement: <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> for VPS service</span>
+        <span class="footer__copyright">Generated by <a href="https://jekyllrb.com">Jekyll</a> at 2016-07-28, acknowledgement: <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> for VPS service</span>
         <span class="footer__copyright">Created by  <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> Here is <a href="https://github.com/onevcat/OneV-s-Den">Source code</a> - &copy; 2016</span>
     </footer>
 </section>
