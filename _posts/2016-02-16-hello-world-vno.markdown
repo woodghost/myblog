@@ -2,6 +2,7 @@
 layout: post
 title: Hello World - Vno
 date: 2016-06-16 15:32:24.000000000 +08:00
+tags: sample algorithm
 ---
 
 #### What's this
