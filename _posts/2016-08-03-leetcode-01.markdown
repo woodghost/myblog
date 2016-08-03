@@ -72,7 +72,7 @@ In the examples in this section, I do addition and subtraction in two's compleme
 ## 代码实现
 
 下面的代码还支持 传 负数进去...(from internet)
-```c
+
 #include <stdio.h>
 #include <assert.h>
 
@@ -113,4 +113,3 @@ int MyAdd(int a, int b)
 
     return sum;
 }
-```
