@@ -5,9 +5,151 @@
     <description>Technical discuss &amp; Poems &amp; Offshore Fantasy</description>
     <link>http://woodghost.github.io/myblog/</link>
     <atom:link href="http://woodghost.github.io/myblog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 29 Jul 2016 11:28:04 +0800</pubDate>
-    <lastBuildDate>Fri, 29 Jul 2016 11:28:04 +0800</lastBuildDate>
+    <pubDate>Fri, 31 Mar 2017 16:57:15 +0800</pubDate>
+    <lastBuildDate>Fri, 31 Mar 2017 16:57:15 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>三月的最后一天</title>
+        <description>&lt;p&gt;白驹过隙，四月将至，收拾行囊，重新开始
+借此机会将以往笔记整理成blogs按时间顺序陆续贴出，包括新近看到的学习笔记&lt;/p&gt;
+</description>
+        <pubDate>Fri, 31 Mar 2017 15:32:24 +0800</pubDate>
+        <link>http://woodghost.github.io/myblog/2017/03/last-day-march/</link>
+        <guid isPermaLink="true">http://woodghost.github.io/myblog/2017/03/last-day-march/</guid>
+        
+        <category>life,</category>
+        
+        <category>mood</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>第一篇Leetcode学习笔记</title>
+        <description>&lt;p&gt;First of all, 看了最最基本的leetcode 371 和 001
+都是两个数求和这种，诚然，可以直接return a + b, 但是大部分公司显然不会满足这种答案。所以借此机会认真复习了bit manipulation，two’s complement等二进制位运算方面的知识。编码尽量采用&lt;code class=&quot;highlighter-rouge&quot;&gt;c++, javascript, python&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;twos-complement&quot;&gt;two’s complement补码&lt;/h2&gt;
+&lt;p&gt;About binary还有关于2进制，位运算什么的&lt;/p&gt;
+
+&lt;p&gt;Two’s complement is the way every computer I know of chooses to represent integers. To get the two’s complement negative notation of an integer, you write out the number in binary. You then invert the digits, and add one to the result.
+Suppose we’re working with 8 bit quantities (for simplicity’s sake) and suppose we want to find how -28 would be expressed in two’s complement notation. First we write out 28 in binary form.
+00011100
+Then we invert the digits. 0 becomes 1, 1 becomes 0.
+11100011
+Then we add 1.
+11100100
+That is how one would write -28 in 8 bit binary.&lt;/p&gt;
+
+&lt;p&gt;Arithmetic with Two’s Complement&lt;/p&gt;
+
+&lt;p&gt;One of the nice properties of two’s complement is that addition and subtraction is made very simple. With a system like two’s complement, the circuitry for addition and subtraction can be unified, whereas otherwise they would have to be treated as separate operations.
+In the examples in this section, I do addition and subtraction in two’s complement, but you’ll notice that every time I do actual operations with binary numbers I am always adding.&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;位运算实现加法&lt;/h2&gt;
+
+&lt;p&gt;用位运算实现加法也就是计算机用二进制进行运算，32位的CPU只能表示32位内的数，这里先用1位数的加法来进行，在不考虑进位的基础上，如下&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1 + 1 = 0
+1 + 0 = 1
+0 + 1 = 1
+0 + 0 = 0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;很明显这几个表达式可以用位运算的“^”来代替，如下&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1 ^ 1 = 0
+1 ^ 0 = 1
+0 ^ 1 = 1
+0 ^ 0 = 0 这样我们就完成了简单的一位数加法，那么要进行二位的加法，这个方法可行不可行呢？肯定是不行的，矛盾就在于，如何去 获取进位？要获取进位我们可以如下思考：
+
+0 &amp;amp; 0 = 0
+1 &amp;amp; 0 = 0
+0 &amp;amp; 1 = 0
+1 &amp;amp; 1 = 1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;//换个角度看就是这样&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0 &amp;amp; 0 = 不进位
+1 &amp;amp; 0 = 不进位
+0 &amp;amp; 1 = 不进位
+1 &amp;amp; 1 = 进位
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;正好，在位运算中，我们用“«”表示向左移动一位，也就是“进位”。那么我们就可以得到如下的表达式&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//进位可以用如下表示：
+(x&amp;amp;y)&amp;lt;&amp;lt;1 到这里，我们基本上拥有了这样两个表达式
+
+x^y //执行加法
+(x&amp;amp;y)&amp;lt;&amp;lt;1 //进位操作
+
+a + b = a ^ b + ((a &amp;amp; b) &amp;lt;&amp;lt; 1) 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;代码实现&lt;/h2&gt;
+
+&lt;p&gt;下面的代码还支持 传 负数进去… 好神奇。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;assert.h&amp;gt;
+
+#define __DEBUG__       1
+
+int MyAdd(int a, int b)
+{
+    /* 定理1：
+     * if (0 == (a &amp;amp; b)) {
+     *     a + b == a ^ b;
+     * }
+     * 换句话说就是，如果两数相加时没有进位，则加法运算可由异或运算代替。
+     * 两数相与生存下来的位就是相加会向左产生进位的位，所以
+     * （a &amp;amp; b)就可以判断两数相加会不会产生进位，而且（a &amp;amp; b) &amp;lt;&amp;lt; 1
+     * 就是所有--进位位--的进位值之和。
+     * */
+    /* 定理2：a + b = a ^ b + ((a &amp;amp; b) &amp;lt;&amp;lt; 1)
+     * 就是把加法拆成--每位相加的和--与--进位值--两部分相加
+     * 等式右边也是加法，又可以拆，这就形成了一个递归的过程
+     * 要使递归终止，需使用定理1，也就是不再有进位，定理2等式右边
+     * 的加号就可以换成异或符号。
+     * */
+
+    /* 这里的a, b可视为某两个数A和B的--每位相加的和--和--进位值 */
+    int cf = a &amp;amp; b;
+    int sum = a ^ b;
+
+    while (cf) {
+        a = sum;
+        b = cf &amp;lt;&amp;lt; 1;
+        cf = a &amp;amp; b;
+        sum = a ^ b;
+    }
+
+    #if __DEBUG__
+    assert(sum == a + b);
+    #endif
+
+    return sum;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Wed, 03 Aug 2016 18:06:24 +0800</pubDate>
+        <link>http://woodghost.github.io/myblog/2016/08/leetcode-01/</link>
+        <guid isPermaLink="true">http://woodghost.github.io/myblog/2016/08/leetcode-01/</guid>
+        
+        <category>algorithm</category>
+        
+        
+      </item>
     
       <item>
         <title>Starting the Journey with LeetCode &amp; CC150</title>
@@ -100,34 +242,6 @@
         <guid isPermaLink="true">http://woodghost.github.io/myblog/2016/06/hello-world-vno/</guid>
         
         <category>sample</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Sample Post</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Tom&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
-
-</description>
-        <pubDate>Mon, 15 Feb 2016 14:32:24 +0800</pubDate>
-        <link>http://woodghost.github.io/myblog/2016/02/sample-post/</link>
-        <guid isPermaLink="true">http://woodghost.github.io/myblog/2016/02/sample-post/</guid>
-        
-        <category>sample</category>
-        
-        <category>msms</category>
         
         
       </item>
