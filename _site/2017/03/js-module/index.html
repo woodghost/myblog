@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>JS模块化标准的总结归纳</title>
+  <meta name="description" content="RequireJS implements the AMD API CommonJS是一种规范 ">
+  <meta name="author" content="Tingyue Wang">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="JS模块化标准的总结归纳">
+  <meta name="twitter:description" content="RequireJS implements the AMD API CommonJS是一种规范 ">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="JS模块化标准的总结归纳">
+  <meta property="og:description" content="RequireJS implements the AMD API CommonJS是一种规范 ">
+
+  <link rel="icon" type="image/x-icon" href="/myblog/assets/images/favicon.ico"/>
+  <link href="/myblog/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+  <link rel="stylesheet" href="/myblog/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/myblog/js/prettify/atelier-lakeside-light.min.css">
+  <link rel="canonical" href="http://woodghost.github.io/myblog/2017/03/js-module/">
+  <link rel="alternate" type="application/rss+xml" title="WoodGhost" href="http://woodghost.github.io/myblog/feed.xml">
+
+  <meta name="google-site-verification" content="" />
+
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/myblog/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/myblog/" title="goto WoodGhost" class="blog-button"><img src="/myblog/assets/images/avatar.jpg" width="80" alt="WoodGhost logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/myblog/#blog" title="link to homepage for WoodGhost" class="blog-button">WoodGhost</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">渡頭余落日 墟里上孤煙</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">Technical discuss & Poems & Offshore Fantasy</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        
+        <p class="panel-cover__description">This place is for little ghost and her fellows to read, write and learn. Welcome to this world :)</p>
+        
+
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/myblog/#blog" title="博客" class="blog-button">Blog</a></li>
+                
+                  <li class="navigation__item"><a href="http://woodghost.github.io/" target="_blank" title="cv">About Me</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+  <!-- Weibo -->
+  <li class="navigation__item">
+    <a href="http://weibo.com/2576328977" title="@2576328977 weibo" target="_blank">
+      <i class='social fa fa-weibo'></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Github -->
+  <li class="navigation__item">
+    <a href="https://github.com/woodghost" title="@woodghost Github" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Twitter -->
+  <li class="navigation__item">
+    <a href="http://twitter.com/woodghost36" title="@woodghost36" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- instagram -->
+  <li class="navigation__item">
+    <a href="http://www.instagram.com/woodghost.io" title="@woodghost.io" target="_blank">
+      <i class='social fa fa-instagram'></i>
+      <span class="label">Instagram</span>
+    </a>
+  </li>
+  
+
+  
+
+
+  
+  <!-- Google Plus -->
+  <li class="navigation__item">
+    <a href="https://plus.google.com/117752045392286741953" rel="author" title="Google+" target="_blank">
+      <i class='social fa fa-google-plus-square'></i>
+      <span class="label">Google Plus</span>
+    </a>
+  </li>
+  
+
+  <!-- RSS -->
+  <!--<li class="navigation__item">-->
+    <!--<a href="/myblog/feed.xml" rel="author" title="RSS" target="_blank">-->
+      <!--<i class='social fa fa-rss'></i>-->
+      <!--<span class="label">RSS</span>-->
+    <!--</a>-->
+  <!--</li>-->
+
+  
+  <!-- Email -->
+  <li class="navigation__item">
+    <a href="mailto:woodghost0960@gmail.com" title="Contact me">
+      <i class='social fa fa-envelope'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="panel-cover--overlay cover-blue"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2017-03-31 15:43:24 +0800" itemprop="datePublished" class="post-meta__date date">2017-03-31</time> &#8226; <span class="post-meta__tags tags">javascript,module</span>
+    </div>
+    <h1 class="post-title">JS模块化标准的总结归纳</h1>
+  </header>
+
+  <section class="post">
+    <h4 id="requirejs-implements-the-amd-api-commonjs"><code class="highlighter-rouge">RequireJS</code> implements the AMD API <code class="highlighter-rouge">CommonJS</code>是一种规范 </h4>
+
+<p>以下是玉伯对这几种不同的模块化规范的解释</p>
+
+<blockquote>
+  <p>作者：玉伯
+链接：https://www.zhihu.com/question/20351507/answer/14859415
+来源：知乎</p>
+</blockquote>
+
+<h3 id="amd--requirejs-">AMD 是 RequireJS 在推广过程中对模块定义的规范化产出。</h3>
+
+<h3 id="cmd--seajs-">CMD 是 SeaJS 在推广过程中对模块定义的规范化产出。</h3>
+
+<p>类似的还有 CommonJS Modules/2.0 规范，是 BravoJS 在推广过程中对模块定义的规范化产出。
+还有不少⋯⋯</p>
+
+<p>这些规范的目的都是为了 JavaScript 的模块化开发，特别是在浏览器端的。
+目前这些规范的实现都能达成浏览器端模块化开发的目的。</p>
+
+<p>区别：</p>
+
+<ol>
+  <li>
+    <p>对于依赖的模块，AMD 是提前执行，CMD 是延迟执行。不过 RequireJS 从 2.0 开始，也改成可以延迟执行（根据写法不同，处理方式不同）。CMD 推崇 as lazy as possible.</p>
+  </li>
+  <li>
+    <p>CMD 推崇依赖就近，AMD 推崇依赖前置。看代码：</p>
+  </li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>// CMD
+define(function(require, exports, module) {
+var a = require('./a')
+a.doSomething()
+// 此处略去 100 行
+var b = require('./b') // 依赖可以就近书写
+b.doSomething()
+// ...
+})
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>// AMD 默认推荐的是
+define(['./a', './b'], function(a, b) { // 依赖必须一开始就写好
+a.doSomething()
+// 此处略去 100 行
+b.doSomething()
+...
+})
+</code></pre>
+</div>
+
+<p>虽然 AMD 也支持 CMD 的写法，同时还支持将 require 作为依赖项传递，但 RequireJS 的作者默认是最喜欢上面的写法，也是官方文档里默认的模块定义写法。</p>
+
+<ol>
+  <li>
+    <p>AMD 的 API 默认是一个当多个用，CMD 的 API 严格区分，推崇职责单一。比如 AMD 里，require 分全局 require 和局部 require，都叫 require。CMD 里，没有全局 require，而是根据模块系统的完备性，提供 seajs.use 来实现模块系统的加载启动。CMD 里，每个 API 都简单纯粹。</p>
+  </li>
+  <li>
+    <p>还有一些细节差异，具体看这个规范的定义就好，就不多说了。</p>
+  </li>
+</ol>
+
+<h3 id="export-vs-module-export">export vs module export</h3>
+<p>Module.exports才是真正的接口，exports只不过是它的一个辅助工具。　最终返回给调用的是Module.exports而不是exports。
+所有的exports收集到的属性和方法，都赋值给了Module.exports。当然，这有个前提，就是Module.exports本身不具备任何属性和方法。如果，Module.exports已经具备一些属性和方法，那么exports收集来的信息将被忽略。</p>
+
+<p>CMD代码规范这里useful info，因为这就是人家seats的官方说明文件啦</p>
+
+<p>https://github.com/seajs/seajs/issues/242
+除了给 exports 对象增加成员，还可以使用 return 直接向外提供接口。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>define(function(require) {
+
+// 通过 return 直接提供接口
+return {
+foo: 'bar',
+doSomething: function() {}
+};
+
+});
+exports Object
+exports 是一个对象，用来向外提供模块接口。
+define(function(require, exports) {
+
+// 对外提供 foo 属性
+exports.foo = 'bar';
+
+// 对外提供 doSomething 方法
+exports.doSomething = function() {};
+
+});
+</code></pre>
+</div>
+
+<blockquote>
+  <p>另：一个做前端的女孩子的博客哦，http://www.cnblogs.com/skylar/p/4065455.html讲的也是蛮中肯的。
+一个感觉很同好的程序员讲module.export 和 export的区别
+http://weizhifeng.net/node-js-exports-vs-module-exports.html</p>
+</blockquote>
+
+<p>你肯定对Node.js模块中用来创建函数的exports对象很熟悉（假设一个名为rocker.js的文件）：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>exports.name = function() {
+    console.log('My name is Lemmy Kilmister');
+};
+</code></pre>
+</div>
+
+<p>然后你在另一个文件中调用：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var rocker = require('./rocker.js');
+rocker.name(); // 'My name is Lemmy Kilmister'
+</code></pre>
+</div>
+
+<p>但是module.exports到底是个什么玩意儿? 它合法吗？
+令人吃惊的是-module.exports是真实存在的东西。exports只是module.exports的辅助方法。你的模块最终返回module.exports给调用者，而不是exports。exports所做的事情是收集属性，如果module.exports当前没有任何属性的话，exports会把这些属性赋予module.exports。如果module.exports已经存在一些属性的话，那么exports中所用的东西都会被忽略。
+把下面的内容放到rocker.js:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>module.exports = 'ROCK IT!';
+exports.name = function() {
+    console.log('My name is Lemmy Kilmister');
+};
+</code></pre>
+</div>
+
+<p>然后把下面的内容放到另一个文件中，执行它：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var rocker = require('./rocker.js');
+rocker.name(); // TypeError: Object ROCK IT! has no method 'name'
+</code></pre>
+</div>
+
+<p>rocker模块完全忽略了exports.name，然后返回了一个字符串’ROCK IT!’。通过上面的例子，你可能认识到你的模块不一定非得是模块实例（module instances）。你的模块可以是任何合法的JavaScript对象 - boolean，number，date，JSON， string，function，array和其他。你的模块可以是任何你赋予module.exports的值。如果你没有明确的给module.exports设置任何值，那么exports中的属性会被赋给module.exports中，然后并返回它。</p>
+
+<p>在下面的情况下，你的模块是一个类：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>module.exports = function(name, age) {
+    this.name = name;
+    this.age = age;
+    this.about = function() {
+        console.log(this.name +' is '+ this.age +' years old');
+    };
+};
+</code></pre>
+</div>
+
+<p>然后你应该这样使用它：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var Rocker = require('./rocker.js');
+var r = new Rocker('Ozzy', 62);
+r.about(); // Ozzy is 62 years old
+</code></pre>
+</div>
+
+<p>在下面的情况下，你的模块是一个数组：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>module.exports = ['Lemmy Kilmister', 'Ozzy Osbourne', 'Ronnie James Dio', 'Steven Tyler', 'Mick Jagger'];
+</code></pre>
+</div>
+
+<p>然后你应该这样使用它：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var rocker = require('./rocker.js');
+console.log('Rockin in heaven: ' + rocker[2]); //Rockin in heaven: Ronnie James Dio
+</code></pre>
+</div>
+
+<p>现在你应该找到要点了 - 如果你想要你的模块成为一个特别的对象类型，那么使用module.exports；如果你希望你的模块成为一个传统的模块实例（module instance），使用exports。
+把属性赋予<code class="highlighter-rouge">module.exports</code>的结果与把属性赋予给exports是一样的。看下面这个例子：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>module.exports.name = function() {
+    console.log('My name is Lemmy Kilmister');
+};
+</code></pre>
+</div>
+
+<p>下面这个做的是一样的事情：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>exports.name = function() {
+    console.log('My name is Lemmy Kilmister');
+};
+</code></pre>
+</div>
+
+<p>但是请注意，它们并不是一样的东西。就像我之前说的module.exports是真实存在的东西，exports只是它的辅助方法。话虽如此，exports还是推荐的对象，除非你想把你模块 的对象类型从传统的模块实例（module instance）修改为其他的。</p>
+
+<p>“exports 和 module.exports 引用同一个对象”</p>
+
+<blockquote>
+  <p>以下内容大部分来源于Stack Overflow和Wikipedia</p>
+</blockquote>
+
+<blockquote>
+  <p>CommonJS is a way of defining modules with the help of an exports object, that defines the module contents. Simply put, a CommonJS implementation might work like this:</p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>// someModule.js
+exports.doSomething = function() { return "foo"; };
+
+//otherModule.js
+var someModule = require('someModule'); // in the vein of node
+exports.doSomethingElse = function() { return someModule.doSomething() + "bar"; };
+</code></pre>
+</div>
+
+<p>Basically, CommonJS specifies that you need to have a require() function to fetch dependencies, an exports variable to export module contents and a module identifier (which describes the location of the module in question in relation to this module) that is used to require the dependencies. CommonJS has various implementations, including Node.js, which you mentioned.</p>
+
+<p>CommonJS was not particularly designed with browsers in mind, so it doesn’t fit in the browser environment very well (I really have no source for this–it just says so everywhere, including the RequireJS site.). Apparently, this has something to do with asynchronous loading, etc.</p>
+
+<p>On the other hand, RequireJS implements AMD, which is designed to suit the browser environment. Apparently, AMD started as an spinoff of the CommonJS Transport format and evolved into its own module definition API. Hence the similarities between the two. The new feature in AMD is the define() -function that allows the module to declare its dependencies before being loaded. For example, the definition could be:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>define('module/id/string', ['module', 'dependency', 'array'],
+function(module, factory function) {
+  return ModuleContents;
+});
+</code></pre>
+</div>
+
+<p>So, CommonJS and AMD are JavaScript module definition APIs that have different implementations, but both come from the same origins.
+AMD is more suited for the browser, because it supports asynchronous loading of module dependencies.</p>
+
+<h3 id="requirejs-is-an-implementation-of-amd-while-at-the-same-time-trying-to-keep-the-spirit-of-commonjs-mainly-in-the-module-identifiers">RequireJS is an implementation of AMD, while at the same time trying to keep the spirit of CommonJS (mainly in the module identifiers).</h3>
+
+<p>To confuse you even more, RequireJS, while being an AMD implementation, offers a CommonJS wrapper so CommonJS modules can almost directly be imported into use with RequireJS.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>define(function(require, exports, module) {
+  var someModule = require('someModule'); // in the vein of node
+  exports.doSomethingElse = function() { return someModule.doSomething() + "bar"; };
+});
+</code></pre>
+</div>
+
+<p>AMD CMD commonjs requirejs……pageObject……
+webpack
+Question from stack overflow
+Asynchronous module definition (AMD) and CommonJS are styles/specifications of writing modular code in javascript, while RequireJS and Browserify are 2 popular implementation/helper for them respectively.
+That means AMD-requirejs Commonjs-Browserify</p>
+
+<h3 id="requirejs-implements-the-amdasynchronous-module-definitions--api">RequireJS implements the <strong>AMD(asynchronous module definitions )</strong> API</h3>
+<p>http://requirejs.org/docs/whyamd.html
+AMD</p>
+
+<p>Asynchronous module definition (AMD)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>define(function {
+  console.log('Awesome');
+});
+</code></pre>
+</div>
+
+<p>CommonJS</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>module.exports = function(){
+  console.log('Awesome');
+}
+</code></pre>
+</div>
+
+<p>In our MVC structure, the actual example:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>//Outfit view in dejafm
+var Slider = require('util/Slider'); var Tooltip = require('widget/Tooltip'); var BasicView = require('app/view/View'); var StyleTemplateView = require('app/view/StyleTemplateView'); var BasicModel = require('app/model/Model'); var StyleModel = require('app/model/StyleModel');
+
+module.exports = new OutfitsView();
+
+var Audios = {} module.exports = Audios;
+
+
+//modules in deja3 index webpage
+Util.js
+exports.os = os; 
+NavBar.js
+exports.show = function show(){  el.removeAttr('hidden').removeClass('fadeOutUp').addClass('fadeInDown'); } exports.hide = function hide(){  el.removeClass('fadeInDown').addClass('fadeOutUp'); }
+</code></pre>
+</div>
+
+
+  </section>
+</article>
+
+<section class="read-more">
+   
+
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">Earlier Post</span>
+       <h2 class="post-list__post-title post-title"><a href="/2017/03/last-day-march/" title="link to 三月的最后一天">三月的最后一天</a></h2>
+       <p class="excerpt">白驹过隙，四月将至，收拾行囊，重新开始借此机会将以往笔记整理成blogs按时间顺序陆续贴出，包括新近看到的学习笔记&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-03-31 15:32:24 +0800" class="post-list__meta--date date">2017-03-31</time> &#8226; <span class="post-list__meta--tags tags">life,mood</span><a class="btn-border-small" href=/myblog/2017/03/last-day-march/>More...</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+  
+    <div id="disqus_thread"></div>
+    <script>
+
+    var disqus_config = function () {
+        this.page.url = "http://woodghost.github.io/myblog/2017/03/js-module/";
+        this.page.identifier = "/2017/03/js-module/";
+    };
+
+    var disqus_shortname = 'woodghost';
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>When checking<a href="http://disqus.com/?ref_noscript"> Disqus </a>comment, pls enable JavaScript</noscript>
+
+  
+
+
+
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">Site adopted <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Attribution-NonCommercial-ShareAlike 4.0 Internationa</a></span>
+        <span class="footer__copyright">Generated by <a href="https://jekyllrb.com">Jekyll</a> at 2017-04-11, acknowledgement: <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> for VPS service</span>
+        <span class="footer__copyright">Created by  <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> Here is <a href="https://github.com/onevcat/OneV-s-Den">Source code</a> - &copy; 2017</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!--<script type="text/javascript" src="/myblog/js/highlight.pack.js"</script>-->
+<!--<script>hljs.initHighlightingOnLoad();</script>-->
+
+<script src="/myblog/js/prettify/prettify.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("pre").addClass("prettyprint linenums");
+        prettyPrint();
+    });
+</script>
+
+<script type="text/javascript" src="/myblog/js/main.js"></script>
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-81484538-1', '');
+    ga('send', 'pageview');
+</script>
+
+
+    
+  </body>
+
+</html>
