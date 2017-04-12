@@ -1,0 +1,79 @@
+---
+layout: post
+title: JS深拷贝浅拷贝问题
+date: 2017-03-31 15:43:36.000000000 +09:00
+tags: javascript
+---
+
+浅拷贝只是复制引用(Reference)，
+拷贝后，`a.obj === b.obj`
+
+深拷贝是创建(clone)了一个“一模一样”的对象，并保存在`a.obj中，所以 a.obj !== b.obj`
+
+>ps:对于引用类型，===运算符当左值和右值是同一个对象，也就是内存地址相同时返回true。
+
+ES6之后，有很方便的浅copy方法
+```
+var obj = { a: 1 };
+var copy = Object.assign({}, obj);
+console.log(copy); // { a: 1 }
+```
+
+实现es5版本的Object.assign：
+> 来自 https://cnodejs.org/topic/56c49662db16d3343df34b13
+
+实现步骤：
+
+1. 判断是否原生支持该函数，如果不存在的话创建一个立即执行函数，该函数将创建一个assign函数绑定到Object上。
+2. 判断参数是否正确(目的对象不能为空，我们可以直接设置{}传递进去,但必须设置该值)
+使用Object在原有的对象基础上返回该对象，并保存为out
+3. 使用for…in循环遍历出所有的可枚举的自有对象。并复制给新的目标对象(hasOwnProperty返回非原型链上的属性)
+
+```
+if (typeof Object.assign != 'function') {
+  (function () {
+	Object.assign = function (target) {
+	 'use strict';
+	 if (target === undefined || target === null) {
+	   throw new TypeError('Cannot convert undefined or null to object');
+	 }
+
+	 var output = Object(target);
+	 for (var index = 1; index < arguments.length; index++) {
+	   var source = arguments[index];
+	   if (source !== undefined && source !== null) {
+	     for (var nextKey in source) {
+	       if (source.hasOwnProperty(nextKey)) {
+	         output[nextKey] = source[nextKey];
+	       }
+	     }
+	   }
+	 }
+	 return output;
+	};
+})();
+}
+```
+
+
+
+
+深拷贝
+
+```
+b = JSON.parse( JSON.stringify(a) )
+```
+
+局限性：
+
+- 能正确处理的对象只有 Number, String, Boolean, Array, 扁平对象，即那些能够被 json 直接表示的数据结构。
+
+- 无法复制函数
+- 原型链没了，对象就是object，所属的类没了。
+
+
+知乎上一位作者对js拷贝问题的解答以及他的另一篇文章
+https://www.zhihu.com/question/23031215
+
+[深入剖析js深拷贝](https://segmentfault.com/a/1190000002801042)!
+

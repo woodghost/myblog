@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>Hello World - Vno</title>
-  <meta name="description" content="What’s this">
+  <title>JS深拷贝浅拷贝问题</title>
+  <meta name="description" content="浅拷贝只是复制引用(Reference)，拷贝后，a.obj === b.obj">
   <meta name="author" content="Tingyue Wang">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Hello World - Vno">
-  <meta name="twitter:description" content="What’s this">
+  <meta name="twitter:title" content="JS深拷贝浅拷贝问题">
+  <meta name="twitter:description" content="浅拷贝只是复制引用(Reference)，拷贝后，a.obj === b.obj">
 
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Hello World - Vno">
-  <meta property="og:description" content="What’s this">
+  <meta property="og:title" content="JS深拷贝浅拷贝问题">
+  <meta property="og:description" content="浅拷贝只是复制引用(Reference)，拷贝后，a.obj === b.obj">
 
   <link rel="icon" type="image/x-icon" href="/myblog/assets/images/favicon.ico"/>
   <link href="/myblog/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
@@ -25,7 +25,7 @@
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="/myblog/js/prettify/atelier-lakeside-light.min.css">
-  <link rel="canonical" href="http://woodghost.github.io/myblog/2016/06/hello-world-vno/">
+  <link rel="canonical" href="http://woodghost.github.io/myblog/2017/03/js-copy/">
   <link rel="alternate" type="application/rss+xml" title="WoodGhost" href="http://woodghost.github.io/myblog/feed.xml">
 
   <meta name="google-site-verification" content="" />
@@ -164,57 +164,87 @@
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2016-06-16 15:32:24 +0800" itemprop="datePublished" class="post-meta__date date">2016-06-16</time> &#8226; <span class="post-meta__tags tags">sample</span>
+      <time datetime="2017-03-31 14:43:36 +0800" itemprop="datePublished" class="post-meta__date date">2017-03-31</time> &#8226; <span class="post-meta__tags tags">javascript</span>
     </div>
-    <h1 class="post-title">Hello World - Vno</h1>
+    <h1 class="post-title">JS深拷贝浅拷贝问题</h1>
   </header>
 
   <section class="post">
-    <h4 id="whats-this">What’s this</h4>
+    <p>浅拷贝只是复制引用(Reference)，
+拷贝后，<code class="highlighter-rouge">a.obj === b.obj</code></p>
 
-<p><a href="https://github.com/onevcat/vno-jekyll">Vno Jekyll</a> is a theme for <a href="http://jekyllrb.com">Jekyll</a>. It is a port of my Ghost theme <a href="https://github.com/onevcat/vno">vno</a>, which is originally developed from <a href="https://github.com/daleanthony/uno">Dale Anthony’s Uno</a>.</p>
+<p>深拷贝是创建(clone)了一个“一模一样”的对象，并保存在<code class="highlighter-rouge">a.obj中，所以 a.obj !== b.obj</code></p>
 
-<h4 id="usage">Usage</h4>
+<blockquote>
+  <p>ps:对于引用类型，===运算符当左值和右值是同一个对象，也就是内存地址相同时返回true。</p>
+</blockquote>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone https://github.com/onevcat/vno-jekyll.git your_site
-<span class="gp">$ </span><span class="nb">cd </span>your_site
-<span class="gp">$ </span>bundler install
-<span class="gp">$ </span>bundler <span class="nb">exec </span>jekyll serve
+<p>ES6之后，有很方便的浅copy方法
+<code class="highlighter-rouge">
+var obj = { a: 1 };
+var copy = Object.assign({}, obj);
+console.log(copy); // { a: 1 }
+</code></p>
+
+<p>实现es5版本的Object.assign：
+&gt; 来自 https://cnodejs.org/topic/56c49662db16d3343df34b13</p>
+
+<p>实现步骤：</p>
+
+<ol>
+  <li>判断是否原生支持该函数，如果不存在的话创建一个立即执行函数，该函数将创建一个assign函数绑定到Object上。</li>
+  <li>判断参数是否正确(目的对象不能为空，我们可以直接设置{}传递进去,但必须设置该值)
+使用Object在原有的对象基础上返回该对象，并保存为out</li>
+  <li>使用for…in循环遍历出所有的可枚举的自有对象。并复制给新的目标对象(hasOwnProperty返回非原型链上的属性)</li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>if (typeof Object.assign != 'function') {
+  (function () {
+	Object.assign = function (target) {
+	 'use strict';
+	 if (target === undefined || target === null) {
+	   throw new TypeError('Cannot convert undefined or null to object');
+	 }
+
+	 var output = Object(target);
+	 for (var index = 1; index &lt; arguments.length; index++) {
+	   var source = arguments[index];
+	   if (source !== undefined &amp;&amp; source !== null) {
+	     for (var nextKey in source) {
+	       if (source.hasOwnProperty(nextKey)) {
+	         output[nextKey] = source[nextKey];
+	       }
+	     }
+	   }
+	 }
+	 return output;
+	};
+})();
+}
 </code></pre>
 </div>
 
-<p>Your site with <code class="highlighter-rouge">Vno Jekyll</code> enabled should be accessible in http://127.0.0.1:4000.</p>
+<p>深拷贝</p>
 
-<p>For more information about Jekyll, please visit <a href="http://jekyllrb.com">Jekyll’s site</a>.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>b = JSON.parse( JSON.stringify(a) )
+</code></pre>
+</div>
 
-<h4 id="configuration">Configuration</h4>
+<p>局限性：</p>
 
-<p>All configuration could be done in <code class="highlighter-rouge">_config.yml</code>. Remember you need to restart to serve the page when after changing the config file. Everything in the config file should be self-explanatory.</p>
+<ul>
+  <li>
+    <p>能正确处理的对象只有 Number, String, Boolean, Array, 扁平对象，即那些能够被 json 直接表示的数据结构。</p>
+  </li>
+  <li>无法复制函数</li>
+  <li>原型链没了，对象就是object，所属的类没了。</li>
+</ul>
 
-<h4 id="background-image-and-avatar">Background image and avatar</h4>
+<p>知乎上一位作者对js拷贝问题的解答以及他的另一篇文章
+https://www.zhihu.com/question/23031215</p>
 
-<p>You could replace the background and avatar image in <code class="highlighter-rouge">assets/images</code> folder to change them.</p>
+<p><a href="https://segmentfault.com/a/1190000002801042">深入剖析js深拷贝</a>!</p>
 
-<h4 id="sites-using-vnojust-for-testing-table-style">Sites using Vno(just for testing table style)</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Site Name</th>
-      <th>URL</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Woodghost</td>
-      <td>http://woodghost.github.io/myblog/</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="license">License</h4>
-
-<p>Great thanks to <a href="https://github.com/daleanthony">Dale Anthony</a> and his <a href="https://github.com/daleanthony/uno">Uno</a>. Vno Jekyll is based on Uno, and contains a lot of modification on page layout, animation, font and some more things I can not remember. Vno Jekyll is followed with Uno and be licensed as <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a>. See the link for more information.</p>
 
   </section>
 </article>
@@ -224,12 +254,20 @@
    
    <div class="read-more-item">
        <span class="read-more-item-dim">Latest Post</span>
-       <h2 class="post-list__post-title post-title"><a href="/2016/06/leetcode-cc150/" title="link to Starting the Journey with LeetCode & CC150">Starting the Journey with LeetCode & CC150</a></h2>
-       <p class="excerpt">打算记录漫漫刷题打怪路在此立个flag以下是代码段，检验样式用process.stdin.resume();process.stdin.setEncoding('ascii');var input_stdin = "";var input_stdin_array = "";var input_currentline = 0;process.stdin.on('data', function (data) {    input_stdin += data;});process.stdin.o...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2016-06-30 15:13:24 +0800" class="post-list__meta--date date">2016-06-30</time> &#8226; <span class="post-list__meta--tags tags">algorithm</span><a class="btn-border-small" href=/myblog/2016/06/leetcode-cc150/>More...</a></div>
+       <h2 class="post-list__post-title post-title"><a href="/2017/03/last-day-march/" title="link to 三月的最后一天">三月的最后一天</a></h2>
+       <p class="excerpt">白驹过隙，四月将至，收拾行囊，重新开始借此机会将以往笔记整理成blogs按时间顺序陆续贴出，包括新近看到的学习笔记&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-03-31 15:32:24 +0800" class="post-list__meta--date date">2017-03-31</time> &#8226; <span class="post-list__meta--tags tags">life,mood</span><a class="btn-border-small" href=/myblog/2017/03/last-day-march/>More...</a></div>
    </div>
    
 
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">Earlier Post</span>
+       <h2 class="post-list__post-title post-title"><a href="/2016/08/leetcode-01/" title="link to 第一篇Leetcode学习笔记">第一篇Leetcode学习笔记</a></h2>
+       <p class="excerpt">First of all, 看了最最基本的leetcode 371 和 001都是两个数求和这种，诚然，可以直接return a + b, 但是大部分公司显然不会满足这种答案。所以借此机会认真复习了bit manipulation，two’s complement等二进制位运算方面的知识。编码尽量采用c++, javascript, pythontwo’s complement补码About binary还有关于2进制，位运算什么的Two’s complement is the way e...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2016-08-03 18:06:24 +0800" class="post-list__meta--date date">2016-08-03</time> &#8226; <span class="post-list__meta--tags tags">algorithm</span><a class="btn-border-small" href=/myblog/2016/08/leetcode-01/>More...</a></div>
+   </div>
    
 </section>
 
@@ -239,8 +277,8 @@
     <script>
 
     var disqus_config = function () {
-        this.page.url = "http://woodghost.github.io/myblog/2016/06/hello-world-vno/";
-        this.page.identifier = "/2016/06/hello-world-vno/";
+        this.page.url = "http://woodghost.github.io/myblog/2017/03/js-copy/";
+        this.page.identifier = "/2017/03/js-copy/";
     };
 
     var disqus_shortname = 'woodghost';
