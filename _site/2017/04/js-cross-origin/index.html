@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>Starting the Journey with LeetCode &amp; CC150</title>
-  <meta name="description" content="打算记录漫漫刷题打怪路在此立个flag以下是代码段，检验样式用">
+  <title>JS跨域问题的总结归纳</title>
+  <meta name="description" content="如何解决跨域问题">
   <meta name="author" content="Tingyue Wang">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Starting the Journey with LeetCode &amp; CC150">
-  <meta name="twitter:description" content="打算记录漫漫刷题打怪路在此立个flag以下是代码段，检验样式用">
+  <meta name="twitter:title" content="JS跨域问题的总结归纳">
+  <meta name="twitter:description" content="如何解决跨域问题">
 
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Starting the Journey with LeetCode &amp; CC150">
-  <meta property="og:description" content="打算记录漫漫刷题打怪路在此立个flag以下是代码段，检验样式用">
+  <meta property="og:title" content="JS跨域问题的总结归纳">
+  <meta property="og:description" content="如何解决跨域问题">
 
   <link rel="icon" type="image/x-icon" href="/myblog/assets/images/favicon.ico"/>
   <link href="/myblog/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
@@ -25,7 +25,7 @@
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="/myblog/js/prettify/atelier-lakeside-light.min.css">
-  <link rel="canonical" href="http://woodghost.github.io/myblog/2016/06/leetcode-cc150/">
+  <link rel="canonical" href="http://woodghost.github.io/myblog/2017/04/js-cross-origin/">
   <link rel="alternate" type="application/rss+xml" title="WoodGhost" href="http://woodghost.github.io/myblog/feed.xml">
 
   <meta name="google-site-verification" content="" />
@@ -164,60 +164,90 @@
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2016-06-30 15:13:24 +0800" itemprop="datePublished" class="post-meta__date date">2016-06-30</time> &#8226; <span class="post-meta__tags tags">algorithm</span>
+      <time datetime="2017-04-01 15:43:24 +0800" itemprop="datePublished" class="post-meta__date date">2017-04-01</time> &#8226; <span class="post-meta__tags tags">javascript</span>
     </div>
-    <h1 class="post-title">Starting the Journey with LeetCode & CC150</h1>
+    <h1 class="post-title">JS跨域问题的总结归纳</h1>
   </header>
 
   <section class="post">
-    <p>打算记录漫漫刷题打怪路
-在此立个flag
-以下是代码段，检验样式用</p>
+    <h4 id="section">如何解决跨域问题</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">process</span><span class="p">.</span><span class="nx">stdin</span><span class="p">.</span><span class="nx">resume</span><span class="p">();</span>
-<span class="nx">process</span><span class="p">.</span><span class="nx">stdin</span><span class="p">.</span><span class="nx">setEncoding</span><span class="p">(</span><span class="s1">'ascii'</span><span class="p">);</span>
+<blockquote>
+  <p>JSONP：</p>
+</blockquote>
 
-<span class="kd">var</span> <span class="nx">input_stdin</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">input_stdin_array</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">input_currentline</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<p>原理是：动态插入<code class="highlighter-rouge">script</code>标签，通过<code class="highlighter-rouge">script</code>标签引入一个<code class="highlighter-rouge">js</code>文件，这个js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的<code class="highlighter-rouge">json</code>数据作为参数传入。</p>
 
-<span class="nx">process</span><span class="p">.</span><span class="nx">stdin</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'data'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">input_stdin</span> <span class="o">+=</span> <span class="nx">data</span><span class="p">;</span>
-<span class="p">});</span>
+<p>由于同源策略的限制，<code class="highlighter-rouge">XmlHttpRequest</code>只允许请求当前源（域名、协议、端口）的资源，为了实现跨域请求，可以通过<code class="highlighter-rouge">script</code>标签实现跨域请求，然后在服务端输出JSON数据并执行回调函数，从而解决了跨域的数据请求。</p>
 
-<span class="nx">process</span><span class="p">.</span><span class="nx">stdin</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'end'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nx">input_stdin_array</span> <span class="o">=</span> <span class="nx">input_stdin</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">"\n"</span><span class="p">);</span>
-    <span class="nx">main</span><span class="p">();</span>
-<span class="p">});</span>
+<p>优点是兼容性好，简单易用，支持浏览器与服务器双向通信。缺点是只支持GET请求。</p>
 
-<span class="c1">// Reads complete line from STDIN</span>
-<span class="kd">function</span> <span class="nx">readLine</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">input_stdin_array</span><span class="p">[</span><span class="nx">input_currentline</span><span class="o">++</span><span class="p">];</span>
-<span class="p">}</span>
-</code></pre>
+<p><code class="highlighter-rouge">JSONP</code>：<code class="highlighter-rouge">json+padding</code>（内填充），顾名思义，就是把JSON填充到一个盒子里</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+    <span class="kd">function</span> <span class="nx">createJs</span><span class="p">(</span><span class="nx">sUrl</span><span class="p">){</span>
+
+        <span class="kd">var</span> <span class="nx">oScript</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'script'</span><span class="p">);</span>
+        <span class="nx">oScript</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="s1">'text/javascript'</span><span class="p">;</span>
+        <span class="nx">oScript</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">sUrl</span><span class="p">;</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">'head'</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">oScript</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nx">createJs</span><span class="p">(</span><span class="s1">'jsonp.js'</span><span class="p">);</span>
+
+    <span class="nx">box</span><span class="p">({</span>
+       <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'test'</span>
+    <span class="p">});</span>
+
+    <span class="kd">function</span> <span class="nx">box</span><span class="p">(</span><span class="nx">json</span><span class="p">){</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="nx">json</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span></code></pre>
 </div>
+
+<blockquote>
+  <p>CORS cross-origin resource share</p>
+</blockquote>
+
+<p>服务器端对于<code class="highlighter-rouge">CORS</code>的支持，主要就是通过设置<code class="highlighter-rouge">Access-Control-Allow-Origin</code>来进行的。如果浏览器检测到相应的设置，就可以允许<code class="highlighter-rouge">Ajax</code>进行跨域的访问。</p>
+
+<p>了解更多可以看 <a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS wiki</a></p>
+
+<blockquote>
+  <p>通过修改document.domain来跨子域</p>
+</blockquote>
+
+<p>将子域和主域的<code class="highlighter-rouge">document.domain</code>设为同一个主域.前提条件：这两个域名必须属于同一个基础域名!而且所用的协议，端口都要一致，否则无法利用<code class="highlighter-rouge">document.domain</code>进行跨域</p>
+
+<p>主域相同的使用<code class="highlighter-rouge">document.domain</code></p>
+
+<blockquote>
+  <p>使用window.name来进行跨域</p>
+</blockquote>
+
+<p><code class="highlighter-rouge">window</code>对象有个<code class="highlighter-rouge">name</code>属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个<code class="highlighter-rouge">window.name</code>的，每个页面对<code class="highlighter-rouge">window.name</code>都有读写的权限，<code class="highlighter-rouge">window.name</code>是持久存在一个窗口载入过的所有页面中的</p>
+
+<blockquote>
+  <p>使用HTML5中新引进的<code class="highlighter-rouge">window.postMessage</code>方法来跨域传送数据</p>
+</blockquote>
+
+<p>还有flash、在服务器上设置代理页面等跨域方式。个人认为<code class="highlighter-rouge">window.name</code>的方法既不复杂，也能兼容到几乎所有浏览器，这真是极好的一种跨域方法</p>
+
 
   </section>
 </article>
 
 <section class="read-more">
    
-   
-   <div class="read-more-item">
-       <span class="read-more-item-dim">Latest Post</span>
-       <h2 class="post-list__post-title post-title"><a href="/2016/08/leetcode-01/" title="link to 第一篇Leetcode学习笔记">第一篇Leetcode学习笔记</a></h2>
-       <p class="excerpt">First of all, 看了最最基本的leetcode 371 和 001都是两个数求和这种，诚然，可以直接return a + b, 但是大部分公司显然不会满足这种答案。所以借此机会认真复习了bit manipulation，two’s complement等二进制位运算方面的知识。编码尽量采用c++, javascript, pythontwo’s complement补码About binary还有关于2进制，位运算什么的Two’s complement is the way e...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2016-08-03 18:06:24 +0800" class="post-list__meta--date date">2016-08-03</time> &#8226; <span class="post-list__meta--tags tags">algorithm</span><a class="btn-border-small" href=/myblog/2016/08/leetcode-01/>More...</a></div>
-   </div>
-   
 
    
    
    <div class="read-more-item">
        <span class="read-more-item-dim">Earlier Post</span>
-       <h2 class="post-list__post-title post-title"><a href="/2016/06/hello-world-vno/" title="link to Hello World - Vno">Hello World - Vno</a></h2>
-       <p class="excerpt">What’s thisVno Jekyll is a theme for Jekyll. It is a port of my Ghost theme vno, which is originally developed from Dale Anthony’s Uno.Usage$ git clone https://github.com/onevcat/vno-jekyll.git your_site$ cd your_site$ bundler install$ bundler exe...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2016-06-16 15:32:24 +0800" class="post-list__meta--date date">2016-06-16</time> &#8226; <span class="post-list__meta--tags tags">sample</span><a class="btn-border-small" href=/myblog/2016/06/hello-world-vno/>More...</a></div>
+       <h2 class="post-list__post-title post-title"><a href="/2017/03/js-modules/" title="link to JS模块化标准的总结归纳">JS模块化标准的总结归纳</a></h2>
+       <p class="excerpt">RequireJS implements the AMD API CommonJS是一种规范 以下是玉伯对这几种不同的模块化规范的解释  作者：玉伯链接：https://www.zhihu.com/question/20351507/answer/14859415来源：知乎AMD 是 RequireJS 在推广过程中对模块定义的规范化产出。CMD 是 SeaJS 在推广过程中对模块定义的规范化产出。类似的还有 CommonJS Modules/2.0 规范，是 BravoJS 在推广过程中...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-03-31 15:43:24 +0800" class="post-list__meta--date date">2017-03-31</time> &#8226; <span class="post-list__meta--tags tags">javascript,module</span><a class="btn-border-small" href=/myblog/2017/03/js-modules/>More...</a></div>
    </div>
    
 </section>
@@ -228,8 +258,8 @@
     <script>
 
     var disqus_config = function () {
-        this.page.url = "http://woodghost.github.io/myblog/2016/06/leetcode-cc150/";
-        this.page.identifier = "/2016/06/leetcode-cc150/";
+        this.page.url = "http://woodghost.github.io/myblog/2017/04/js-cross-origin/";
+        this.page.identifier = "/2017/04/js-cross-origin/";
     };
 
     var disqus_shortname = 'woodghost';

@@ -5,9 +5,85 @@
     <description>Technical discuss &amp; Poems &amp; Offshore Fantasy</description>
     <link>http://woodghost.github.io/myblog/</link>
     <atom:link href="http://woodghost.github.io/myblog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 12 Apr 2017 16:03:17 +0800</pubDate>
-    <lastBuildDate>Wed, 12 Apr 2017 16:03:17 +0800</lastBuildDate>
+    <pubDate>Thu, 13 Apr 2017 23:46:03 +0800</pubDate>
+    <lastBuildDate>Thu, 13 Apr 2017 23:46:03 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>JS跨域问题的总结归纳</title>
+        <description>&lt;h4 id=&quot;section&quot;&gt;如何解决跨域问题&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;JSONP：&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;原理是：动态插入&lt;code class=&quot;highlighter-rouge&quot;&gt;script&lt;/code&gt;标签，通过&lt;code class=&quot;highlighter-rouge&quot;&gt;script&lt;/code&gt;标签引入一个&lt;code class=&quot;highlighter-rouge&quot;&gt;js&lt;/code&gt;文件，这个js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的&lt;code class=&quot;highlighter-rouge&quot;&gt;json&lt;/code&gt;数据作为参数传入。&lt;/p&gt;
+
+&lt;p&gt;由于同源策略的限制，&lt;code class=&quot;highlighter-rouge&quot;&gt;XmlHttpRequest&lt;/code&gt;只允许请求当前源（域名、协议、端口）的资源，为了实现跨域请求，可以通过&lt;code class=&quot;highlighter-rouge&quot;&gt;script&lt;/code&gt;标签实现跨域请求，然后在服务端输出JSON数据并执行回调函数，从而解决了跨域的数据请求。&lt;/p&gt;
+
+&lt;p&gt;优点是兼容性好，简单易用，支持浏览器与服务器双向通信。缺点是只支持GET请求。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;JSONP&lt;/code&gt;：&lt;code class=&quot;highlighter-rouge&quot;&gt;json+padding&lt;/code&gt;（内填充），顾名思义，就是把JSON填充到一个盒子里&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;createJs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sUrl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+
+        &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;oScript&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;script&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;oScript&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;text/javascript&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;oScript&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sUrl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementsByTagName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;head&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;oScript&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;createJs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;jsonp.js&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+       &lt;span class=&quot;s1&quot;&gt;&#39;name&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;test&#39;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/script&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;CORS cross-origin resource share&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;服务器端对于&lt;code class=&quot;highlighter-rouge&quot;&gt;CORS&lt;/code&gt;的支持，主要就是通过设置&lt;code class=&quot;highlighter-rouge&quot;&gt;Access-Control-Allow-Origin&lt;/code&gt;来进行的。如果浏览器检测到相应的设置，就可以允许&lt;code class=&quot;highlighter-rouge&quot;&gt;Ajax&lt;/code&gt;进行跨域的访问。&lt;/p&gt;
+
+&lt;p&gt;了解更多可以看 &lt;a href=&quot;https://en.wikipedia.org/wiki/Cross-origin_resource_sharing&quot;&gt;CORS wiki&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;通过修改document.domain来跨子域&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;将子域和主域的&lt;code class=&quot;highlighter-rouge&quot;&gt;document.domain&lt;/code&gt;设为同一个主域.前提条件：这两个域名必须属于同一个基础域名!而且所用的协议，端口都要一致，否则无法利用&lt;code class=&quot;highlighter-rouge&quot;&gt;document.domain&lt;/code&gt;进行跨域&lt;/p&gt;
+
+&lt;p&gt;主域相同的使用&lt;code class=&quot;highlighter-rouge&quot;&gt;document.domain&lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;使用window.name来进行跨域&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;window&lt;/code&gt;对象有个&lt;code class=&quot;highlighter-rouge&quot;&gt;name&lt;/code&gt;属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个&lt;code class=&quot;highlighter-rouge&quot;&gt;window.name&lt;/code&gt;的，每个页面对&lt;code class=&quot;highlighter-rouge&quot;&gt;window.name&lt;/code&gt;都有读写的权限，&lt;code class=&quot;highlighter-rouge&quot;&gt;window.name&lt;/code&gt;是持久存在一个窗口载入过的所有页面中的&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;使用HTML5中新引进的&lt;code class=&quot;highlighter-rouge&quot;&gt;window.postMessage&lt;/code&gt;方法来跨域传送数据&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;还有flash、在服务器上设置代理页面等跨域方式。个人认为&lt;code class=&quot;highlighter-rouge&quot;&gt;window.name&lt;/code&gt;的方法既不复杂，也能兼容到几乎所有浏览器，这真是极好的一种跨域方法&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 01 Apr 2017 15:43:24 +0800</pubDate>
+        <link>http://woodghost.github.io/myblog/2017/04/js-cross-origin/</link>
+        <guid isPermaLink="true">http://woodghost.github.io/myblog/2017/04/js-cross-origin/</guid>
+        
+        <category>javascript</category>
+        
+        
+      </item>
     
       <item>
         <title>JS模块化标准的总结归纳</title>
