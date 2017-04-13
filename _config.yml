@@ -26,12 +26,12 @@ port: 4869
 
 # The blog button should not be removed.
 blog_button:
-    title: Blog
+    title: 打开 Blog
     description: 博客
 
 # Navigation buttons in the front page.
-nav:
-    - {title: About Me, description: cv, url: 'http://woodghost.github.io/'}
+#nav:
+#    - {title: About Me, description: cv, url: 'http://woodghost.github.io/'}
 #    - {title: Life, description: 人生, url: ''}
 #    - {title: About, description: 我, url: ''}
 # - {title: Another Button, description: A button, url: 'http://example.com'}
@@ -52,7 +52,7 @@ social:
     github: woodghost
     twitter: woodghost36
     instagram: woodghost.io
-    gplus: 117752045392286741953
+#    gplus: 117752045392286741953
     mail: woodghost0960@gmail.com
 
 
