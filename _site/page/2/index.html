@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>JS深拷贝浅拷贝问题</title>
-  <meta name="description" content="浅拷贝只是复制引用(Reference)，拷贝后，a.obj === b.obj">
+  <title>WoodGhost</title>
+  <meta name="description" content="Technical discuss & Poems & Offshore Fantasy">
   <meta name="author" content="Tingyue Wang">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="JS深拷贝浅拷贝问题">
-  <meta name="twitter:description" content="浅拷贝只是复制引用(Reference)，拷贝后，a.obj === b.obj">
+  <meta name="twitter:title" content="WoodGhost">
+  <meta name="twitter:description" content="Technical discuss & Poems & Offshore Fantasy">
 
   <meta property="og:type" content="article">
-  <meta property="og:title" content="JS深拷贝浅拷贝问题">
-  <meta property="og:description" content="浅拷贝只是复制引用(Reference)，拷贝后，a.obj === b.obj">
+  <meta property="og:title" content="WoodGhost">
+  <meta property="og:description" content="Technical discuss & Poems & Offshore Fantasy">
 
   <link rel="icon" type="image/x-icon" href="/myblog/assets/images/favicon.ico"/>
   <link href="/myblog/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
@@ -25,7 +25,7 @@
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="/myblog/js/prettify/atelier-lakeside-light.min.css">
-  <link rel="canonical" href="http://woodghost.github.io/myblog/2017/03/js-copy/">
+  <link rel="canonical" href="http://woodghost.github.io/myblog/page/2/">
   <link rel="alternate" type="application/rss+xml" title="WoodGhost" href="http://woodghost.github.io/myblog/feed.xml">
 
   <meta name="google-site-verification" content="" />
@@ -40,7 +40,7 @@
         <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
     </span>
     
-    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/myblog/assets/images/background-cover.jpg')">
+    <header class="panel-cover " style="background-image: url('/myblog/assets/images/background-cover.jpg')">
   <div class="panel-main">
 
     <div class="panel-main__inner panel-inverted">
@@ -161,143 +161,31 @@
 
     <div class="content-wrapper">
         <div class="content-wrapper__inner">
-            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <div class="post-meta">
-      <time datetime="2017-03-31 14:43:36 +0800" itemprop="datePublished" class="post-meta__date date">2017-03-31</time> &#8226; <span class="post-meta__tags tags">javascript</span>
-    </div>
-    <h1 class="post-title">JS深拷贝浅拷贝问题</h1>
-  </header>
+            <div class="main-post-list hidden">
 
-  <section class="post">
-    <p>浅拷贝只是复制引用(Reference)，
-拷贝后，<code class="highlighter-rouge">a.obj === b.obj</code></p>
+  <ol class="post-list">
+    
+    <li>
+      <h2 class="post-list__post-title post-title"><a href="/myblog/2016/06/hello-world-vno/" title="Visit Hello World - Vno">Hello World - Vno</a></h2>
+      <p class="excerpt">What’s thisVno Jekyll is a theme for Jekyll. It is a port of my Ghost theme vno, which is originally developed from Dale Anthony’s Uno.Usage$ git clone https://github.com/onevcat/vno-jekyll.git your_site$ cd your_site$ bundler install$ bundler exe...&hellip;</p>
+      <div class="post-list__meta"><time datetime="2016-06-16 15:32:24 +0800" class="post-list__meta--date date">2016-06-16</time> &#8226; <span class="post-list__meta--tags tags">sample</span><a class="btn-border-small" href=/myblog/2016/06/hello-world-vno/>More...</a></div>
+      <hr class="post-list__divider" />
+    </li>
+    
+  </ol>
 
-<p>深拷贝是创建(clone)了一个“一模一样”的对象，并保存在<code class="highlighter-rouge">a.obj中，所以 a.obj !== b.obj</code></p>
+  <hr class="post-list__divider " />
 
-<blockquote>
-  <p>ps:对于引用类型，===运算符当左值和右值是同一个对象，也就是内存地址相同时返回true。</p>
-</blockquote>
+<nav class="pagination" role="navigation">
+    
+        <a class="newer-posts pagination__newer btn btn-small btn-tertiary" href="/#blog">&larr; Latest</a>
+    
+    <span class="pagination__page-number">2 / 2</span>
+    
+</nav>
 
-<p>ES6之后，有很方便的浅copy方法
-<code class="highlighter-rouge">
-var obj = { a: 1 };
-var copy = Object.assign({}, obj);
-console.log(copy); // { a: 1 }
-</code></p>
 
-<p>实现es5版本的Object.assign：
-&gt; 来自 https://cnodejs.org/topic/56c49662db16d3343df34b13</p>
-
-<p>实现步骤：</p>
-
-<ol>
-  <li>判断是否原生支持该函数，如果不存在的话创建一个立即执行函数，该函数将创建一个assign函数绑定到Object上。</li>
-  <li>判断参数是否正确(目的对象不能为空，我们可以直接设置{}传递进去,但必须设置该值)
-使用Object在原有的对象基础上返回该对象，并保存为out</li>
-  <li>使用for…in循环遍历出所有的可枚举的自有对象。并复制给新的目标对象(hasOwnProperty返回非原型链上的属性)</li>
-</ol>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>if (typeof Object.assign != 'function') {
-  (function () {
-	Object.assign = function (target) {
-	 'use strict';
-	 if (target === undefined || target === null) {
-	   throw new TypeError('Cannot convert undefined or null to object');
-	 }
-
-	 var output = Object(target);
-	 for (var index = 1; index &lt; arguments.length; index++) {
-	   var source = arguments[index];
-	   if (source !== undefined &amp;&amp; source !== null) {
-	     for (var nextKey in source) {
-	       if (source.hasOwnProperty(nextKey)) {
-	         output[nextKey] = source[nextKey];
-	       }
-	     }
-	   }
-	 }
-	 return output;
-	};
-})();
-}
-</code></pre>
 </div>
-
-<p>深拷贝</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>b = JSON.parse( JSON.stringify(a) )
-</code></pre>
-</div>
-
-<p>局限性：</p>
-
-<ul>
-  <li>
-    <p>能正确处理的对象只有 Number, String, Boolean, Array, 扁平对象，即那些能够被 json 直接表示的数据结构。</p>
-  </li>
-  <li>无法复制函数</li>
-  <li>原型链没了，对象就是object，所属的类没了。</li>
-</ul>
-
-<p>知乎上一位作者对js拷贝问题的解答以及他的另一篇文章
-https://www.zhihu.com/question/23031215</p>
-
-<p><a href="https://segmentfault.com/a/1190000002801042">深入剖析js深拷贝</a>!</p>
-
-
-  </section>
-</article>
-
-<section class="read-more">
-   
-   
-   <div class="read-more-item">
-       <span class="read-more-item-dim">Latest Post</span>
-       <h2 class="post-list__post-title post-title"><a href="/2017/03/last-day-march/" title="link to 三月的最后一天">三月的最后一天</a></h2>
-       <p class="excerpt">白驹过隙，四月将至，收拾行囊，重新开始借此机会将以往笔记整理成blogs按时间顺序陆续贴出，包括新近看到的学习笔记&hellip;</p>
-       <div class="post-list__meta"><time datetime="2017-03-31 15:32:24 +0800" class="post-list__meta--date date">2017-03-31</time> &#8226; <span class="post-list__meta--tags tags">life,mood</span><a class="btn-border-small" href=/myblog/2017/03/last-day-march/>More...</a></div>
-   </div>
-   
-
-   
-   
-   <div class="read-more-item">
-       <span class="read-more-item-dim">Earlier Post</span>
-       <h2 class="post-list__post-title post-title"><a href="/2016/08/mvc-summary/" title="link to 项目中MVC的学习与总结">项目中MVC的学习与总结</a></h2>
-       <p class="excerpt">在Github上面有个 repository 专门详细的记载了学习和实践整个项目的过程  notes 项目链接&hellip;</p>
-       <div class="post-list__meta"><time datetime="2016-08-09 18:06:24 +0800" class="post-list__meta--date date">2016-08-09</time> &#8226; <span class="post-list__meta--tags tags">JavaScript</span><a class="btn-border-small" href=/myblog/2016/08/mvc-summary/>More...</a></div>
-   </div>
-   
-</section>
-
-<section class="post-comments">
-  
-    <div id="disqus_thread"></div>
-    <script>
-
-    var disqus_config = function () {
-        this.page.url = "http://woodghost.github.io/myblog/2017/03/js-copy/";
-        this.page.identifier = "/2017/03/js-copy/";
-    };
-
-    var disqus_shortname = 'woodghost';
-
-    (function() { // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
-    </script>
-    <noscript>When checking<a href="http://disqus.com/?ref_noscript"> Disqus </a>comment, pls enable JavaScript</noscript>
-
-  
-
-
-
-</section>
-
 
             <section class="footer">
     <footer>
