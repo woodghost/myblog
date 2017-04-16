@@ -5,8 +5,8 @@
     <description>Technical discuss &amp; Poems &amp; Offshore Fantasy</description>
     <link>http://woodghost.github.io/myblog/</link>
     <atom:link href="http://woodghost.github.io/myblog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 14 Apr 2017 00:09:04 +0800</pubDate>
-    <lastBuildDate>Fri, 14 Apr 2017 00:09:04 +0800</lastBuildDate>
+    <pubDate>Sun, 16 Apr 2017 20:28:29 +0800</pubDate>
+    <lastBuildDate>Sun, 16 Apr 2017 20:28:29 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -477,6 +477,174 @@ https://www.zhihu.com/question/23031215&lt;/p&gt;
         <guid isPermaLink="true">http://woodghost.github.io/myblog/2017/03/js-copy/</guid>
         
         <category>javascript</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>HTTP协议相关笔记</title>
+        <description>&lt;h3 id=&quot;section&quot;&gt;非常常见的状态码&lt;/h3&gt;
+
+&lt;p&gt;首先是罗列一些学习工作中出现几率很高的状态码&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;200 OK&lt;/li&gt;
+  &lt;li&gt;304 Not Modified 未修改&lt;/li&gt;
+  &lt;li&gt;400 Bad Request 错误的请求&lt;/li&gt;
+  &lt;li&gt;401 Unauthorized 未授权&lt;/li&gt;
+  &lt;li&gt;403 Forbidden 拒绝访问&lt;/li&gt;
+  &lt;li&gt;404 Not Found 未找到&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;500 Internal Server Error 内部服务器错误&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;501 Not Implemented 未执行&lt;/li&gt;
+  &lt;li&gt;502 Bad Gateway 错误的网关&lt;/li&gt;
+  &lt;li&gt;503 Service Unavailable 服务不可用&lt;/li&gt;
+  &lt;li&gt;504 Gateway Timeout 网关超时&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;更多内容&lt;/h3&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;标准扩展码&lt;/h4&gt;
+
+&lt;p&gt;1xx Informational 信息化&lt;/p&gt;
+
+&lt;p&gt;100 Continue 继续&lt;/p&gt;
+
+&lt;p&gt;101 Switching Protocols 交换协议&lt;/p&gt;
+
+&lt;p&gt;102 Processing 处理&lt;/p&gt;
+
+&lt;p&gt;2xx Success 成功&lt;/p&gt;
+
+&lt;p&gt;200 OK&lt;/p&gt;
+
+&lt;p&gt;201 Created 创建&lt;/p&gt;
+
+&lt;p&gt;202 Accepted 已接受&lt;/p&gt;
+
+&lt;p&gt;203 Non-Authoritative Information 非授权信息&lt;/p&gt;
+
+&lt;p&gt;204 No Content 无内容&lt;/p&gt;
+
+&lt;p&gt;205 Reset Content 重置内容&lt;/p&gt;
+
+&lt;p&gt;206 Partial Content 部分内容&lt;/p&gt;
+
+&lt;p&gt;207 Multi-Status 多状态&lt;/p&gt;
+
+&lt;p&gt;208 Already Reported 已报告&lt;/p&gt;
+
+&lt;p&gt;226 IMIM Used 使用的&lt;/p&gt;
+
+&lt;p&gt;3xx Redirection 重定向&lt;/p&gt;
+
+&lt;p&gt;300 Multiple Choices 多种选择&lt;/p&gt;
+
+&lt;p&gt;301 Moved Permanently 永久移动&lt;/p&gt;
+
+&lt;p&gt;302 Found 发现&lt;/p&gt;
+
+&lt;p&gt;303 See Other 查看其它&lt;/p&gt;
+
+&lt;p&gt;304 Not Modified 未修改&lt;/p&gt;
+
+&lt;p&gt;305 Use Proxy 使用代理&lt;/p&gt;
+
+&lt;p&gt;306 Switch Proxy 开关代理&lt;/p&gt;
+
+&lt;p&gt;307 Temporary Redirect 临时重定向&lt;/p&gt;
+
+&lt;p&gt;308 Permanent Redirect 永久重定向&lt;/p&gt;
+
+&lt;p&gt;4xx Client Error 客户端错误&lt;/p&gt;
+
+&lt;p&gt;400 Bad Request 错误的请求&lt;/p&gt;
+
+&lt;p&gt;401 Unauthorized 未授权&lt;/p&gt;
+
+&lt;p&gt;402 Payment Required 需要付费&lt;/p&gt;
+
+&lt;p&gt;403Forbidden 拒绝访问&lt;/p&gt;
+
+&lt;p&gt;404 Not Found 未找到&lt;/p&gt;
+
+&lt;p&gt;405 Method Not Allowed 不允许的方法&lt;/p&gt;
+
+&lt;p&gt;406 Not Acceptable 不可接受&lt;/p&gt;
+
+&lt;p&gt;407 Proxy Authentication Required 代理服务器需要身份验证&lt;/p&gt;
+
+&lt;p&gt;408 Request Timeout 请求超时&lt;/p&gt;
+
+&lt;p&gt;409 Conflict 冲突&lt;/p&gt;
+
+&lt;p&gt;410 Gone 完成&lt;/p&gt;
+
+&lt;p&gt;411 Length Required 需要长度&lt;/p&gt;
+
+&lt;p&gt;412 Precondition Failed 前提条件失败&lt;/p&gt;
+
+&lt;p&gt;413 Payload Too Large 负载过大&lt;/p&gt;
+
+&lt;p&gt;414 URI Too Long 太长&lt;/p&gt;
+
+&lt;p&gt;415 Unsupported Media Type 不支持的媒体类型&lt;/p&gt;
+
+&lt;p&gt;416 Range Not Satisfiable 的范围不合适&lt;/p&gt;
+
+&lt;p&gt;417 Expectation Failed 预期失败&lt;/p&gt;
+
+&lt;p&gt;418 I’m a teapot 我是一个茶壶&lt;/p&gt;
+
+&lt;p&gt;421 Misdirected Request 误导请求&lt;/p&gt;
+
+&lt;p&gt;422 Unprocessable Entity 无法处理的实体&lt;/p&gt;
+
+&lt;p&gt;423 Locked 锁定&lt;/p&gt;
+
+&lt;p&gt;424 Failed Dependency 失败的依赖&lt;/p&gt;
+
+&lt;p&gt;426 Upgrade Required 升级所需&lt;/p&gt;
+
+&lt;p&gt;428 Precondition Required 所需的先决条件&lt;/p&gt;
+
+&lt;p&gt;429 Too Many Requests 太多的请求&lt;/p&gt;
+
+&lt;p&gt;431 Request Header Fields Too Large 请求头字段太大&lt;/p&gt;
+
+&lt;p&gt;451 Unavailable For Legal Reasons 不可出于法律原因&lt;/p&gt;
+
+&lt;p&gt;5xx Server Error 服务器错误&lt;/p&gt;
+
+&lt;p&gt;500 Internal Server Error 内部服务器错误&lt;/p&gt;
+
+&lt;p&gt;501 Not Implemented 未执行&lt;/p&gt;
+
+&lt;p&gt;502 Bad Gateway 错误的网关&lt;/p&gt;
+
+&lt;p&gt;503 Service Unavailable 服务不可用&lt;/p&gt;
+
+&lt;p&gt;504 Gateway Timeout 网关超时&lt;/p&gt;
+
+&lt;p&gt;505 HTTP Version Not Supported 不支持HTTP版本&lt;/p&gt;
+
+&lt;p&gt;506 Variant Also Negotiates 变体也进行协商&lt;/p&gt;
+
+&lt;p&gt;507 Insufficient Storage 存储空间不足&lt;/p&gt;
+
+&lt;p&gt;508 Loop Detected 检测到循环&lt;/p&gt;
+
+&lt;p&gt;510 Not Extended 不延长&lt;/p&gt;
+
+&lt;p&gt;511 Network Authentication Required 网络需要身份验证&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 03 Aug 2016 18:06:24 +0800</pubDate>
+        <link>http://woodghost.github.io/myblog/2016/08/http-protocol/</link>
+        <guid isPermaLink="true">http://woodghost.github.io/myblog/2016/08/http-protocol/</guid>
+        
+        <category>http</category>
         
         
       </item>
