@@ -10,6 +10,7 @@ tags: http
 首先是罗列一些学习工作中出现几率很高的状态码
 
 - 200 OK
+- 302 Moved Temporarily
 - 304 Not Modified 未修改
 - 400 Bad Request 错误的请求
 - 401 Unauthorized 未授权
@@ -63,7 +64,7 @@ tags: http
 
 301 Moved Permanently 永久移动
 
-302 Found 发现
+302 Found 发现  Moved Temporarily
 
 303 See Other 查看其它
 

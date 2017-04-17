@@ -1,0 +1,7 @@
+---
+layout: post
+title: 闭包
+date: 2017-2-15 18:06:24.000000000 +08:00
+tags: JavaScript
+---
+

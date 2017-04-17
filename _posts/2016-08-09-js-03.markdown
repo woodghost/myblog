@@ -5,3 +5,5 @@ date: 2016-08-09 18:06:24.000000000 +08:00
 tags: JavaScript
 ---
 
+基本数据类型：Number，String，Boolean，Undefined，Null
+复杂数据类型：Object，Array，Function，RegExp，Date，Error

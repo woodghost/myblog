@@ -1,0 +1,24 @@
+---
+layout: post
+title: 函数,对象
+date: 2016-11-14 18:06:24.000000000 +08:00
+tags: JavaScript
+---
+
+> Excerpt From: 泽卡斯. “JavaScript高级程序设计（第3版）.
+
+
+## 单体内置对象
+
+大多数内置对象，例如Object、Array和String。
+ECMA-262还定义了两个单体内置对象：Global和Math。
+
+### Global 对象
+
+诸如isNaN()、isFinite()、parseInt()以及parseFloat()，实际上全都是Global对象的方法。除此之外，Global对象还包含其他一些方法。
+
+1．URI编码方法
+Global对象的encodeURI()和encodeURIComponent()方法可以对URI（ Uniform Resource Identifiers，通用资源标识符）进行编码，以便发送给浏览器。
+URI方法encodeURI()、encodeURIComponent()、decodeURI()和 decodeURI Component()用于替代已经被ECMA-262第3版庞弃的escape()和unescape()方法。
+URI方法能够编码所有Unicode字符，而原来的方法只能正确地编码ASCII字符。因此在开发实践中，特别是在产品级的代码中，一定要使用URI方法
+

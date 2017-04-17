@@ -5,20 +5,9 @@
     <description>Technical discuss &amp; Poems &amp; Offshore Fantasy</description>
     <link>http://woodghost.github.io/myblog/</link>
     <atom:link href="http://woodghost.github.io/myblog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 17 Apr 2017 11:45:22 +0800</pubDate>
-    <lastBuildDate>Mon, 17 Apr 2017 11:45:22 +0800</lastBuildDate>
+    <pubDate>Mon, 17 Apr 2017 15:07:59 +0800</pubDate>
+    <lastBuildDate>Mon, 17 Apr 2017 15:07:59 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
-    
-      <item>
-        <title></title>
-        <description>
-</description>
-        <pubDate>Mon, 17 Apr 2017 11:45:22 +0800</pubDate>
-        <link>http://woodghost.github.io/myblog/2017/04/2016-10-01-js-04/</link>
-        <guid isPermaLink="true">http://woodghost.github.io/myblog/2017/04/2016-10-01-js-04/</guid>
-        
-        
-      </item>
     
       <item>
         <title>fetch API与Promise</title>
@@ -1089,6 +1078,75 @@ https://www.zhihu.com/question/23031215&lt;/p&gt;
       </item>
     
       <item>
+        <title>闭包</title>
+        <description>
+</description>
+        <pubDate>Wed, 15 Feb 2017 18:06:24 +0800</pubDate>
+        <link>http://woodghost.github.io/myblog/2017/02/js-07/</link>
+        <guid isPermaLink="true">http://woodghost.github.io/myblog/2017/02/js-07/</guid>
+        
+        <category>JavaScript</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>原型，原型链，构造函数</title>
+        <description>&lt;p&gt;&lt;img src=&quot;/myblog/assets/images/prototype.jpeg&quot; alt=&quot;protytype&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 04 Jan 2017 18:06:24 +0800</pubDate>
+        <link>http://woodghost.github.io/myblog/2017/01/js-06/</link>
+        <guid isPermaLink="true">http://woodghost.github.io/myblog/2017/01/js-06/</guid>
+        
+        <category>JavaScript</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>函数,对象</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;Excerpt From: 泽卡斯. “JavaScript高级程序设计（第3版）.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;单体内置对象&lt;/h2&gt;
+
+&lt;p&gt;大多数内置对象，例如Object、Array和String。
+ECMA-262还定义了两个单体内置对象：Global和Math。&lt;/p&gt;
+
+&lt;h3 id=&quot;global-&quot;&gt;Global 对象&lt;/h3&gt;
+
+&lt;p&gt;诸如isNaN()、isFinite()、parseInt()以及parseFloat()，实际上全都是Global对象的方法。除此之外，Global对象还包含其他一些方法。&lt;/p&gt;
+
+&lt;p&gt;1．URI编码方法
+Global对象的encodeURI()和encodeURIComponent()方法可以对URI（ Uniform Resource Identifiers，通用资源标识符）进行编码，以便发送给浏览器。
+URI方法encodeURI()、encodeURIComponent()、decodeURI()和 decodeURI Component()用于替代已经被ECMA-262第3版庞弃的escape()和unescape()方法。
+URI方法能够编码所有Unicode字符，而原来的方法只能正确地编码ASCII字符。因此在开发实践中，特别是在产品级的代码中，一定要使用URI方法&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 14 Nov 2016 18:06:24 +0800</pubDate>
+        <link>http://woodghost.github.io/myblog/2016/11/js-05/</link>
+        <guid isPermaLink="true">http://woodghost.github.io/myblog/2016/11/js-05/</guid>
+        
+        <category>JavaScript</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>作用域</title>
+        <description>
+</description>
+        <pubDate>Sat, 01 Oct 2016 18:06:24 +0800</pubDate>
+        <link>http://woodghost.github.io/myblog/2016/10/js-04/</link>
+        <guid isPermaLink="true">http://woodghost.github.io/myblog/2016/10/js-04/</guid>
+        
+        <category>JavaScript</category>
+        
+        
+      </item>
+    
+      <item>
         <title>项目中MVC的学习与总结</title>
         <description>&lt;p&gt;在Github上面有个 repository 专门详细的记载了学习和实践整个项目的过程&lt;/p&gt;
 
@@ -1101,313 +1159,6 @@ https://www.zhihu.com/question/23031215&lt;/p&gt;
         <guid isPermaLink="true">http://woodghost.github.io/myblog/2016/08/mvc-summary/</guid>
         
         <category>JavaScript</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>JS高级程序设计与实践</title>
-        <description>
-</description>
-        <pubDate>Tue, 09 Aug 2016 18:06:24 +0800</pubDate>
-        <link>http://woodghost.github.io/myblog/2016/08/js-03/</link>
-        <guid isPermaLink="true">http://woodghost.github.io/myblog/2016/08/js-03/</guid>
-        
-        <category>JavaScript</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>HTTP协议相关笔记</title>
-        <description>&lt;h3 id=&quot;section&quot;&gt;非常常见的状态码&lt;/h3&gt;
-
-&lt;p&gt;首先是罗列一些学习工作中出现几率很高的状态码&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;200 OK&lt;/li&gt;
-  &lt;li&gt;304 Not Modified 未修改&lt;/li&gt;
-  &lt;li&gt;400 Bad Request 错误的请求&lt;/li&gt;
-  &lt;li&gt;401 Unauthorized 未授权&lt;/li&gt;
-  &lt;li&gt;403 Forbidden 拒绝访问&lt;/li&gt;
-  &lt;li&gt;404 Not Found 未找到&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;500 Internal Server Error 内部服务器错误&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;501 Not Implemented 未执行&lt;/li&gt;
-  &lt;li&gt;502 Bad Gateway 错误的网关&lt;/li&gt;
-  &lt;li&gt;503 Service Unavailable 服务不可用&lt;/li&gt;
-  &lt;li&gt;504 Gateway Timeout 网关超时&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;section-1&quot;&gt;更多内容&lt;/h3&gt;
-
-&lt;h4 id=&quot;section-2&quot;&gt;标准扩展码&lt;/h4&gt;
-
-&lt;p&gt;1xx Informational 信息化&lt;/p&gt;
-
-&lt;p&gt;100 Continue 继续&lt;/p&gt;
-
-&lt;p&gt;101 Switching Protocols 交换协议&lt;/p&gt;
-
-&lt;p&gt;102 Processing 处理&lt;/p&gt;
-
-&lt;p&gt;2xx Success 成功&lt;/p&gt;
-
-&lt;p&gt;200 OK&lt;/p&gt;
-
-&lt;p&gt;201 Created 创建&lt;/p&gt;
-
-&lt;p&gt;202 Accepted 已接受&lt;/p&gt;
-
-&lt;p&gt;203 Non-Authoritative Information 非授权信息&lt;/p&gt;
-
-&lt;p&gt;204 No Content 无内容&lt;/p&gt;
-
-&lt;p&gt;205 Reset Content 重置内容&lt;/p&gt;
-
-&lt;p&gt;206 Partial Content 部分内容&lt;/p&gt;
-
-&lt;p&gt;207 Multi-Status 多状态&lt;/p&gt;
-
-&lt;p&gt;208 Already Reported 已报告&lt;/p&gt;
-
-&lt;p&gt;226 IMIM Used 使用的&lt;/p&gt;
-
-&lt;p&gt;3xx Redirection 重定向&lt;/p&gt;
-
-&lt;p&gt;300 Multiple Choices 多种选择&lt;/p&gt;
-
-&lt;p&gt;301 Moved Permanently 永久移动&lt;/p&gt;
-
-&lt;p&gt;302 Found 发现&lt;/p&gt;
-
-&lt;p&gt;303 See Other 查看其它&lt;/p&gt;
-
-&lt;p&gt;304 Not Modified 未修改&lt;/p&gt;
-
-&lt;p&gt;305 Use Proxy 使用代理&lt;/p&gt;
-
-&lt;p&gt;306 Switch Proxy 开关代理&lt;/p&gt;
-
-&lt;p&gt;307 Temporary Redirect 临时重定向&lt;/p&gt;
-
-&lt;p&gt;308 Permanent Redirect 永久重定向&lt;/p&gt;
-
-&lt;p&gt;4xx Client Error 客户端错误&lt;/p&gt;
-
-&lt;p&gt;400 Bad Request 错误的请求&lt;/p&gt;
-
-&lt;p&gt;401 Unauthorized 未授权&lt;/p&gt;
-
-&lt;p&gt;402 Payment Required 需要付费&lt;/p&gt;
-
-&lt;p&gt;403Forbidden 拒绝访问&lt;/p&gt;
-
-&lt;p&gt;404 Not Found 未找到&lt;/p&gt;
-
-&lt;p&gt;405 Method Not Allowed 不允许的方法&lt;/p&gt;
-
-&lt;p&gt;406 Not Acceptable 不可接受&lt;/p&gt;
-
-&lt;p&gt;407 Proxy Authentication Required 代理服务器需要身份验证&lt;/p&gt;
-
-&lt;p&gt;408 Request Timeout 请求超时&lt;/p&gt;
-
-&lt;p&gt;409 Conflict 冲突&lt;/p&gt;
-
-&lt;p&gt;410 Gone 完成&lt;/p&gt;
-
-&lt;p&gt;411 Length Required 需要长度&lt;/p&gt;
-
-&lt;p&gt;412 Precondition Failed 前提条件失败&lt;/p&gt;
-
-&lt;p&gt;413 Payload Too Large 负载过大&lt;/p&gt;
-
-&lt;p&gt;414 URI Too Long 太长&lt;/p&gt;
-
-&lt;p&gt;415 Unsupported Media Type 不支持的媒体类型&lt;/p&gt;
-
-&lt;p&gt;416 Range Not Satisfiable 的范围不合适&lt;/p&gt;
-
-&lt;p&gt;417 Expectation Failed 预期失败&lt;/p&gt;
-
-&lt;p&gt;418 I’m a teapot 我是一个茶壶&lt;/p&gt;
-
-&lt;p&gt;421 Misdirected Request 误导请求&lt;/p&gt;
-
-&lt;p&gt;422 Unprocessable Entity 无法处理的实体&lt;/p&gt;
-
-&lt;p&gt;423 Locked 锁定&lt;/p&gt;
-
-&lt;p&gt;424 Failed Dependency 失败的依赖&lt;/p&gt;
-
-&lt;p&gt;426 Upgrade Required 升级所需&lt;/p&gt;
-
-&lt;p&gt;428 Precondition Required 所需的先决条件&lt;/p&gt;
-
-&lt;p&gt;429 Too Many Requests 太多的请求&lt;/p&gt;
-
-&lt;p&gt;431 Request Header Fields Too Large 请求头字段太大&lt;/p&gt;
-
-&lt;p&gt;451 Unavailable For Legal Reasons 不可出于法律原因&lt;/p&gt;
-
-&lt;p&gt;5xx Server Error 服务器错误&lt;/p&gt;
-
-&lt;p&gt;500 Internal Server Error 内部服务器错误&lt;/p&gt;
-
-&lt;p&gt;501 Not Implemented 未执行&lt;/p&gt;
-
-&lt;p&gt;502 Bad Gateway 错误的网关&lt;/p&gt;
-
-&lt;p&gt;503 Service Unavailable 服务不可用&lt;/p&gt;
-
-&lt;p&gt;504 Gateway Timeout 网关超时&lt;/p&gt;
-
-&lt;p&gt;505 HTTP Version Not Supported 不支持HTTP版本&lt;/p&gt;
-
-&lt;p&gt;506 Variant Also Negotiates 变体也进行协商&lt;/p&gt;
-
-&lt;p&gt;507 Insufficient Storage 存储空间不足&lt;/p&gt;
-
-&lt;p&gt;508 Loop Detected 检测到循环&lt;/p&gt;
-
-&lt;p&gt;510 Not Extended 不延长&lt;/p&gt;
-
-&lt;p&gt;511 Network Authentication Required 网络需要身份验证&lt;/p&gt;
-
-</description>
-        <pubDate>Wed, 03 Aug 2016 18:06:24 +0800</pubDate>
-        <link>http://woodghost.github.io/myblog/2016/08/http-protocol/</link>
-        <guid isPermaLink="true">http://woodghost.github.io/myblog/2016/08/http-protocol/</guid>
-        
-        <category>http</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>第一篇Leetcode学习笔记</title>
-        <description>&lt;p&gt;First of all, 看了最最基本的leetcode 371 和 001
-都是两个数求和这种，诚然，可以直接return a + b, 但是大部分公司显然不会满足这种答案。所以借此机会认真复习了bit manipulation，two’s complement等二进制位运算方面的知识。编码尽量采用&lt;code class=&quot;highlighter-rouge&quot;&gt;c++, javascript, python&lt;/code&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;twos-complement&quot;&gt;two’s complement补码&lt;/h2&gt;
-&lt;p&gt;About binary还有关于2进制，位运算什么的&lt;/p&gt;
-
-&lt;p&gt;Two’s complement is the way every computer I know of chooses to represent integers. To get the two’s complement negative notation of an integer, you write out the number in binary. You then invert the digits, and add one to the result.
-Suppose we’re working with 8 bit quantities (for simplicity’s sake) and suppose we want to find how -28 would be expressed in two’s complement notation. First we write out 28 in binary form.
-00011100
-Then we invert the digits. 0 becomes 1, 1 becomes 0.
-11100011
-Then we add 1.
-11100100
-That is how one would write -28 in 8 bit binary.&lt;/p&gt;
-
-&lt;p&gt;Arithmetic with Two’s Complement&lt;/p&gt;
-
-&lt;p&gt;One of the nice properties of two’s complement is that addition and subtraction is made very simple. With a system like two’s complement, the circuitry for addition and subtraction can be unified, whereas otherwise they would have to be treated as separate operations.
-In the examples in this section, I do addition and subtraction in two’s complement, but you’ll notice that every time I do actual operations with binary numbers I am always adding.&lt;/p&gt;
-
-&lt;h2 id=&quot;section&quot;&gt;位运算实现加法&lt;/h2&gt;
-
-&lt;p&gt;用位运算实现加法也就是计算机用二进制进行运算，32位的CPU只能表示32位内的数，这里先用1位数的加法来进行，在不考虑进位的基础上，如下&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1 + 1 = 0
-1 + 0 = 1
-0 + 1 = 1
-0 + 0 = 0
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;很明显这几个表达式可以用位运算的“^”来代替，如下&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1 ^ 1 = 0
-1 ^ 0 = 1
-0 ^ 1 = 1
-0 ^ 0 = 0 这样我们就完成了简单的一位数加法，那么要进行二位的加法，这个方法可行不可行呢？肯定是不行的，矛盾就在于，如何去 获取进位？要获取进位我们可以如下思考：
-
-0 &amp;amp; 0 = 0
-1 &amp;amp; 0 = 0
-0 &amp;amp; 1 = 0
-1 &amp;amp; 1 = 1
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;//换个角度看就是这样&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0 &amp;amp; 0 = 不进位
-1 &amp;amp; 0 = 不进位
-0 &amp;amp; 1 = 不进位
-1 &amp;amp; 1 = 进位
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;正好，在位运算中，我们用“«”表示向左移动一位，也就是“进位”。那么我们就可以得到如下的表达式&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//进位可以用如下表示：
-(x&amp;amp;y)&amp;lt;&amp;lt;1 到这里，我们基本上拥有了这样两个表达式
-
-x^y //执行加法
-(x&amp;amp;y)&amp;lt;&amp;lt;1 //进位操作
-
-a + b = a ^ b + ((a &amp;amp; b) &amp;lt;&amp;lt; 1) 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;section-1&quot;&gt;代码实现&lt;/h2&gt;
-
-&lt;p&gt;下面的代码还支持 传 负数进去… 好神奇。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;stdio.h&amp;gt;
-#include &amp;lt;assert.h&amp;gt;
-
-#define __DEBUG__       1
-
-int MyAdd(int a, int b)
-{
-    /* 定理1：
-     * if (0 == (a &amp;amp; b)) {
-     *     a + b == a ^ b;
-     * }
-     * 换句话说就是，如果两数相加时没有进位，则加法运算可由异或运算代替。
-     * 两数相与生存下来的位就是相加会向左产生进位的位，所以
-     * （a &amp;amp; b)就可以判断两数相加会不会产生进位，而且（a &amp;amp; b) &amp;lt;&amp;lt; 1
-     * 就是所有--进位位--的进位值之和。
-     * */
-    /* 定理2：a + b = a ^ b + ((a &amp;amp; b) &amp;lt;&amp;lt; 1)
-     * 就是把加法拆成--每位相加的和--与--进位值--两部分相加
-     * 等式右边也是加法，又可以拆，这就形成了一个递归的过程
-     * 要使递归终止，需使用定理1，也就是不再有进位，定理2等式右边
-     * 的加号就可以换成异或符号。
-     * */
-
-    /* 这里的a, b可视为某两个数A和B的--每位相加的和--和--进位值 */
-    int cf = a &amp;amp; b;
-    int sum = a ^ b;
-
-    while (cf) {
-        a = sum;
-        b = cf &amp;lt;&amp;lt; 1;
-        cf = a &amp;amp; b;
-        sum = a ^ b;
-    }
-
-    #if __DEBUG__
-    assert(sum == a + b);
-    #endif
-
-    return sum;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Wed, 03 Aug 2016 18:06:24 +0800</pubDate>
-        <link>http://woodghost.github.io/myblog/2016/08/leetcode-01/</link>
-        <guid isPermaLink="true">http://woodghost.github.io/myblog/2016/08/leetcode-01/</guid>
-        
-        <category>algorithm</category>
         
         
       </item>

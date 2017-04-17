@@ -1,0 +1,8 @@
+---
+layout: post
+title: 原型，原型链，构造函数
+date: 2017-01-04 18:06:24.000000000 +08:00
+tags: JavaScript
+---
+
+![protytype](/myblog/assets/images/prototype.jpeg)
