@@ -138,7 +138,19 @@ margin-top: -50px;  //  height/2, width/2    *margin, padding是相对于父元�
 5. 写三个块占满整行必须是正方形， width: 33.3%; padding-top: 33.3%    *margin, padding是相对于父元素的
 这个我有点不太确定了，明天试一下。
 
-.书写代码，点击时从1分钟开始，每秒递减到0。
+6.书写代码，点击时从1分钟开始，每秒递减到0。
 
 <div onclick="test();">颜海镜</div>
-.简述在IE下mouseover和mouseenter的区别？
+7.简述在IE下mouseover和mouseenter的区别？
+
+8. 按对角线划分如何判断onclick是在屏幕右上角
+
+9. 还问到了跨域和深拷贝（就是因为我这里面写了吗？。。。）
+
+10. flex-grow & flex-shrink
+增长到几倍，缩小到几分之几
+
+11. 项目里自动添加前缀的  gulp和webpack都有相应的包 gulp-postcss  webpack: postcss-loader
+
+（先睡了，明天更）
+
