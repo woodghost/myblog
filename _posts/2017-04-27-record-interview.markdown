@@ -140,7 +140,11 @@ margin-top: -50px;  //  height/2, width/2    *margin, padding是相对于父元�
 
 6.书写代码，点击时从1分钟开始，每秒递减到0。
 
-<div onclick="test();">颜海镜</div>
+```
+<div onclick="test();">ghost</div>
+```
+
+
 7.简述在IE下mouseover和mouseenter的区别？
 
 8. 按对角线划分如何判断onclick是在屏幕右上角
