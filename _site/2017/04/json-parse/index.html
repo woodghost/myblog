@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>json 解析练习</title>
+  <meta name="description" content="将下面一段json解析成另一种格式">
+  <meta name="author" content="Tingyue Wang">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="json 解析练习">
+  <meta name="twitter:description" content="将下面一段json解析成另一种格式">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="json 解析练习">
+  <meta property="og:description" content="将下面一段json解析成另一种格式">
+
+  <link rel="icon" type="image/x-icon" href="/myblog/assets/images/favicon.ico"/>
+  <link href="/myblog/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+  <link rel="stylesheet" href="/myblog/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/myblog/js/prettify/atelier-lakeside-light.min.css">
+  <link rel="canonical" href="http://woodghost.github.io/myblog/2017/04/json-parse/">
+  <link rel="alternate" type="application/rss+xml" title="WoodGhost" href="http://woodghost.github.io/myblog/feed.xml">
+
+  <meta name="google-site-verification" content="" />
+
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/myblog/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/myblog/" title="goto WoodGhost" class="blog-button"><img src="/myblog/assets/images/avatar.jpg" width="80" alt="WoodGhost logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/myblog/#blog" title="link to homepage for WoodGhost" class="blog-button">WoodGhost</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">渡頭余落日 墟里上孤煙</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">Technical discuss & Poems & Offshore Fantasy</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        
+        <p class="panel-cover__description">收藏整理归纳的清凉小角落...Welcome to this world :)</p>
+        
+
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/myblog/#blog" title="博客" class="blog-button">打开 Blog</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+  <!-- Weibo -->
+  <li class="navigation__item">
+    <a href="http://weibo.com/2576328977" title="@2576328977 weibo" target="_blank">
+      <i class='social fa fa-weibo'></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Github -->
+  <li class="navigation__item">
+    <a href="https://github.com/woodghost" title="@woodghost Github" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Twitter -->
+  <li class="navigation__item">
+    <a href="http://twitter.com/woodghost36" title="@woodghost36" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- instagram -->
+  <li class="navigation__item">
+    <a href="http://www.instagram.com/woodghost.io" title="@woodghost.io" target="_blank">
+      <i class='social fa fa-instagram'></i>
+      <span class="label">Instagram</span>
+    </a>
+  </li>
+  
+
+  
+
+
+  
+
+  <!-- RSS -->
+  <!--<li class="navigation__item">-->
+    <!--<a href="/myblog/feed.xml" rel="author" title="RSS" target="_blank">-->
+      <!--<i class='social fa fa-rss'></i>-->
+      <!--<span class="label">RSS</span>-->
+    <!--</a>-->
+  <!--</li>-->
+
+  
+  <!-- Email -->
+  <li class="navigation__item">
+    <a href="mailto:woodghost0960@gmail.com" title="Contact me">
+      <i class='social fa fa-envelope'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="panel-cover--overlay cover-blue"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2017-04-13 15:43:24 +0800" itemprop="datePublished" class="post-meta__date date">2017-04-13</time> &#8226; <span class="post-meta__tags tags">javascript</span>
+    </div>
+    <h1 class="post-title">json 解析练习</h1>
+  </header>
+
+  <section class="post">
+    <p>将下面一段json解析成另一种格式</p>
+
+<p>original json
+<code class="highlighter-rouge"><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5833b999fe85cdb80db8516f"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"schemata"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"child"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://d1h06o39vyn1mi.cloudfront.net/product/upload/40/aa/40aada9316033c487acef159c6b462bd"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e61e0c98-a306-4488-c56c-9afe5979a0e2"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://d1h06o39vyn1mi.cloudfront.net/product/upload/0e/ee/0eeeca55d41e350dbbb97a849433c473"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01aa3afd-9b2a-f736-3eb9-e4bfc352f9d6"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://d1h06o39vyn1mi.cloudfront.net/product/upload/6a/a9/6aa95216eee350b0dcb4f46f89bb0167"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ae6548b0-e972-b1af-6d4d-f1f9ec81aea3"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://d1h06o39vyn1mi.cloudfront.net/product/upload/fb/c5/fbc5d1a3f1ac971dc3dfd15f457394b7"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d7e3e864-def6-36b4-b44d-e9e7274116be"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://d1h06o39vyn1mi.cloudfront.net/product/upload/70/20/7020e5a0b425670c8f888010df6fe16c"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55bb37a2-1e95-b924-5a68-498687494d4d"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slider"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bbb54f72-d663-7284-92ac-ce2599430825"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6e0f1aef-2c80-176b-6daf-4c15e0124273"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"desc"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Layer your lace top with a boyfriend blazer to add in coolness in the outfit."</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"child"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slider_key"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"379d20cb-d3d1-32bd-4c74-f9450492fde6"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"How to Pull Off a Classy Outfit with a Lace Top"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ekgq2uihbz"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code>
+&gt; 该json是将数据存入 DDMS 的 form后得到的格式。详见http://ddms.mozat.com/apidocs.html</p>
+
+<p>这段json主要是为了渲染一个上半部分为可滑动的slider，每一张图对应一个description和若干件衣服数据，数据存储然后导出的格式如上，为了符合页面渲染规则需要解析json使每一张大图和其description以及衣服一一对应，成为一个个新object</p>
+
+<p>解析为：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"ret"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OK"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"689035"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://d1h06o39vyn1mi.cloudfront.net/product/street_style/00/c3/00c3eec3f8e5ca952efba4d3bf8d535fd857ad4c_001.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"desc"</span><span class="p">:</span><span class="s2">"You should also be mindful of hiding body"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"clothes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stripe Sateen Midi Skirt Co-ord"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://office.mozat.com:8081/storage//product/detail/7c/4b/132a27d9b2d082ab068ee7509f3f25c2_new_white.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="err">}</span><span class="p">,</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kirsten skirted hem blazer"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://office.mozat.com:8081/storage//product/detail/86/af/86af64d61c43a2315c97954a5715f8a4_new_white.jpg"</span><span class="p">,</span><span class="w">
+
+        </span><span class="err">}</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>代码如下:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>//parse objects in Array shcemata
+function parseSchemata(meta){
+    var obj = {};
+    obj.title = meta.title;
+    data.child.forEach(function(key){
+        obj[key.name] = key.title;
+    });
+    return obj;
+}
+</code></pre>
+</div>
+
+
+  </section>
+</article>
+
+<section class="read-more">
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">Latest Post</span>
+       <h2 class="post-list__post-title post-title"><a href="/2017/04/record-interview/" title="link to 面试内容总结">面试内容总结</a></h2>
+       <p class="excerpt">今天是神奇的一天，第一次知道这里居然真的有人看，原本以为只有自己会看。。。整理回忆一下今天面试的内容，总结学习也可以方便其他求职的小伙伴.在网上搜了搜，果然有很多360奇舞团的面试题啊，原来颜海镜也去面试过……我用过他fullpage.js的插件。。。。题目大抵是没有变的，考的都是基础知识，js主要考察 function context scope最后舔着个熊脸说一句，能有幸参加个一面也已经很荣幸了哈哈下面代码的输出值是？alert(1&amp;&amp;2); //2后来又被问了 一个浮...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-04-27 22:43:24 +0800" class="post-list__meta--date date">2017-04-27</time> &#8226; <span class="post-list__meta--tags tags">javascript</span><a class="btn-border-small" href=/myblog/2017/04/record-interview/>More...</a></div>
+   </div>
+   
+
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">Earlier Post</span>
+       <h2 class="post-list__post-title post-title"><a href="/2017/04/js-fetchapi/" title="link to fetch API与Promise">fetch API与Promise</a></h2>
+       <p class="excerpt">  参考自 https://developer.mozilla.org/en/docs/Web/API/Fetch_API转载自 https://hacks.mozilla.org/2015/03/this-api-is-so-fetchinghttp://bubkoo.com/2015/05/08/introduction-to-fetch/https://davidwalsh.name/fetchJavaScript 通过XMLHttpRequest(XHR)来执行异步请求，这个方式已...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-04-13 15:43:24 +0800" class="post-list__meta--date date">2017-04-13</time> &#8226; <span class="post-list__meta--tags tags">javascript,fetchAPI</span><a class="btn-border-small" href=/myblog/2017/04/js-fetchapi/>More...</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+  
+    <div id="disqus_thread"></div>
+    <script>
+
+    var disqus_config = function () {
+        this.page.url = "http://woodghost.github.io/myblog/2017/04/json-parse/";
+        this.page.identifier = "/2017/04/json-parse/";
+    };
+
+    var disqus_shortname = 'woodghost';
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>When checking<a href="http://disqus.com/?ref_noscript"> Disqus </a>comment, pls enable JavaScript</noscript>
+
+  
+
+
+
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">Site adopted <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Attribution-NonCommercial-ShareAlike 4.0 Internationa</a></span>
+        <span class="footer__copyright">Generated by <a href="https://jekyllrb.com">Jekyll</a> at 2017-05-05, acknowledgement: <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> for VPS service</span>
+        <span class="footer__copyright">Created by  <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> Here is <a href="https://github.com/onevcat/OneV-s-Den">Source code</a> - &copy; 2017</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!--<script type="text/javascript" src="/myblog/js/highlight.pack.js"</script>-->
+<!--<script>hljs.initHighlightingOnLoad();</script>-->
+
+<script src="/myblog/js/prettify/prettify.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("pre").addClass("prettyprint linenums");
+        prettyPrint();
+    });
+</script>
+
+<script type="text/javascript" src="/myblog/js/main.js"></script>
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-81484538-1', '');
+    ga('send', 'pageview');
+</script>
+
+
+    
+  </body>
+
+</html>

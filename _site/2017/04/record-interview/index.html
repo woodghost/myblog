@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>JS高级程序设计与实践</title>
-  <meta name="description" content="基本数据类型：Number，String，Boolean，Undefined，Null复杂数据类型：Object，Array，Function，RegExp，Date，Error">
+  <title>面试内容总结</title>
+  <meta name="description" content="今天是神奇的一天，第一次知道这里居然真的有人看，原本以为只有自己会看。。。整理回忆一下今天面试的内容，总结学习也可以方便其他求职的小伙伴.">
   <meta name="author" content="Tingyue Wang">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="JS高级程序设计与实践">
-  <meta name="twitter:description" content="基本数据类型：Number，String，Boolean，Undefined，Null复杂数据类型：Object，Array，Function，RegExp，Date，Error">
+  <meta name="twitter:title" content="面试内容总结">
+  <meta name="twitter:description" content="今天是神奇的一天，第一次知道这里居然真的有人看，原本以为只有自己会看。。。整理回忆一下今天面试的内容，总结学习也可以方便其他求职的小伙伴.">
 
   <meta property="og:type" content="article">
-  <meta property="og:title" content="JS高级程序设计与实践">
-  <meta property="og:description" content="基本数据类型：Number，String，Boolean，Undefined，Null复杂数据类型：Object，Array，Function，RegExp，Date，Error">
+  <meta property="og:title" content="面试内容总结">
+  <meta property="og:description" content="今天是神奇的一天，第一次知道这里居然真的有人看，原本以为只有自己会看。。。整理回忆一下今天面试的内容，总结学习也可以方便其他求职的小伙伴.">
 
   <link rel="icon" type="image/x-icon" href="/myblog/assets/images/favicon.ico"/>
   <link href="/myblog/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
@@ -25,7 +25,7 @@
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="/myblog/js/prettify/atelier-lakeside-light.min.css">
-  <link rel="canonical" href="http://woodghost.github.io/myblog/2016/08/js-03/">
+  <link rel="canonical" href="http://woodghost.github.io/myblog/2017/04/record-interview/">
   <link rel="alternate" type="application/rss+xml" title="WoodGhost" href="http://woodghost.github.io/myblog/feed.xml">
 
   <meta name="google-site-verification" content="" />
@@ -154,37 +154,171 @@
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2016-08-09 18:06:24 +0800" itemprop="datePublished" class="post-meta__date date">2016-08-09</time> &#8226; <span class="post-meta__tags tags">JavaScript</span>
+      <time datetime="2017-04-27 22:43:24 +0800" itemprop="datePublished" class="post-meta__date date">2017-04-27</time> &#8226; <span class="post-meta__tags tags">javascript</span>
     </div>
-    <h1 class="post-title">JS高级程序设计与实践</h1>
+    <h1 class="post-title">面试内容总结</h1>
   </header>
 
   <section class="post">
-    <p>基本数据类型：Number，String，Boolean，Undefined，Null
-复杂数据类型：Object，Array，Function，RegExp，Date，Error</p>
+    <p>今天是神奇的一天，第一次知道这里居然真的有人看，原本以为只有自己会看。。。
+整理回忆一下今天面试的内容，总结学习也可以方便其他求职的小伙伴.</p>
 
-<p>一些较常用的正则表达式
-整理的一些常用的正则表达式
-.[\u4e00-\u9fa5] 一个汉字
-.[^\x00-\xff] 一个双字节子
-.(^\s<em>)|(\s</em>$) 首有白字符或者尾有白字符
-.\w+([-+.]\w+)<em>@\w+([-.]\w+)</em>.\w+([-.]\w+)* 电子邮件地址
-.http://([\w-]+.)+[\w-]+(/[\w- ./?%&amp;=]<em>)? 网址的URL
-.((2[0-4]\d|25[0-5]|[01]?\d\d?).){3}(2[0-4]\d|25[0-5]|[01]?\d\d?) IP地址
-.^\d+$ 匹配非负整数（正整数 + 0）
-.^[0-9]</em>[1-9][0-9]<em>$ 匹配正整数
-.^((-\d+)|(0+))$ 匹配非正整数（负整数 + 0）
-.^-[0-9]</em>[1-9][0-9]<em>$ 匹配负整数
-.^-?\d+$ 匹配整数
-.^\d+(.\d+)?$ 匹配非负浮点数（正浮点数 + 0）
-.^(([0-9]+.[0-9]</em>[1-9][0-9]<em>)|([0-9]</em>[1-9][0-9]<em>.[0-9]+)|([0-9]</em>[1-9][0-9]<em>))$ 匹配正浮点数
-.^((-\d+(.\d+)?)|(0+(.0+)?))$ 匹配非正浮点数（负浮点数 + 0）
-.^(-(([0-9]+.[0-9]</em>[1-9][0-9]<em>)|([0-9]</em>[1-9][0-9]<em>.[0-9]+)|([0-9]</em>[1-9][0-9]*)))$ 匹配负浮点数
-.^(-?\d+)(.\d+)?$ 匹配浮点数
-.^[A-Za-z]+$ 匹配由26个英文字母组成的字符串
-.^[A-Z]+$ 匹配由26个英文字母的大写组成的字符串
-.^[a-z]+$ 匹配由26个英文字母的小写组成的字符串
-.^[A-Za-z0-9]+$ 匹配由数字和26个英文字母组成的字符串</p>
+<p>在网上搜了搜，果然有很多360奇舞团的面试题啊，原来颜海镜也去面试过……我用过他fullpage.js的插件。。。。</p>
+
+<p>题目大抵是没有变的，考的都是基础知识，js主要考察 function context scope</p>
+
+<p>最后舔着个熊脸说一句，能有幸参加个一面也已经很荣幸了哈哈</p>
+
+<p>下面代码的输出值是？</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>alert(1&amp;&amp;2); //2
+</code></pre>
+</div>
+<p>后来又被问了 一个浮点数和0位运算的问题   <code class="highlighter-rouge">1.2345 | 0</code> 这样</p>
+
+<p>2.正则表达式匹配，开头为010,01N, 02N或0NNN，后面是-7-8个数字的电话号码。
+印象中我是这么写的
+<code class="highlighter-rouge">
+/^0[1,2]?0?N{1,3}-\d{7,8}$/
+</code></p>
+
+<p>3.写出下面代码的输出值：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var obj = {
+    a: 10,
+    b: function () {console.log(this.a *= 2)};
+};
+
+var a = 1;
+var objb = obj.b;
+
+obj.b();//20  obj里面的a变成20
+objb();//2     window的a变成2
+obj.b.call(window);//4
+</code></pre>
+</div>
+
+<p>4.写出下列代码的输出值：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>function A() {
+
+}
+function B(a) {
+    this.a = a;
+}
+function C(a) {
+    if (a) {
+        thia.a = a;
+    }
+}
+
+A.prototype.a = 1;
+B.prototype.a = 1;
+C.prototype.a = 1;
+
+console.log(new A());
+console.log(new B());
+console.log(new C(2));
+</code></pre>
+</div>
+
+<p>5.写出下列代码的输出值：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var a = 1;
+function b() {
+    var a = 2;
+    function c() {
+        console.log(a);
+    }
+
+    return c;
+}
+
+b()();
+</code></pre>
+</div>
+
+<h3 id="htmlcss">HTML&amp;CSS</h3>
+
+<p>1.写出下列代码在各个浏览器中的颜色值?</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>background: red;
+_background: green;
+*background: blue;
+background: black\9;
+
+
+    color:blue; /*所有浏览器*/
+    color:red\9; /*IE8以及以下版本浏览器*/
+    *color:green; /*IE7及其以下版本浏览器*/
+    _color:purple; /*IE6浏览器*/
+
+
+
+</code></pre>
+</div>
+
+<p>2.添加些css让其水平垂直居中。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;div style="____________________________"&gt;
+
+&lt;/div&gt;
+
+
+height: 200px;/*元素的高度*/
+position: absolute;
+top: 50%;  /*元素的顶部边界离父元素的的位置是父元素高度的一半*/
+margin-top: -50px;  //  height/2, width/2    *margin, padding是相对于父元素的
+
+</code></pre>
+</div>
+
+<p>3.如下代码，在空白处填写代码，是其点击时，前景色为白色，背景色为黑色。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;div onclick="_________________"&gt;ghost&lt;/div&gt;
+
+&lt;div onclick="this.style.color=&amp;quot;white&amp;quot;;this.style.background='black';"&gt;ghost&lt;/div&gt;
+主要考察两点：这个动态函数中的this是元素本身，另外代码中不能包含非转义字符，可以使用单引号或者使用&amp;quot;转义.
+</code></pre>
+</div>
+
+<ol>
+  <li>
+    <p>选择器的优先级： 会显示哪个颜色
+优先级id &gt; class &gt; tag
+要是想取得最高优先级: ! important</p>
+  </li>
+  <li>
+    <p>写三个块占满整行必须是正方形， width: 33.3%; padding-top: 33.3%    *margin, padding是相对于父元素的
+这个我有点不太确定了，明天试一下。</p>
+  </li>
+</ol>
+
+<p>6.书写代码，点击时从1分钟开始，每秒递减到0。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;div onclick="test();"&gt;ghost&lt;/div&gt;
+</code></pre>
+</div>
+
+<p>7.简述在IE下mouseover和mouseenter的区别？</p>
+
+<ol>
+  <li>
+    <p>按对角线划分如何判断onclick是在屏幕右上角</p>
+  </li>
+  <li>
+    <p>还问到了跨域和深拷贝（就是因为我这里面写了吗？。。。）</p>
+  </li>
+  <li>
+    <p>flex-grow &amp; flex-shrink
+增长到几倍，缩小到几分之几</p>
+  </li>
+  <li>
+    <p>项目里自动添加前缀的  gulp和webpack都有相应的包 gulp-postcss  webpack: postcss-loader</p>
+  </li>
+</ol>
+
+<p>（先睡了，明天更）</p>
 
 
   </section>
@@ -192,22 +326,14 @@
 
 <section class="read-more">
    
-   
-   <div class="read-more-item">
-       <span class="read-more-item-dim">Latest Post</span>
-       <h2 class="post-list__post-title post-title"><a href="/2016/08/mvc-summary/" title="link to 项目中MVC的学习与总结">项目中MVC的学习与总结</a></h2>
-       <p class="excerpt">在Github上面有个 repository 专门详细的记载了学习和实践整个项目的过程  notes 项目链接&hellip;</p>
-       <div class="post-list__meta"><time datetime="2016-08-09 18:06:24 +0800" class="post-list__meta--date date">2016-08-09</time> &#8226; <span class="post-list__meta--tags tags">JavaScript</span><a class="btn-border-small" href=/myblog/2016/08/mvc-summary/>More...</a></div>
-   </div>
-   
 
    
    
    <div class="read-more-item">
        <span class="read-more-item-dim">Earlier Post</span>
-       <h2 class="post-list__post-title post-title"><a href="/2016/08/http-protocol/" title="link to HTTP协议相关笔记">HTTP协议相关笔记</a></h2>
-       <p class="excerpt">非常常见的状态码首先是罗列一些学习工作中出现几率很高的状态码  200 OK  302 Moved Temporarily  304 Not Modified 未修改  400 Bad Request 错误的请求  401 Unauthorized 未授权  403 Forbidden 拒绝访问  404 Not Found 未找到      500 Internal Server Error 内部服务器错误    501 Not Implemented 未执行  502 Bad Gate...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2016-08-03 18:06:24 +0800" class="post-list__meta--date date">2016-08-03</time> &#8226; <span class="post-list__meta--tags tags">http</span><a class="btn-border-small" href=/myblog/2016/08/http-protocol/>More...</a></div>
+       <h2 class="post-list__post-title post-title"><a href="/2017/04/json-parse/" title="link to json 解析练习">json 解析练习</a></h2>
+       <p class="excerpt">将下面一段json解析成另一种格式original json{  "data": {    "_id": "5833b999fe85cdb80db8516f",    "desc": "",    "schemata": [      {        "child": [          {            "title": "http://d1h06o39vyn1mi.cloudfront.net/product/upload/40/aa/40aada9316033c487ac...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-04-13 15:43:24 +0800" class="post-list__meta--date date">2017-04-13</time> &#8226; <span class="post-list__meta--tags tags">javascript</span><a class="btn-border-small" href=/myblog/2017/04/json-parse/>More...</a></div>
    </div>
    
 </section>
@@ -218,8 +344,8 @@
     <script>
 
     var disqus_config = function () {
-        this.page.url = "http://woodghost.github.io/myblog/2016/08/js-03/";
-        this.page.identifier = "/2016/08/js-03/";
+        this.page.url = "http://woodghost.github.io/myblog/2017/04/record-interview/";
+        this.page.identifier = "/2017/04/record-interview/";
     };
 
     var disqus_shortname = 'woodghost';
@@ -243,7 +369,7 @@
             <section class="footer">
     <footer>
     	<span class="footer__copyright">Site adopted <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Attribution-NonCommercial-ShareAlike 4.0 Internationa</a></span>
-        <span class="footer__copyright">Generated by <a href="https://jekyllrb.com">Jekyll</a> at 2017-04-17, acknowledgement: <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> for VPS service</span>
+        <span class="footer__copyright">Generated by <a href="https://jekyllrb.com">Jekyll</a> at 2017-05-05, acknowledgement: <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> for VPS service</span>
         <span class="footer__copyright">Created by  <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> Here is <a href="https://github.com/onevcat/OneV-s-Den">Source code</a> - &copy; 2017</span>
     </footer>
 </section>

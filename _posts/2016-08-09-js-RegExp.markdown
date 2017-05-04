@@ -1,0 +1,235 @@
+---
+layout: post
+title: JavaScript的正则表达式学习整理
+date: 2016-08-09 18:06:24.000000000 +08:00
+tags: JavaScript
+---
+
+> Excerpt From:  [简书-正则表达式-javascript](http://www.jianshu.com/p/0e8f4a43c1e5) 和 《javascript高级程序设计的第三版》
+> (美)David Flanagan. “JavaScript权威指南（原书第6版）.”
+
+
+基本数据类型：Number，String，Boolean，Undefined，Null
+复杂数据类型：Object，Array，Function，RegExp，Date，Error
+
+### RegExp
+
+- Regular Expression
+
+正则表达式也叫做*匹配模式(Pattern)*，它由一组具有特定含义的字符串组成，通常用于匹配和替换文本。
+
+正则表达式是一个高效匹配检测的东西，对于表单检测，高亮显示搜索结果还是进行URL的地址映射，一般都需要用到它。
+
+```
+//pattern就是一个正则表达式。
+//flags用于表达正则行为的标志。
+
+//以字面量的形式来定义
+var expression = /pattern/flags;
+//构造函数
+var expression = new ReqExp("pattern","flags");
+```
+
+| flags标志  |            作用       |
+|---------  |:---------------------:|
+|	g | 全局模式,匹配将用于所有的字符串 |
+|	1 | 匹配不区分大小写             |
+|	m | 多行模式                   |
+
+### 元字符整理
+---------------------------------
+
+
+T1:元字符(常用匹配)  	|      说明
+|---------  |:---------------------:|
+.	| 匹配除了换行符以外的任意字符 (一个) matches any character (except for line terminators)
+\w	| 匹配字母或数字或下划线~~或汉字~~（一个）matches any word character (equal to [a-zA-Z0-9_])
+\s or [\r\n\t\f\v ]| 匹配任意的空白符 （一个） matches any whitespace character (equal to [\r\n\t\f\v ])
+\d or [0-9]	| 匹配数字(一个) matches a digit (equal to [0-9])
+\b	| 匹配单词的开始或结束(一个位置) assert position at a word boundary
+^	| 匹配字符串的开始(一个位置) asserts position at start of the string
+$	| 匹配字符串的结束(一个位置) asserts position at end of the string
+
+> `\w` 对中文/汉字的特殊处理是由.Net提供的正则表达式引擎支持的，其它环境下的具体情况请查看相关文档, js正则不支持，
+
+```
+//some egs: 不同的匹配结果
+var str = "him,history,high",
+  pattern1 = /hi/,  //匹配到第一个即止
+  patternGlobal = /hi/g,  //全局匹配字符串里所有出现过的hi
+  patternCertain = /\bhi\b/; //只匹配hi，前后都不是\w的hi，精确找到hi
+
+  console.log(str.match(pattern1));//[ 'hi', index: 0, input: 'him,history,high' ]
+  console.log(pattern1.exec(str));//[ 'hi', index: 0, input: 'him,history,high' ]
+  console.log(str.match(patternGlobal));//[ 'hi', 'hi', 'hi' ]
+  console.log(str.match(patternCertain));//null
+  console.log("hihi hi hihi".match(patternCertain));//[ 'hi', index: 5, input: 'hihi hi hihi' ]
+  // 不难发现，正则表达式非global模式下调用match方法，
+  返回的数组结果跟调用pattern1.exec(str)一样,
+  而RegExp的exec方法无论global与否都会返回包含第一个匹配项信息的数组或null，
+  还有两个额外的属性`index`和`input`
+
+```
+
+
+T2: 元字符(重复规则)	  | 说明
+|---------  |:---------------------:|
+*	| 重复0次或更多次
++	| 重复一次或更多次
+？	| 重复零次或一次
+{n}	| 重复n次
+{n，}	| 重复n次或更多次
+{n, m}	| 重复n到m次
+
+T3: 元字符(分组)	  | 说明
+|---------  |:---------------------:|
+（） | 	分组
+markdown制作表格的竖`|`  | 	表示分枝 Alternative (act as Boolean 'or')
+[ ]	|  表示选择里面的任意一个
+
+T4: 元字符(反义)	  | 说明
+|---------  |:---------------------:|
+\W  [0-9A-Za-z_] |	匹配任意不是字母，数字，下划线的字符 matches any non-word character (equal to [^a-zA-Z0-9_])
+\S	| 匹配任意不是空白符的字符 matches any non-whitespace character (equal to [^\r\n\t\f ])
+\D or [^0-9]	| 匹配任意的非数字的字符 matches any character that\'s not a digit (equal to  [^0-9])
+\B	| 匹配不是单词开头或者结尾的位置 assert position where `\b` does not match
+[^aeiou]	| 匹配除了aeiou这几个字母意外的任意字符 Match a single character not present in the list below
+
+
+
+### RegExp的实例属性
+
+|属性名称    |       	说明       |
+|---------  |:---------------------:|
+global	  | 表示是否设置了g标志，返回boolean值
+ignoreCase	|表示是否设置了i标志，返回boolean值
+lastIndex  | 	表示开始搜索下一个匹配项的字符位置，从0开始，返回的是整数。
+multiline	|表示是否设置了m标志，返回boolean值
+source	| 以"字面量"的形式返回正则表达式。
+
+
+### 1. RegExp实例方法---exec( )
+
+**exec(应用模式的字符串 )**，返回包含第一个匹配项信息的数组或null，但是这个数组有两个额外的属性`index`和`input`。
+
+- index 表示匹配项在字符串中的位置。
+- input 表示应用正则表达式的字符串。
+- 数组 第一项是与整个模式匹配的字符串，其他项是与模式中的捕获组匹配的字符串。
+
+注意：使用的exec（）方法的时候设置和不设置g标志是有区别的。
+
+设置g	| 不设置g
+---------  |:---------------------:
+每次调用exec( )都会在字符串中寻找新的匹配项	| 始终只是返回第一个匹配项的信息。
+
+
+
+#### Exercises
+
+非global, 每次都从头找起
+
+```
+var text = "cat, bat, sat, fat",
+    var pattern1 = /.at/,
+    matches = pattern1.exec(text);
+
+    console.log(matches.index); //0
+    console.log(matches[0]); //cat
+    console.log(pattern1.lastIndex); //0
+```
+
+global, 沿着字符串向下匹配新的
+
+```
+var text = "cat, bat, sat, fat",
+    pattern2 =  /.at/g,
+    matches = pattern2.exec(text);
+
+    console.log(matches.index);  //0
+    console.log(matches[0]); //cat
+    console.log(pattern2.lastIndex); //3
+
+    var matches = pattern2.exec(text);
+    console.log(matches.index);// 5
+    console.log(matches[0]);// bat
+    console.log(pattern2.lastIndex); //8
+```
+
+> IE的javascript实现在lastIndex属性上存在偏差，即使在非全局模式下，lastIndex属性每次也会变化。
+
+
+### 2. RegExp实例方法---test(string)
+----------------
+- RegExp的test方法用来测试字符串是否匹配给出的匹配模式，返回 Boolean
+- 模式与该参数匹配返回true, 不匹配就返回false
+
+```
+var pattern=/java/i;
+pattern.test("JavaScript");//返回true
+
+```
+
+### String的方法
+-----------------
+- match -- String的match方法返回包含所有匹配子字符串的数组；
+
+- replace -- String的replace方法完成string的替换操作，支持正则表达式；
+
+- search -- 与String的indexof方法类似，不同的是search支持正则表达式，而不仅仅是字符串；
+
+- split -- 按照一定规则拆分字符串并将子字符串存储到数组中的String方法。
+
+
+
+
+### 继承的方法
+
+方法	| 返回
+---------  |:---------------------:
+toLocaleString( ) or   toString()	 | 返回匹配正则表达式的字面量。
+valueOf( )	|     返回正则表达式本身
+
+```
+//eg：“给RegExp()传入一个字符串表述的正则表达式时，必须将“\”替换成“\\”
+
+    var pattern = new RegExp("\\[bc\\]at","g");
+
+    console.log(pattern.toLocaleString());
+    console.log(pattern.toString());
+    console.log(pattern.valueOf());
+```
+
+
+
+### 一些较常用的正则表达式
+
+```
+[\u4e00-\u9fa5] //匹配一个汉字  a single character in the range between 一 (ASCII 19968) and 龥 (ASCII 40869)
+
+[^\x00-\xff] //一个双字节字
+
+(^\s*)|(\s*$) //匹配首space或者尾space
+
+```
+
+
+
+\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)* 电子邮件地址
+.http://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)? 网址的URL
+.((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?) IP地址
+.^\d+$ 匹配非负整数（正整数 + 0）
+.^[0-9]*[1-9][0-9]*$ 匹配正整数
+.^((-\d+)|(0+))$ 匹配非正整数（负整数 + 0）
+.^-[0-9]*[1-9][0-9]*$ 匹配负整数
+.^-?\d+$ 匹配整数
+.^\d+(\.\d+)?$ 匹配非负浮点数（正浮点数 + 0）
+.^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$ 匹配正浮点数
+.^((-\d+(\.\d+)?)|(0+(\.0+)?))$ 匹配非正浮点数（负浮点数 + 0）
+.^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$ 匹配负浮点数
+.^(-?\d+)(\.\d+)?$ 匹配浮点数
+.^[A-Za-z]+$ 匹配由26个英文字母组成的字符串
+.^[A-Z]+$ 匹配由26个英文字母的大写组成的字符串
+.^[a-z]+$ 匹配由26个英文字母的小写组成的字符串
+.^[A-Za-z0-9]+$ 匹配由数字和26个英文字母组成的字符串
+
+

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>JavaScript的正则表达式学习整理</title>
+  <meta name="description" content="  Excerpt From:  简书-正则表达式-javascript 和 《javascript高级程序设计的第三版》(美)David Flanagan. “JavaScript权威指南（原书第6版）.”">
+  <meta name="author" content="Tingyue Wang">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="JavaScript的正则表达式学习整理">
+  <meta name="twitter:description" content="  Excerpt From:  简书-正则表达式-javascript 和 《javascript高级程序设计的第三版》(美)David Flanagan. “JavaScript权威指南（原书第6版）.”">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="JavaScript的正则表达式学习整理">
+  <meta property="og:description" content="  Excerpt From:  简书-正则表达式-javascript 和 《javascript高级程序设计的第三版》(美)David Flanagan. “JavaScript权威指南（原书第6版）.”">
+
+  <link rel="icon" type="image/x-icon" href="/myblog/assets/images/favicon.ico"/>
+  <link href="/myblog/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+  <link rel="stylesheet" href="/myblog/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/myblog/js/prettify/atelier-lakeside-light.min.css">
+  <link rel="canonical" href="http://woodghost.github.io/myblog/2016/08/js-RegExp/">
+  <link rel="alternate" type="application/rss+xml" title="WoodGhost" href="http://woodghost.github.io/myblog/feed.xml">
+
+  <meta name="google-site-verification" content="" />
+
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/myblog/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/myblog/" title="goto WoodGhost" class="blog-button"><img src="/myblog/assets/images/avatar.jpg" width="80" alt="WoodGhost logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/myblog/#blog" title="link to homepage for WoodGhost" class="blog-button">WoodGhost</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">渡頭余落日 墟里上孤煙</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">Technical discuss & Poems & Offshore Fantasy</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        
+        <p class="panel-cover__description">收藏整理归纳的清凉小角落...Welcome to this world :)</p>
+        
+
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/myblog/#blog" title="博客" class="blog-button">打开 Blog</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+  <!-- Weibo -->
+  <li class="navigation__item">
+    <a href="http://weibo.com/2576328977" title="@2576328977 weibo" target="_blank">
+      <i class='social fa fa-weibo'></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Github -->
+  <li class="navigation__item">
+    <a href="https://github.com/woodghost" title="@woodghost Github" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Twitter -->
+  <li class="navigation__item">
+    <a href="http://twitter.com/woodghost36" title="@woodghost36" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- instagram -->
+  <li class="navigation__item">
+    <a href="http://www.instagram.com/woodghost.io" title="@woodghost.io" target="_blank">
+      <i class='social fa fa-instagram'></i>
+      <span class="label">Instagram</span>
+    </a>
+  </li>
+  
+
+  
+
+
+  
+
+  <!-- RSS -->
+  <!--<li class="navigation__item">-->
+    <!--<a href="/myblog/feed.xml" rel="author" title="RSS" target="_blank">-->
+      <!--<i class='social fa fa-rss'></i>-->
+      <!--<span class="label">RSS</span>-->
+    <!--</a>-->
+  <!--</li>-->
+
+  
+  <!-- Email -->
+  <li class="navigation__item">
+    <a href="mailto:woodghost0960@gmail.com" title="Contact me">
+      <i class='social fa fa-envelope'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="panel-cover--overlay cover-blue"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2016-08-09 18:06:24 +0800" itemprop="datePublished" class="post-meta__date date">2016-08-09</time> &#8226; <span class="post-meta__tags tags">JavaScript</span>
+    </div>
+    <h1 class="post-title">JavaScript的正则表达式学习整理</h1>
+  </header>
+
+  <section class="post">
+    <blockquote>
+  <p>Excerpt From:  <a href="http://www.jianshu.com/p/0e8f4a43c1e5">简书-正则表达式-javascript</a> 和 《javascript高级程序设计的第三版》
+(美)David Flanagan. “JavaScript权威指南（原书第6版）.”</p>
+</blockquote>
+
+<p>基本数据类型：Number，String，Boolean，Undefined，Null
+复杂数据类型：Object，Array，Function，RegExp，Date，Error</p>
+
+<h3 id="regexp">RegExp</h3>
+
+<ul>
+  <li>Regular Expression</li>
+</ul>
+
+<p>正则表达式也叫做<em>匹配模式(Pattern)</em>，它由一组具有特定含义的字符串组成，通常用于匹配和替换文本。</p>
+
+<p>正则表达式是一个高效匹配检测的东西，对于表单检测，高亮显示搜索结果还是进行URL的地址映射，一般都需要用到它。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>//pattern就是一个正则表达式。
+//flags用于表达正则行为的标志。
+
+//以字面量的形式来定义
+var expression = /pattern/flags;
+//构造函数
+var expression = new ReqExp("pattern","flags");
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>flags标志</th>
+      <th style="text-align: center">作用</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>g</td>
+      <td style="text-align: center">全局模式,匹配将用于所有的字符串</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td style="text-align: center">匹配不区分大小写</td>
+    </tr>
+    <tr>
+      <td>m</td>
+      <td style="text-align: center">多行模式</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="section">元字符整理</h3>
+<hr />
+
+<table>
+  <thead>
+    <tr>
+      <th>T1:元字符(常用匹配)</th>
+      <th style="text-align: center">说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>.</td>
+      <td style="text-align: center">匹配除了换行符以外的任意字符 (一个) matches any character (except for line terminators)</td>
+    </tr>
+    <tr>
+      <td>\w</td>
+      <td style="text-align: center">匹配字母或数字或下划线<del>或汉字</del>（一个）matches any word character (equal to [a-zA-Z0-9_])</td>
+    </tr>
+    <tr>
+      <td>\s or [\r\n\t\f\v ]</td>
+      <td style="text-align: center">匹配任意的空白符 （一个） matches any whitespace character (equal to [\r\n\t\f\v ])</td>
+    </tr>
+    <tr>
+      <td>\d or [0-9]</td>
+      <td style="text-align: center">匹配数字(一个) matches a digit (equal to [0-9])</td>
+    </tr>
+    <tr>
+      <td>\b</td>
+      <td style="text-align: center">匹配单词的开始或结束(一个位置) assert position at a word boundary</td>
+    </tr>
+    <tr>
+      <td>^</td>
+      <td style="text-align: center">匹配字符串的开始(一个位置) asserts position at start of the string</td>
+    </tr>
+    <tr>
+      <td>$</td>
+      <td style="text-align: center">匹配字符串的结束(一个位置) asserts position at end of the string</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><code class="highlighter-rouge">\w</code> 对中文/汉字的特殊处理是由.Net提供的正则表达式引擎支持的，其它环境下的具体情况请查看相关文档, js正则不支持，</p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>//some egs: 不同的匹配结果
+var str = "him,history,high",
+  pattern1 = /hi/,  //匹配到第一个即止
+  patternGlobal = /hi/g,  //全局匹配字符串里所有出现过的hi
+  patternCertain = /\bhi\b/; //只匹配hi，前后都不是\w的hi，精确找到hi
+
+  console.log(str.match(pattern1));//[ 'hi', index: 0, input: 'him,history,high' ]
+  console.log(pattern1.exec(str));//[ 'hi', index: 0, input: 'him,history,high' ]
+  console.log(str.match(patternGlobal));//[ 'hi', 'hi', 'hi' ]
+  console.log(str.match(patternCertain));//null
+  console.log("hihi hi hihi".match(patternCertain));//[ 'hi', index: 5, input: 'hihi hi hihi' ]
+  // 不难发现，正则表达式非global模式下调用match方法，
+  返回的数组结果跟调用pattern1.exec(str)一样,
+  而RegExp的exec方法无论global与否都会返回包含第一个匹配项信息的数组或null，
+  还有两个额外的属性`index`和`input`
+
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>T2: 元字符(重复规则)</th>
+      <th style="text-align: center">说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>*</td>
+      <td style="text-align: center">重复0次或更多次</td>
+    </tr>
+    <tr>
+      <td>+</td>
+      <td style="text-align: center">重复一次或更多次</td>
+    </tr>
+    <tr>
+      <td>？</td>
+      <td style="text-align: center">重复零次或一次</td>
+    </tr>
+    <tr>
+      <td>{n}</td>
+      <td style="text-align: center">重复n次</td>
+    </tr>
+    <tr>
+      <td>{n，}</td>
+      <td style="text-align: center">重复n次或更多次</td>
+    </tr>
+    <tr>
+      <td>{n, m}</td>
+      <td style="text-align: center">重复n到m次</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>T3: 元字符(分组)</th>
+      <th style="text-align: center">说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>（）</td>
+      <td style="text-align: center">分组</td>
+    </tr>
+    <tr>
+      <td>markdown制作表格的竖<code class="highlighter-rouge">|</code></td>
+      <td style="text-align: center">表示分枝 Alternative (act as Boolean ‘or’)</td>
+    </tr>
+    <tr>
+      <td>[ ]</td>
+      <td style="text-align: center">表示选择里面的任意一个</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>T4: 元字符(反义)</th>
+      <th style="text-align: center">说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>\W  [0-9A-Za-z_]</td>
+      <td style="text-align: center">匹配任意不是字母，数字，下划线的字符 matches any non-word character (equal to [^a-zA-Z0-9_])</td>
+    </tr>
+    <tr>
+      <td>\S</td>
+      <td style="text-align: center">匹配任意不是空白符的字符 matches any non-whitespace character (equal to [^\r\n\t\f ])</td>
+    </tr>
+    <tr>
+      <td>\D or [^0-9]</td>
+      <td style="text-align: center">匹配任意的非数字的字符 matches any character that's not a digit (equal to  [^0-9])</td>
+    </tr>
+    <tr>
+      <td>\B</td>
+      <td style="text-align: center">匹配不是单词开头或者结尾的位置 assert position where <code class="highlighter-rouge">\b</code> does not match</td>
+    </tr>
+    <tr>
+      <td>[^aeiou]</td>
+      <td style="text-align: center">匹配除了aeiou这几个字母意外的任意字符 Match a single character not present in the list below</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="regexp-1">RegExp的实例属性</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性名称</th>
+      <th style="text-align: center">说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>global</td>
+      <td style="text-align: center">表示是否设置了g标志，返回boolean值</td>
+    </tr>
+    <tr>
+      <td>ignoreCase</td>
+      <td style="text-align: center">表示是否设置了i标志，返回boolean值</td>
+    </tr>
+    <tr>
+      <td>lastIndex</td>
+      <td style="text-align: center">表示开始搜索下一个匹配项的字符位置，从0开始，返回的是整数。</td>
+    </tr>
+    <tr>
+      <td>multiline</td>
+      <td style="text-align: center">表示是否设置了m标志，返回boolean值</td>
+    </tr>
+    <tr>
+      <td>source</td>
+      <td style="text-align: center">以”字面量”的形式返回正则表达式。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="regexp---exec-">1. RegExp实例方法—exec( )</h3>
+
+<p><strong>exec(应用模式的字符串 )</strong>，返回包含第一个匹配项信息的数组或null，但是这个数组有两个额外的属性<code class="highlighter-rouge">index</code>和<code class="highlighter-rouge">input</code>。</p>
+
+<ul>
+  <li>index 表示匹配项在字符串中的位置。</li>
+  <li>input 表示应用正则表达式的字符串。</li>
+  <li>数组 第一项是与整个模式匹配的字符串，其他项是与模式中的捕获组匹配的字符串。</li>
+</ul>
+
+<p>注意：使用的exec（）方法的时候设置和不设置g标志是有区别的。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>设置g</th>
+      <th style="text-align: center">不设置g</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>每次调用exec( )都会在字符串中寻找新的匹配项</td>
+      <td style="text-align: center">始终只是返回第一个匹配项的信息。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="exercises">Exercises</h4>
+
+<p>非global, 每次都从头找起</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var text = "cat, bat, sat, fat",
+    var pattern1 = /.at/,
+    matches = pattern1.exec(text);
+
+    console.log(matches.index); //0
+    console.log(matches[0]); //cat
+    console.log(pattern1.lastIndex); //0
+</code></pre>
+</div>
+
+<p>global, 沿着字符串向下匹配新的</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var text = "cat, bat, sat, fat",
+    pattern2 =  /.at/g,
+    matches = pattern2.exec(text);
+
+    console.log(matches.index);  //0
+    console.log(matches[0]); //cat
+    console.log(pattern2.lastIndex); //3
+
+    var matches = pattern2.exec(text);
+    console.log(matches.index);// 5
+    console.log(matches[0]);// bat
+    console.log(pattern2.lastIndex); //8
+</code></pre>
+</div>
+
+<blockquote>
+  <p>IE的javascript实现在lastIndex属性上存在偏差，即使在非全局模式下，lastIndex属性每次也会变化。</p>
+</blockquote>
+
+<h3 id="regexp---teststring">2. RegExp实例方法—test(string)</h3>
+<hr />
+<ul>
+  <li>RegExp的test方法用来测试字符串是否匹配给出的匹配模式，返回 Boolean</li>
+  <li>模式与该参数匹配返回true, 不匹配就返回false</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var pattern=/java/i;
+pattern.test("JavaScript");//返回true
+
+</code></pre>
+</div>
+
+<h3 id="string">String的方法</h3>
+<hr />
+<ul>
+  <li>
+    <p>match – String的match方法返回包含所有匹配子字符串的数组；</p>
+  </li>
+  <li>
+    <p>replace – String的replace方法完成string的替换操作，支持正则表达式；</p>
+  </li>
+  <li>
+    <p>search – 与String的indexof方法类似，不同的是search支持正则表达式，而不仅仅是字符串；</p>
+  </li>
+  <li>
+    <p>split – 按照一定规则拆分字符串并将子字符串存储到数组中的String方法。</p>
+  </li>
+</ul>
+
+<h3 id="section-1">继承的方法</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>方法</th>
+      <th style="text-align: center">返回</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>toLocaleString( ) or   toString()</td>
+      <td style="text-align: center">返回匹配正则表达式的字面量。</td>
+    </tr>
+    <tr>
+      <td>valueOf( )</td>
+      <td style="text-align: center">返回正则表达式本身</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>//eg：“给RegExp()传入一个字符串表述的正则表达式时，必须将“\”替换成“\\”
+
+    var pattern = new RegExp("\\[bc\\]at","g");
+
+    console.log(pattern.toLocaleString());
+    console.log(pattern.toString());
+    console.log(pattern.valueOf());
+</code></pre>
+</div>
+
+<h3 id="section-2">一些较常用的正则表达式</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[\u4e00-\u9fa5] //匹配一个汉字  a single character in the range between 一 (ASCII 19968) and 龥 (ASCII 40869)
+
+[^\x00-\xff] //一个双字节字
+
+(^\s*)|(\s*$) //匹配首space或者尾space
+
+</code></pre>
+</div>
+
+<p>\w+([-+.]\w+)<em>@\w+([-.]\w+)</em>.\w+([-.]\w+)* 电子邮件地址
+.http://([\w-]+.)+[\w-]+(/[\w- ./?%&amp;=]<em>)? 网址的URL
+.((2[0-4]\d|25[0-5]|[01]?\d\d?).){3}(2[0-4]\d|25[0-5]|[01]?\d\d?) IP地址
+.^\d+$ 匹配非负整数（正整数 + 0）
+.^[0-9]</em>[1-9][0-9]<em>$ 匹配正整数
+.^((-\d+)|(0+))$ 匹配非正整数（负整数 + 0）
+.^-[0-9]</em>[1-9][0-9]<em>$ 匹配负整数
+.^-?\d+$ 匹配整数
+.^\d+(.\d+)?$ 匹配非负浮点数（正浮点数 + 0）
+.^(([0-9]+.[0-9]</em>[1-9][0-9]<em>)|([0-9]</em>[1-9][0-9]<em>.[0-9]+)|([0-9]</em>[1-9][0-9]<em>))$ 匹配正浮点数
+.^((-\d+(.\d+)?)|(0+(.0+)?))$ 匹配非正浮点数（负浮点数 + 0）
+.^(-(([0-9]+.[0-9]</em>[1-9][0-9]<em>)|([0-9]</em>[1-9][0-9]<em>.[0-9]+)|([0-9]</em>[1-9][0-9]*)))$ 匹配负浮点数
+.^(-?\d+)(.\d+)?$ 匹配浮点数
+.^[A-Za-z]+$ 匹配由26个英文字母组成的字符串
+.^[A-Z]+$ 匹配由26个英文字母的大写组成的字符串
+.^[a-z]+$ 匹配由26个英文字母的小写组成的字符串
+.^[A-Za-z0-9]+$ 匹配由数字和26个英文字母组成的字符串</p>
+
+
+  </section>
+</article>
+
+<section class="read-more">
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">Latest Post</span>
+       <h2 class="post-list__post-title post-title"><a href="/2016/08/mvc-summary/" title="link to 项目中MVC的学习与总结">项目中MVC的学习与总结</a></h2>
+       <p class="excerpt">在Github上面有个 repository 专门详细的记载了学习和实践整个项目的过程  notes 项目链接&hellip;</p>
+       <div class="post-list__meta"><time datetime="2016-08-09 18:06:24 +0800" class="post-list__meta--date date">2016-08-09</time> &#8226; <span class="post-list__meta--tags tags">JavaScript</span><a class="btn-border-small" href=/myblog/2016/08/mvc-summary/>More...</a></div>
+   </div>
+   
+
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">Earlier Post</span>
+       <h2 class="post-list__post-title post-title"><a href="/2016/08/http-protocol/" title="link to HTTP协议相关笔记">HTTP协议相关笔记</a></h2>
+       <p class="excerpt">非常常见的状态码首先是罗列一些学习工作中出现几率很高的状态码  200 OK  302 Moved Temporarily  304 Not Modified 未修改  400 Bad Request 错误的请求  401 Unauthorized 未授权  403 Forbidden 拒绝访问  404 Not Found 未找到      500 Internal Server Error 内部服务器错误    501 Not Implemented 未执行  502 Bad Gate...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2016-08-03 18:06:24 +0800" class="post-list__meta--date date">2016-08-03</time> &#8226; <span class="post-list__meta--tags tags">http</span><a class="btn-border-small" href=/myblog/2016/08/http-protocol/>More...</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+  
+    <div id="disqus_thread"></div>
+    <script>
+
+    var disqus_config = function () {
+        this.page.url = "http://woodghost.github.io/myblog/2016/08/js-RegExp/";
+        this.page.identifier = "/2016/08/js-RegExp/";
+    };
+
+    var disqus_shortname = 'woodghost';
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>When checking<a href="http://disqus.com/?ref_noscript"> Disqus </a>comment, pls enable JavaScript</noscript>
+
+  
+
+
+
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">Site adopted <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Attribution-NonCommercial-ShareAlike 4.0 Internationa</a></span>
+        <span class="footer__copyright">Generated by <a href="https://jekyllrb.com">Jekyll</a> at 2017-05-05, acknowledgement: <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> for VPS service</span>
+        <span class="footer__copyright">Created by  <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> Here is <a href="https://github.com/onevcat/OneV-s-Den">Source code</a> - &copy; 2017</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!--<script type="text/javascript" src="/myblog/js/highlight.pack.js"</script>-->
+<!--<script>hljs.initHighlightingOnLoad();</script>-->
+
+<script src="/myblog/js/prettify/prettify.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("pre").addClass("prettyprint linenums");
+        prettyPrint();
+    });
+</script>
+
+<script type="text/javascript" src="/myblog/js/main.js"></script>
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-81484538-1', '');
+    ga('send', 'pageview');
+</script>
+
+
+    
+  </body>
+
+</html>
