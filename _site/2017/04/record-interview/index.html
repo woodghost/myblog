@@ -167,20 +167,36 @@
 
 <p>题目大抵是没有变的，考的都是基础知识，js主要考察 function context scope</p>
 
-<p>最后舔着个熊脸说一句，能有幸参加个一面也已经很荣幸了哈哈</p>
+<p>最后舔着个熊脸说一句，能有幸参加个一面也已经很荣幸了:)</p>
 
 <p>下面代码的输出值是？</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>alert(1&amp;&amp;2); //2
+<div class="highlighter-rouge"><pre class="highlight"><code>alert(1 &amp;&amp; 2); //2
 </code></pre>
 </div>
-<p>后来又被问了 一个浮点数和0位运算的问题   <code class="highlighter-rouge">1.2345 | 0</code> 这样</p>
 
-<p>2.正则表达式匹配，开头为010,01N, 02N或0NNN，后面是-7-8个数字的电话号码。
-印象中我是这么写的
-<code class="highlighter-rouge">
-/^0[1,2]?0?N{1,3}-\d{7,8}$/
-</code></p>
+<p>后来又被问了 一个浮点数和0位运算的问题   <code class="highlighter-rouge">1.2345 | 0</code> 这样
+位运算<code class="highlighter-rouge">&amp;</code>按位与，<code class="highlighter-rouge">|</code>按位或，都是转为二进制数后进行运算，效率低于逻辑运算符<code class="highlighter-rouge">&amp;&amp;</code>，<code class="highlighter-rouge">||</code>，运算意义也不同，
+<code class="highlighter-rouge">&amp;&amp;</code>return 第二个运算数或者false，<code class="highlighter-rouge">||</code>return第一个有效值。如果<code class="highlighter-rouge">||</code>的第一个运算数是true，也不再考虑第二个运算数，直接返回true</p>
+
+<p>2.正则表达式匹配，开头为010,01N, 02N或0NNN，后面是-7-8个数字的电话号码。</p>
+
+<p>之后写了个可以满足这些要求的pattern</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>/^0[1,2]?(0|N{1,3})-\d{7,8}$/
+</code></pre>
+</div>
+
+<p>但题目意思是要匹配一个区号+电话号码吧，于是重写了如下pattern</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>/^0\d{2,3}-?\d{7,8}$/
+//这个规则用来匹配座机号码好一点
+</code></pre>
+</div>
+
+<blockquote>
+  <p>自己关于正则的整理： <a href="http://woodghost.github.io/myblog/2016/08/js-RegExp/">JavaScript的正则表达式学习整理</a></p>
+</blockquote>
 
 <p>3.写出下面代码的输出值：</p>
 
@@ -310,15 +326,40 @@ margin-top: -50px;  //  height/2, width/2    *margin, padding是相对于父元�
     <p>还问到了跨域和深拷贝（就是因为我这里面写了吗？。。。）</p>
   </li>
   <li>
-    <p>flex-grow &amp; flex-shrink
+    <p>flex-grow &amp; flex-shrink  (flexbox布局问题)
 增长到几倍，缩小到几分之几</p>
-  </li>
-  <li>
-    <p>项目里自动添加前缀的  gulp和webpack都有相应的包 gulp-postcss  webpack: postcss-loader</p>
   </li>
 </ol>
 
-<p>（先睡了，明天更）</p>
+<blockquote>
+  <p>Reference from <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a></p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>//-webkit-box-flex or flex设置属性值的时候
+//flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。
+
+flex: none | [ &lt;'flex-grow'&gt; &lt;'flex-shrink'&gt;? || &lt;'flex-basis'&gt; ]
+
+//该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)。
+//建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。
+
+
+
+flex-grow: &lt;number&gt;; /* default 0 */
+//flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大
+
+
+flex-shrink: &lt;number&gt;; /* default 1 */
+//flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小
+
+</code></pre>
+</div>
+
+<ol>
+  <li>项目里自动添加前缀的  gulp和webpack都有相应的包 gulp-postcss  webpack: postcss-loader</li>
+</ol>
+
+<p>（Updating…）</p>
 
 
   </section>
