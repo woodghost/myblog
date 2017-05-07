@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>HTTP协议相关笔记</title>
-  <meta name="description" content="非常常见的状态码">
+  <title>作用域</title>
+  <meta name="description" content="温故而知新，在repl上创建了一个例子回顾CSS3的一些细节">
   <meta name="author" content="Tingyue Wang">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="HTTP协议相关笔记">
-  <meta name="twitter:description" content="非常常见的状态码">
+  <meta name="twitter:title" content="作用域">
+  <meta name="twitter:description" content="温故而知新，在repl上创建了一个例子回顾CSS3的一些细节">
 
   <meta property="og:type" content="article">
-  <meta property="og:title" content="HTTP协议相关笔记">
-  <meta property="og:description" content="非常常见的状态码">
+  <meta property="og:title" content="作用域">
+  <meta property="og:description" content="温故而知新，在repl上创建了一个例子回顾CSS3的一些细节">
 
   <link rel="icon" type="image/x-icon" href="/myblog/assets/images/favicon.ico"/>
   <link href="/myblog/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
@@ -25,7 +25,7 @@
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="/myblog/js/prettify/atelier-lakeside-light.min.css">
-  <link rel="canonical" href="http://woodghost.github.io/myblog/2016/08/http-protocol/">
+  <link rel="canonical" href="http://woodghost.github.io/myblog/2017/05/css-basic/">
   <link rel="alternate" type="application/rss+xml" title="WoodGhost" href="http://woodghost.github.io/myblog/feed.xml">
 
   <meta name="google-site-verification" content="" />
@@ -154,191 +154,67 @@
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2016-08-03 18:06:24 +0800" itemprop="datePublished" class="post-meta__date date">2016-08-03</time> &#8226; <span class="post-meta__tags tags">http</span>
+      <time datetime="2017-05-06 18:06:24 +0800" itemprop="datePublished" class="post-meta__date date">2017-05-06</time> &#8226; <span class="post-meta__tags tags">CSS3</span>
     </div>
-    <h1 class="post-title">HTTP协议相关笔记</h1>
+    <h1 class="post-title">作用域</h1>
   </header>
 
   <section class="post">
-    <h3 id="section">非常常见的状态码</h3>
-
-<p>首先是罗列一些学习工作中出现几率很高的状态码</p>
-
-<ul>
-  <li>200 OK</li>
-  <li>302 Moved Temporarily</li>
-  <li>304 Not Modified 未修改</li>
-  <li>400 Bad Request 错误的请求</li>
-  <li>401 Unauthorized 未授权</li>
-  <li>403 Forbidden 拒绝访问</li>
-  <li>404 Not Found 未找到</li>
-  <li>
-    <p>500 Internal Server Error 内部服务器错误</p>
-  </li>
-  <li>501 Not Implemented 未执行</li>
-  <li>502 Bad Gateway 错误的网关</li>
-  <li>503 Service Unavailable 服务不可用</li>
-  <li>504 Gateway Timeout 网关超时</li>
-</ul>
-
-<h3 id="section-1">更多内容</h3>
-
-<h4 id="section-2">标准扩展码</h4>
-
-<p>1xx Informational 信息化</p>
-
-<p>100 Continue 继续</p>
-
-<p>101 Switching Protocols 交换协议</p>
-
-<p>102 Processing 处理</p>
-
-<p>2xx Success 成功</p>
-
-<p>200 OK</p>
-
-<p>201 Created 创建</p>
-
-<p>202 Accepted 已接受</p>
-
-<p>203 Non-Authoritative Information 非授权信息</p>
-
-<p>204 No Content 无内容</p>
-
-<p>205 Reset Content 重置内容</p>
-
-<p>206 Partial Content 部分内容</p>
-
-<p>207 Multi-Status 多状态</p>
-
-<p>208 Already Reported 已报告</p>
-
-<p>226 IMIM Used 使用的</p>
-
-<p>3xx Redirection 重定向</p>
-
-<p>300 Multiple Choices 多种选择</p>
-
-<p>301 Moved Permanently 永久移动</p>
-
-<p>302 Found 发现  Moved Temporarily</p>
-
-<p>303 See Other 查看其它</p>
-
-<p>304 Not Modified 未修改</p>
-
-<p>305 Use Proxy 使用代理</p>
-
-<p>306 Switch Proxy 开关代理</p>
-
-<p>307 Temporary Redirect 临时重定向</p>
-
-<p>308 Permanent Redirect 永久重定向</p>
-
-<p>4xx Client Error 客户端错误</p>
-
-<p>400 Bad Request 错误的请求</p>
-
-<p>401 Unauthorized 未授权</p>
-
-<p>402 Payment Required 需要付费</p>
-
-<p>403Forbidden 拒绝访问</p>
-
-<p>404 Not Found 未找到</p>
-
-<p>405 Method Not Allowed 不允许的方法</p>
-
-<p>406 Not Acceptable 不可接受</p>
-
-<p>407 Proxy Authentication Required 代理服务器需要身份验证</p>
-
-<p>408 Request Timeout 请求超时</p>
-
-<p>409 Conflict 冲突</p>
-
-<p>410 Gone 完成</p>
-
-<p>411 Length Required 需要长度</p>
-
-<p>412 Precondition Failed 前提条件失败</p>
-
-<p>413 Payload Too Large 负载过大</p>
-
-<p>414 URI Too Long 太长</p>
-
-<p>415 Unsupported Media Type 不支持的媒体类型</p>
-
-<p>416 Range Not Satisfiable 的范围不合适</p>
-
-<p>417 Expectation Failed 预期失败</p>
-
-<p>418 I’m a teapot 我是一个茶壶</p>
-
-<p>421 Misdirected Request 误导请求</p>
-
-<p>422 Unprocessable Entity 无法处理的实体</p>
-
-<p>423 Locked 锁定</p>
-
-<p>424 Failed Dependency 失败的依赖</p>
-
-<p>426 Upgrade Required 升级所需</p>
-
-<p>428 Precondition Required 所需的先决条件</p>
-
-<p>429 Too Many Requests 太多的请求</p>
-
-<p>431 Request Header Fields Too Large 请求头字段太大</p>
-
-<p>451 Unavailable For Legal Reasons 不可出于法律原因</p>
-
-<p>5xx Server Error 服务器错误</p>
-
-<p>500 Internal Server Error 内部服务器错误</p>
-
-<p>501 Not Implemented 未执行</p>
-
-<p>502 Bad Gateway 错误的网关</p>
-
-<p>503 Service Unavailable 服务不可用</p>
-
-<p>504 Gateway Timeout 网关超时</p>
-
-<p>505 HTTP Version Not Supported 不支持HTTP版本</p>
-
-<p>506 Variant Also Negotiates 变体也进行协商</p>
-
-<p>507 Insufficient Storage 存储空间不足</p>
-
-<p>508 Loop Detected 检测到循环</p>
-
-<p>510 Not Extended 不延长</p>
-
-<p>511 Network Authentication Required 网络需要身份验证</p>
-
+    <p>温故而知新，在repl上创建了一个例子回顾CSS3的一些细节</p>
+
+<h3 id="css3">CSS3盒子模型基础概念</h3>
+<p>每个HTML元素都是长方形盒子。
+（1）盒子模型有两种：IE盒子模型、标准W3C盒子模型；IE的content部分包含了border和pading。
+（2）标准W3C盒模型包含：内容(content)、填充(padding)、边界(margin)、边框(border)。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>box-sizing: content-box (default) | border-box | inherit;
+//border-box可以让已设定的宽高决定边框盒，padding和border都算在里面，content + padding + border = width/height
+</code></pre>
+</div>
+
+<h3 id="flexbox-layout">flexbox Layout</h3>
+
+<blockquote>
+  <p>主要参考自 <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">CSS-tricks: A Guide to Flexbox</a></p>
+</blockquote>
+
+<h3 id="section">实现一个旋转的立方体</h3>
+
+<blockquote>
+  <p><a href="https://codepen.io/woodghost/pen/BRmjYK?editors=1100">codepen上代码实现以及步骤细节</a></p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>//要用到CSS3里面的属性transform-style(需要跟transform一起使用)，不继承
+//transform-style: flat (default) | preserve-3d;
+
+//主要用到的 properties：
+-webkit-perspective: number (px) | none; /* Safari 和 Chrome */
+-webkit-perspective-origin: x-axis y-axis (default: 50% 50%);
+-webkit-transform-style: preserve-3d;
+-webkit-transform: rotateY(30deg) rotateX(10deg);
+-webkit-animation:  spin 4s linear infinite;
+
+@keyframes spin {
+  from { transform: rotateX(0) rotateY(0); }
+  to   { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+</code></pre>
+</div>
 
   </section>
 </article>
 
 <section class="read-more">
    
-   
-   <div class="read-more-item">
-       <span class="read-more-item-dim">Latest Post</span>
-       <h2 class="post-list__post-title post-title"><a href="/2016/08/js-RegExp/" title="link to JavaScript的正则表达式学习整理">JavaScript的正则表达式学习整理</a></h2>
-       <p class="excerpt">  Excerpt From:  简书-正则表达式-javascript 和 《javascript高级程序设计的第三版》(美)David Flanagan. “JavaScript权威指南（原书第6版）.”基本数据类型：Number，String，Boolean，Undefined，Null复杂数据类型：Object，Array，Function，RegExp，Date，ErrorRegExp  Regular Expression正则表达式也叫做匹配模式(Pattern)，它由一组具有...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2016-08-09 18:06:24 +0800" class="post-list__meta--date date">2016-08-09</time> &#8226; <span class="post-list__meta--tags tags">JavaScript</span><a class="btn-border-small" href=/myblog/2016/08/js-RegExp/>More...</a></div>
-   </div>
-   
 
    
    
    <div class="read-more-item">
        <span class="read-more-item-dim">Earlier Post</span>
-       <h2 class="post-list__post-title post-title"><a href="/2016/08/leetcode-01/" title="link to 第一篇Leetcode学习笔记">第一篇Leetcode学习笔记</a></h2>
-       <p class="excerpt">First of all, 看了最最基本的leetcode 371 和 001都是两个数求和这种，诚然，可以直接return a + b, 但是大部分公司显然不会满足这种答案。所以借此机会认真复习了bit manipulation，two’s complement等二进制位运算方面的知识。编码尽量采用c++, javascript, pythontwo’s complement补码About binary还有关于2进制，位运算什么的Two’s complement is the way e...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2016-08-03 18:06:24 +0800" class="post-list__meta--date date">2016-08-03</time> &#8226; <span class="post-list__meta--tags tags">algorithm</span><a class="btn-border-small" href=/myblog/2016/08/leetcode-01/>More...</a></div>
+       <h2 class="post-list__post-title post-title"><a href="/2017/04/record-interview/" title="link to 面试内容总结">面试内容总结</a></h2>
+       <p class="excerpt">今天是神奇的一天，第一次知道这里居然真的有人看，原本以为只有自己会看。。。整理回忆一下今天面试的内容，总结学习也可以方便其他求职的小伙伴.在网上搜了搜，果然有很多360奇舞团的面试题啊，原来颜海镜也去面试过……我用过他fullpage.js的插件。。。。题目大抵是没有变的，考的都是基础知识，js主要考察 function context scope最后舔着个熊脸说一句，能有幸参加个一面也已经很荣幸了:)1.下面代码的输出值是？alert(1 &amp;&amp; 2); //2后来又被问了...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-04-27 22:43:24 +0800" class="post-list__meta--date date">2017-04-27</time> &#8226; <span class="post-list__meta--tags tags">javascript</span><a class="btn-border-small" href=/myblog/2017/04/record-interview/>More...</a></div>
    </div>
    
 </section>
@@ -349,8 +225,8 @@
     <script>
 
     var disqus_config = function () {
-        this.page.url = "http://woodghost.github.io/myblog/2016/08/http-protocol/";
-        this.page.identifier = "/2016/08/http-protocol/";
+        this.page.url = "http://woodghost.github.io/myblog/2017/05/css-basic/";
+        this.page.identifier = "/2017/05/css-basic/";
     };
 
     var disqus_shortname = 'woodghost';

@@ -5,9 +5,62 @@
     <description>Technical discuss &amp; Poems &amp; Offshore Fantasy</description>
     <link>http://woodghost.github.io/myblog/</link>
     <atom:link href="http://woodghost.github.io/myblog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 05 May 2017 15:05:05 +0800</pubDate>
-    <lastBuildDate>Fri, 05 May 2017 15:05:05 +0800</lastBuildDate>
+    <pubDate>Sun, 07 May 2017 20:08:48 +0800</pubDate>
+    <lastBuildDate>Sun, 07 May 2017 20:08:48 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>作用域</title>
+        <description>&lt;p&gt;温故而知新，在repl上创建了一个例子回顾CSS3的一些细节&lt;/p&gt;
+
+&lt;h3 id=&quot;css3&quot;&gt;CSS3盒子模型基础概念&lt;/h3&gt;
+&lt;p&gt;每个HTML元素都是长方形盒子。
+（1）盒子模型有两种：IE盒子模型、标准W3C盒子模型；IE的content部分包含了border和pading。
+（2）标准W3C盒模型包含：内容(content)、填充(padding)、边界(margin)、边框(border)。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;box-sizing: content-box (default) | border-box | inherit;
+//border-box可以让已设定的宽高决定边框盒，padding和border都算在里面，content + padding + border = width/height
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;flexbox-layout&quot;&gt;flexbox Layout&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;主要参考自 &lt;a href=&quot;https://css-tricks.com/snippets/css/a-guide-to-flexbox/&quot;&gt;CSS-tricks: A Guide to Flexbox&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;实现一个旋转的立方体&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;https://codepen.io/woodghost/pen/BRmjYK?editors=1100&quot;&gt;codepen上代码实现以及步骤细节&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//要用到CSS3里面的属性transform-style(需要跟transform一起使用)，不继承
+//transform-style: flat (default) | preserve-3d;
+
+//主要用到的 properties：
+-webkit-perspective: number (px) | none; /* Safari 和 Chrome */
+-webkit-perspective-origin: x-axis y-axis (default: 50% 50%);
+-webkit-transform-style: preserve-3d;
+-webkit-transform: rotateY(30deg) rotateX(10deg);
+-webkit-animation:  spin 4s linear infinite;
+
+@keyframes spin {
+  from { transform: rotateX(0) rotateY(0); }
+  to   { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Sat, 06 May 2017 18:06:24 +0800</pubDate>
+        <link>http://woodghost.github.io/myblog/2017/05/css-basic/</link>
+        <guid isPermaLink="true">http://woodghost.github.io/myblog/2017/05/css-basic/</guid>
+        
+        <category>CSS3</category>
+        
+        
+      </item>
     
       <item>
         <title>面试内容总结</title>
@@ -20,7 +73,7 @@
 
 &lt;p&gt;最后舔着个熊脸说一句，能有幸参加个一面也已经很荣幸了:)&lt;/p&gt;
 
-&lt;p&gt;下面代码的输出值是？&lt;/p&gt;
+&lt;h3 id=&quot;section&quot;&gt;1.下面代码的输出值是？&lt;/h3&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;alert(1 &amp;amp;&amp;amp; 2); //2
 &lt;/code&gt;&lt;/pre&gt;
@@ -30,7 +83,19 @@
 位运算&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&lt;/code&gt;按位与，&lt;code class=&quot;highlighter-rouge&quot;&gt;|&lt;/code&gt;按位或，都是转为二进制数后进行运算，效率低于逻辑运算符&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&amp;amp;&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;||&lt;/code&gt;，运算意义也不同，
 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&amp;amp;&lt;/code&gt;return 第二个运算数或者false，&lt;code class=&quot;highlighter-rouge&quot;&gt;||&lt;/code&gt;return第一个有效值。如果&lt;code class=&quot;highlighter-rouge&quot;&gt;||&lt;/code&gt;的第一个运算数是true，也不再考虑第二个运算数，直接返回true&lt;/p&gt;
 
-&lt;p&gt;2.正则表达式匹配，开头为010,01N, 02N或0NNN，后面是-7-8个数字的电话号码。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//著名的js浮点数运算问题
+console.log(0.1+0.2)
+//0.30000000000000004
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2010/06/ieee_floating-point_representation.html&quot;&gt;关于浮点数二进制表示&lt;/a&gt;
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators&quot;&gt;MDN位运算文档&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;n-02n0nnn-7-8&quot;&gt;2.正则表达式匹配，开头为010,01N, 02N或0NNN，后面是-7-8个数字的电话号码。&lt;/h3&gt;
 
 &lt;p&gt;之后写了个可以满足这些要求的pattern&lt;/p&gt;
 
@@ -49,7 +114,7 @@
   &lt;p&gt;自己关于正则的整理： &lt;a href=&quot;http://woodghost.github.io/myblog/2016/08/js-RegExp/&quot;&gt;JavaScript的正则表达式学习整理&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;3.写出下面代码的输出值：&lt;/p&gt;
+&lt;h3 id=&quot;section-1&quot;&gt;3.写出下面代码的输出值：&lt;/h3&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var obj = {
     a: 10,
@@ -65,7 +130,7 @@ obj.b.call(window);//4
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;4.写出下列代码的输出值：&lt;/p&gt;
+&lt;h3 id=&quot;section-2&quot;&gt;4.写出下列代码的输出值：&lt;/h3&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function A() {
 
@@ -89,7 +154,7 @@ console.log(new C(2));
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;5.写出下列代码的输出值：&lt;/p&gt;
+&lt;h3 id=&quot;section-3&quot;&gt;5.写出下列代码的输出值：&lt;/h3&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var a = 1;
 function b() {
@@ -101,11 +166,11 @@ function b() {
     return c;
 }
 
-b()();
+b()(); //2  cause closure
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;htmlcss&quot;&gt;HTML&amp;amp;CSS&lt;/h3&gt;
+&lt;h2 id=&quot;htmlcss&quot;&gt;HTML&amp;amp;CSS&lt;/h2&gt;
 
 &lt;p&gt;1.写出下列代码在各个浏览器中的颜色值?&lt;/p&gt;
 
@@ -1430,36 +1495,6 @@ https://www.zhihu.com/question/23031215&lt;/p&gt;
         <pubDate>Wed, 04 Jan 2017 18:06:24 +0800</pubDate>
         <link>http://woodghost.github.io/myblog/2017/01/js-06/</link>
         <guid isPermaLink="true">http://woodghost.github.io/myblog/2017/01/js-06/</guid>
-        
-        <category>JavaScript</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>函数,对象</title>
-        <description>&lt;blockquote&gt;
-  &lt;p&gt;Excerpt From: 泽卡斯. “JavaScript高级程序设计（第3版）.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;section&quot;&gt;单体内置对象&lt;/h2&gt;
-
-&lt;p&gt;大多数内置对象，例如Object、Array和String。
-ECMA-262还定义了两个单体内置对象：Global和Math。&lt;/p&gt;
-
-&lt;h3 id=&quot;global-&quot;&gt;Global 对象&lt;/h3&gt;
-
-&lt;p&gt;诸如isNaN()、isFinite()、parseInt()以及parseFloat()，实际上全都是Global对象的方法。除此之外，Global对象还包含其他一些方法。&lt;/p&gt;
-
-&lt;p&gt;1．URI编码方法
-Global对象的encodeURI()和encodeURIComponent()方法可以对URI（ Uniform Resource Identifiers，通用资源标识符）进行编码，以便发送给浏览器。
-URI方法encodeURI()、encodeURIComponent()、decodeURI()和 decodeURI Component()用于替代已经被ECMA-262第3版庞弃的escape()和unescape()方法。
-URI方法能够编码所有Unicode字符，而原来的方法只能正确地编码ASCII字符。因此在开发实践中，特别是在产品级的代码中，一定要使用URI方法&lt;/p&gt;
-
-</description>
-        <pubDate>Mon, 14 Nov 2016 18:06:24 +0800</pubDate>
-        <link>http://woodghost.github.io/myblog/2016/11/js-05/</link>
-        <guid isPermaLink="true">http://woodghost.github.io/myblog/2016/11/js-05/</guid>
         
         <category>JavaScript</category>
         

@@ -64,10 +64,13 @@ var str = "him,history,high",
   console.log(str.match(patternGlobal));//[ 'hi', 'hi', 'hi' ]
   console.log(str.match(patternCertain));//null
   console.log("hihi hi hihi".match(patternCertain));//[ 'hi', index: 5, input: 'hihi hi hihi' ]
-  // 不难发现，正则表达式非global模式下调用match方法，
+  /*
+  不难发现，正则表达式非global模式下调用match方法，
   返回的数组结果跟调用pattern1.exec(str)一样,
   而RegExp的exec方法无论global与否都会返回包含第一个匹配项信息的数组或null，
   还有两个额外的属性`index`和`input`
+
+  */
 
 ```
 

@@ -15,7 +15,7 @@ tags: javascript
 最后舔着个熊脸说一句，能有幸参加个一面也已经很荣幸了:)
 
 
-下面代码的输出值是？
+### 1.下面代码的输出值是？
 
 ```
 alert(1 && 2); //2
@@ -25,7 +25,19 @@ alert(1 && 2); //2
 位运算`&`按位与，`|`按位或，都是转为二进制数后进行运算，效率低于逻辑运算符`&&`，`||`，运算意义也不同，
 `&&`return 第二个运算数或者false，`||`return第一个有效值。如果`||`的第一个运算数是true，也不再考虑第二个运算数，直接返回true
 
-2.正则表达式匹配，开头为010,01N, 02N或0NNN，后面是-7-8个数字的电话号码。
+```
+//著名的js浮点数运算问题
+console.log(0.1+0.2)
+//0.30000000000000004
+
+```
+
+> [关于浮点数二进制表示](http://www.ruanyifeng.com/blog/2010/06/ieee_floating-point_representation.html)
+> [MDN位运算文档](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators)
+
+
+
+### 2.正则表达式匹配，开头为010,01N, 02N或0NNN，后面是-7-8个数字的电话号码。
 
 之后写了个可以满足这些要求的pattern
 
@@ -43,7 +55,7 @@ alert(1 && 2); //2
 > 自己关于正则的整理： [JavaScript的正则表达式学习整理](http://woodghost.github.io/myblog/2016/08/js-RegExp/)
 
 
-3.写出下面代码的输出值：
+### 3.写出下面代码的输出值：
 
 ```
 var obj = {
@@ -60,7 +72,7 @@ obj.b.call(window);//4
 ```
 
 
-4.写出下列代码的输出值：
+### 4.写出下列代码的输出值：
 
 ```
 function A() {
@@ -85,7 +97,7 @@ console.log(new C(2));
 ```
 
 
-5.写出下列代码的输出值：
+### 5.写出下列代码的输出值：
 
 ```
 var a = 1;
@@ -98,10 +110,10 @@ function b() {
     return c;
 }
 
-b()();
+b()(); //2  cause closure
 ```
 
-### HTML&CSS
+## HTML&CSS
 
 1.写出下列代码在各个浏览器中的颜色值?
 
