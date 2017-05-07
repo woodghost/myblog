@@ -5,12 +5,12 @@
     <description>Technical discuss &amp; Poems &amp; Offshore Fantasy</description>
     <link>http://woodghost.github.io/myblog/</link>
     <atom:link href="http://woodghost.github.io/myblog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 07 May 2017 20:08:48 +0800</pubDate>
-    <lastBuildDate>Sun, 07 May 2017 20:08:48 +0800</lastBuildDate>
+    <pubDate>Mon, 08 May 2017 00:37:18 +0800</pubDate>
+    <lastBuildDate>Mon, 08 May 2017 00:37:18 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
-        <title>作用域</title>
+        <title>CSS3学习笔记整理</title>
         <description>&lt;p&gt;温故而知新，在repl上创建了一个例子回顾CSS3的一些细节&lt;/p&gt;
 
 &lt;h3 id=&quot;css3&quot;&gt;CSS3盒子模型基础概念&lt;/h3&gt;
@@ -29,18 +29,35 @@
   &lt;p&gt;主要参考自 &lt;a href=&quot;https://css-tricks.com/snippets/css/a-guide-to-flexbox/&quot;&gt;CSS-tricks: A Guide to Flexbox&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h3 id=&quot;section&quot;&gt;实现一个旋转的立方体&lt;/h3&gt;
+&lt;h3 id=&quot;em-rem-px-vw-&quot;&gt;em rem px vw %&lt;/h3&gt;
+&lt;p&gt;em rem % vw 都是相对单位，用于responsive布局很合适.
+em 和 rem都是灵活、 可扩展的单位，由浏览器转换为像素值，具体取决于字体大小设置。
+em是继承 ancestor 的font-size px, rem是继承 root （html）font-size&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;a href=&quot;https://codepen.io/woodghost/pen/BRmjYK?editors=1100&quot;&gt;codepen上代码实现以及步骤细节&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;iframe height=&quot;350&quot; width=&quot;600&quot; scrolling=&quot;no&quot; src=&quot;https://codepen.io/tutsplus/embed/bdxWbB/?height=350&amp;amp;theme-id=12451&amp;amp;default-tab=result&quot; frameborder=&quot;no&quot; allowtransparency=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;实现一个旋转的立方体&lt;/h3&gt;
+&lt;p&gt;先看看什么是&lt;code class=&quot;highlighter-rouge&quot;&gt;preseve-3d&lt;/code&gt;
+如果父层不将&lt;code class=&quot;highlighter-rouge&quot;&gt;transform-style&lt;/code&gt;设置成&lt;code class=&quot;highlighter-rouge&quot;&gt;preseve-3d&lt;/code&gt;,子元素里面用到&lt;code class=&quot;highlighter-rouge&quot;&gt;transform&lt;/code&gt;属性的，&lt;code class=&quot;highlighter-rouge&quot;&gt;rotate(),translate()&lt;/code&gt;等方法的都失效了。&lt;/p&gt;
+
+&lt;iframe height=&quot;265&quot; scrolling=&quot;no&quot; title=&quot;transform-style property demonstrated with toggle&quot; src=&quot;//codepen.io/woodghost/embed/KmyqRw/?height=265&amp;amp;theme-id=0&amp;amp;default-tab=result&amp;amp;embed-version=2&quot; frameborder=&quot;no&quot; allowtransparency=&quot;true&quot; allowfullscreen=&quot;true&quot; style=&quot;width: 100%;&quot;&gt;
+&lt;/iframe&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;再来是画这个立方体&lt;/h3&gt;
+
+&lt;iframe height=&quot;401&quot; scrolling=&quot;no&quot; title=&quot;rotate cube&quot; src=&quot;//codepen.io/woodghost/embed/BRmjYK/?height=401&amp;amp;theme-id=dark&amp;amp;default-tab=result&amp;amp;embed-version=2&quot; frameborder=&quot;no&quot; allowtransparency=&quot;true&quot; allowfullscreen=&quot;true&quot; style=&quot;width: 100%;&quot;&gt;
+&lt;/iframe&gt;
+
+&lt;p&gt;以下是实现的主要part&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//要用到CSS3里面的属性transform-style(需要跟transform一起使用)，不继承
 //transform-style: flat (default) | preserve-3d;
 
 //主要用到的 properties：
 -webkit-perspective: number (px) | none; /* Safari 和 Chrome */
+// distance between the scene and the viewer
 -webkit-perspective-origin: x-axis y-axis (default: 50% 50%);
+
 -webkit-transform-style: preserve-3d;
 -webkit-transform: rotateY(30deg) rotateX(10deg);
 -webkit-animation:  spin 4s linear infinite;
@@ -49,9 +66,9 @@
   from { transform: rotateX(0) rotateY(0); }
   to   { transform: rotateX(360deg) rotateY(360deg); }
 }
-
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+
 </description>
         <pubDate>Sat, 06 May 2017 18:06:24 +0800</pubDate>
         <link>http://woodghost.github.io/myblog/2017/05/css-basic/</link>

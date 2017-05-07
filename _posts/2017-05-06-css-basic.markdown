@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 作用域
+title: CSS3学习笔记整理
 date: 2017-05-06 18:06:24.000000000 +08:00
 tags: CSS3
 ---
@@ -22,10 +22,39 @@ box-sizing: content-box (default) | border-box | inherit;
 
 > 主要参考自 [CSS-tricks: A Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
+### em rem px vw %
+em rem % vw 都是相对单位，用于responsive布局很合适.
+em 和 rem都是灵活、 可扩展的单位，由浏览器转换为像素值，具体取决于字体大小设置。
+em是继承 ancestor 的font-size px, rem是继承 root （html）font-size
+
+<iframe height="350" width="600" scrolling="no"
+src="https://codepen.io/tutsplus/embed/bdxWbB/?height=350&amp;theme-id=12451&amp;default-tab=result"
+frameborder="no" allowtransparency="true" allowfullscreen="true"> </iframe>
+
+
+
 
 ### 实现一个旋转的立方体
+先看看什么是`preseve-3d`
+如果父层不将`transform-style`设置成`preseve-3d`,子元素里面用到`transform`属性的，`rotate(),translate()`等方法的都失效了。
 
-> [codepen上代码实现以及步骤细节](https://codepen.io/woodghost/pen/BRmjYK?editors=1100)
+
+
+<iframe height='265' scrolling='no' title='transform-style property demonstrated with toggle' src='//codepen.io/woodghost/embed/KmyqRw/?height=265&theme-id=0&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>
+</iframe>
+
+
+### 再来是画这个立方体
+
+
+
+<iframe height='401' scrolling='no' title='rotate cube' src='//codepen.io/woodghost/embed/BRmjYK/?height=401&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>
+</iframe>
+
+
+
+
+以下是实现的主要part
 
 ```
 //要用到CSS3里面的属性transform-style(需要跟transform一起使用)，不继承
@@ -33,7 +62,9 @@ box-sizing: content-box (default) | border-box | inherit;
 
 //主要用到的 properties：
 -webkit-perspective: number (px) | none; /* Safari 和 Chrome */
+// distance between the scene and the viewer
 -webkit-perspective-origin: x-axis y-axis (default: 50% 50%);
+
 -webkit-transform-style: preserve-3d;
 -webkit-transform: rotateY(30deg) rotateX(10deg);
 -webkit-animation:  spin 4s linear infinite;
@@ -42,5 +73,6 @@ box-sizing: content-box (default) | border-box | inherit;
   from { transform: rotateX(0) rotateY(0); }
   to   { transform: rotateX(360deg) rotateY(360deg); }
 }
-
 ```
+
+
