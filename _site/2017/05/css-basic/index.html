@@ -7,16 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>CSS3学习笔记整理</title>
-  <meta name="description" content="温故而知新，在repl上创建了一个例子回顾CSS3的一些细节">
+  <meta name="description" content="温故而知新，在codepen, repl上创建了一个例子回顾CSS3的一些细节">
   <meta name="author" content="Tingyue Wang">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="CSS3学习笔记整理">
-  <meta name="twitter:description" content="温故而知新，在repl上创建了一个例子回顾CSS3的一些细节">
+  <meta name="twitter:description" content="温故而知新，在codepen, repl上创建了一个例子回顾CSS3的一些细节">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="CSS3学习笔记整理">
-  <meta property="og:description" content="温故而知新，在repl上创建了一个例子回顾CSS3的一些细节">
+  <meta property="og:description" content="温故而知新，在codepen, repl上创建了一个例子回顾CSS3的一些细节">
 
   <link rel="icon" type="image/x-icon" href="/myblog/assets/images/favicon.ico"/>
   <link href="/myblog/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
@@ -160,7 +160,7 @@
   </header>
 
   <section class="post">
-    <p>温故而知新，在repl上创建了一个例子回顾CSS3的一些细节</p>
+    <p>温故而知新，在codepen, repl上创建了一个例子回顾CSS3的一些细节</p>
 
 <h3 id="css3">CSS3盒子模型基础概念</h3>
 <p>每个HTML元素都是长方形盒子。
@@ -183,7 +183,52 @@
 em 和 rem都是灵活、 可扩展的单位，由浏览器转换为像素值，具体取决于字体大小设置。
 em是继承 ancestor 的font-size px, rem是继承 root （html）font-size</p>
 
+<p>说到继承，em的继承问题会让字体大小显示不正常</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>px,em,rem<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+        <span class="nt">div</span><span class="p">{</span><span class="nl">font-size</span><span class="p">:</span><span class="m">1.5em</span><span class="p">;}</span>
+    <span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"id1"</span><span class="nt">&gt;</span>div1
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"id2"</span><span class="nt">&gt;</span>div2
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"id3"</span><span class="nt">&gt;</span>div3<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+</div>
+<p>上面这个例子div1-div3依次递增，但不是我们想要的样子。这时候可以用rem修正。
+W3C推荐使用em</p>
+
 <iframe height="350" width="600" scrolling="no" src="https://codepen.io/tutsplus/embed/bdxWbB/?height=350&amp;theme-id=12451&amp;default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true"> </iframe>
+
+<h3 id="vhvwvminvmax">vh和vw，vmin和vmax</h3>
+
+<p>vh和vw相对于视口的高度和宽度，而不是父元素的（CSS百分比是相对于包含它的最近的父元素的高度和宽度）
+1vh 等于1/100的视口高度，1vw 等于1/100的视口宽度
+比如：浏览器高度900px，宽度为750px, 1 vh = 900px/100 = 9 px，1vw = 750px/100 = 7.5 px。</p>
+
+<p>设置一个和屏幕同宽的标题，h1{font-size:100vw}，那标题的字体大小就会自动根据浏览器的宽度进行缩放，以达到字体和viewport大小同步的效果。</p>
+
+<p>vmin and vmax：
+关于视口高度和宽度两者的最小值或者最大值。
+比如，浏览器的宽度设置为1200px，高度设置为800px， 1vmax = 1200/100px = 12px， 1vmin = 800/100px = 8px。
+如果宽度设置为600px,高度设置为1080px, 1vmin就等于6px, 1vmax则等于10.8px。</p>
+
+<blockquote>
+  <p>参考自 http://dapengtalk.blog.51cto.com/11549574/1861496
+http://j.news.163.com/docs/99/2014111814/ABBB78BG00964KGG.html
+http://www.cnblogs.com/whitewolf/p/css-em-px-percentage.html
+http://www.zhangxinxu.com/wordpress/2011/03/css-css3-unit-units/</p>
+</blockquote>
 
 <h3 id="section">实现一个旋转的立方体</h3>
 <p>先看看什么是<code class="highlighter-rouge">preseve-3d</code>

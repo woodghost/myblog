@@ -5,7 +5,7 @@ date: 2017-05-06 18:06:24.000000000 +08:00
 tags: CSS3
 ---
 
-温故而知新，在repl上创建了一个例子回顾CSS3的一些细节
+温故而知新，在codepen, repl上创建了一个例子回顾CSS3的一些细节
 
 
 ### CSS3盒子模型基础概念
@@ -27,12 +27,55 @@ em rem % vw 都是相对单位，用于responsive布局很合适.
 em 和 rem都是灵活、 可扩展的单位，由浏览器转换为像素值，具体取决于字体大小设置。
 em是继承 ancestor 的font-size px, rem是继承 root （html）font-size
 
+说到继承，em的继承问题会让字体大小显示不正常
+
+```
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>px,em,rem</title>
+    <style>
+        div{font-size:1.5em;}
+    </style>
+</head>
+<body>
+<div class="id1">div1
+    <div class="id2">div2
+        <div class="id3">div3</div>
+    </div>
+</div>
+
+</body>
+</html>
+```
+上面这个例子div1-div3依次递增，但不是我们想要的样子。这时候可以用rem修正。
+W3C推荐使用em
+
 <iframe height="350" width="600" scrolling="no"
 src="https://codepen.io/tutsplus/embed/bdxWbB/?height=350&amp;theme-id=12451&amp;default-tab=result"
 frameborder="no" allowtransparency="true" allowfullscreen="true"> </iframe>
 
 
 
+### vh和vw，vmin和vmax
+
+vh和vw相对于视口的高度和宽度，而不是父元素的（CSS百分比是相对于包含它的最近的父元素的高度和宽度）
+1vh 等于1/100的视口高度，1vw 等于1/100的视口宽度
+比如：浏览器高度900px，宽度为750px, 1 vh = 900px/100 = 9 px，1vw = 750px/100 = 7.5 px。
+
+设置一个和屏幕同宽的标题，h1{font-size:100vw}，那标题的字体大小就会自动根据浏览器的宽度进行缩放，以达到字体和viewport大小同步的效果。
+
+vmin and vmax：
+关于视口高度和宽度两者的最小值或者最大值。
+比如，浏览器的宽度设置为1200px，高度设置为800px， 1vmax = 1200/100px = 12px， 1vmin = 800/100px = 8px。
+如果宽度设置为600px,高度设置为1080px, 1vmin就等于6px, 1vmax则等于10.8px。
+
+
+> 参考自 http://dapengtalk.blog.51cto.com/11549574/1861496
+> http://j.news.163.com/docs/99/2014111814/ABBB78BG00964KGG.html
+> http://www.cnblogs.com/whitewolf/p/css-em-px-percentage.html
+> http://www.zhangxinxu.com/wordpress/2011/03/css-css3-unit-units/
 
 ### 实现一个旋转的立方体
 先看看什么是`preseve-3d`
