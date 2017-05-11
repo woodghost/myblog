@@ -4,7 +4,6 @@
     <list default="true" id="1a308717-2eba-4356-9e62-58304b1ab334" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2016-08-09-js-RegExp.markdown" afterPath="$PROJECT_DIR$/_posts/2016-08-09-js-RegExp.markdown" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2017-04-27-record-interview.markdown" afterPath="$PROJECT_DIR$/_posts/2017-04-27-record-interview.markdown" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2017-05-06-css-basic.markdown" afterPath="$PROJECT_DIR$/_posts/2017-05-06-css-basic.markdown" />
     </list>
     <ignored path="myblog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,9 +46,21 @@
       <file leaf-file-name="2016-08-09-js-RegExp.markdown" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/2016-08-09-js-RegExp.markdown">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+            <state relative-caret-position="549">
+              <caret line="216" column="0" selection-start-line="216" selection-start-column="0" selection-end-line="216" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="codeQ.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/codeQ.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="901">
+              <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!doc;n#flow#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -58,17 +69,27 @@
         <entry file="file://$PROJECT_DIR$/_posts/2017-04-27-record-interview.markdown">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+              <caret line="74" column="17" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2017-05-06-css-basic.markdown" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2017-05-07-data-bind.markdown" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_posts/2017-05-07-data-bind.markdown">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="191" selection-start-line="11" selection-start-column="191" selection-end-line="11" selection-end-column="191" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2017-05-06-css-basic.markdown" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/2017-05-06-css-basic.markdown">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -156,6 +177,13 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -195,9 +223,11 @@
         <option value="$PROJECT_DIR$/_posts/2016-08-09-js-03.markdown" />
         <option value="$PROJECT_DIR$/_posts/2017-04-13-json-parse.markdown" />
         <option value="$PROJECT_DIR$/_config.yml" />
-        <option value="$PROJECT_DIR$/_posts/2016-08-09-js-RegExp.markdown" />
-        <option value="$PROJECT_DIR$/_posts/2017-04-27-record-interview.markdown" />
         <option value="$PROJECT_DIR$/_posts/2017-05-06-css-basic.markdown" />
+        <option value="$PROJECT_DIR$/_posts/2016-08-09-js-RegExp.markdown" />
+        <option value="$PROJECT_DIR$/js/codeQ.js" />
+        <option value="$PROJECT_DIR$/_posts/2017-04-27-record-interview.markdown" />
+        <option value="$PROJECT_DIR$/_posts/2017-05-07-data-bind.markdown" />
       </list>
     </option>
   </component>
@@ -339,12 +369,12 @@
       <workItem from="1490949794044" duration="3513000" />
       <workItem from="1491827379473" duration="17502000" />
       <workItem from="1492781282156" duration="7323000" />
-      <workItem from="1493876642266" duration="19216000" />
+      <workItem from="1493876642266" duration="23192000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47554000" />
+    <option name="totallyTimeSpent" value="51530000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1250" height="777" extended-state="0" />
@@ -390,14 +420,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/images/favicon.jpg" />
-    <entry file="file://$PROJECT_DIR$/_sass/components/_navigation.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_sass/components/_read-more.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -822,26 +844,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2017-05-06-css-basic.markdown">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2016-08-09-js-RegExp.markdown">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+        <state relative-caret-position="549">
+          <caret line="216" column="0" selection-start-line="216" selection-start-column="0" selection-end-line="216" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/codeQ.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc;n#flow#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2017-04-27-record-interview.markdown">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <caret line="74" column="17" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2017-05-06-css-basic.markdown">
+    <entry file="file://$PROJECT_DIR$/_posts/2017-05-07-data-bind.markdown">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+        <state relative-caret-position="187">
+          <caret line="11" column="191" selection-start-line="11" selection-start-column="191" selection-end-line="11" selection-end-column="191" />
           <folding />
         </state>
       </provider>

@@ -67,7 +67,7 @@ var a = 1;
 var objb = obj.b;
 
 obj.b();//20  obj里面的a变成20
-objb();//2     window的a变成2
+b();//2     window的a变成2
 obj.b.call(window);//4
 ```
 
@@ -94,6 +94,12 @@ C.prototype.a = 1;
 console.log(new A());
 console.log(new B());
 console.log(new C(2));
+
+
+/* A {}
+B {a: undefined}
+C {a: 2}
+*/
 ```
 
 

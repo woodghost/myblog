@@ -1,0 +1,13 @@
+---
+layout: post
+title: 数据绑定
+date: 2017-04-27 23:43:24.000000000 +09:00
+tags: javascript
+---
+
+> [简书上关于js双向数据绑定的文章](http://www.jianshu.com/p/e8df6e3f6e34)
+
+
+
+<p data-height="265" data-theme-id="dark" data-slug-hash="GmyGzW" data-default-tab="result" data-user="woodghost" data-embed-version="2" data-pen-title="two-way-data-binding" class="codepen"></p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>

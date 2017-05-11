@@ -5,8 +5,8 @@
     <description>Technical discuss &amp; Poems &amp; Offshore Fantasy</description>
     <link>http://woodghost.github.io/myblog/</link>
     <atom:link href="http://woodghost.github.io/myblog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 08 May 2017 00:54:48 +0800</pubDate>
-    <lastBuildDate>Mon, 08 May 2017 00:54:48 +0800</lastBuildDate>
+    <pubDate>Thu, 11 May 2017 12:36:57 +0800</pubDate>
+    <lastBuildDate>Thu, 11 May 2017 12:36:57 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -125,6 +125,25 @@ http://www.zhangxinxu.com/wordpress/2011/03/css-css3-unit-units/&lt;/p&gt;
       </item>
     
       <item>
+        <title>数据绑定</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;http://www.jianshu.com/p/e8df6e3f6e34&quot;&gt;简书上关于js双向数据绑定的文章&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p data-height=&quot;265&quot; data-theme-id=&quot;dark&quot; data-slug-hash=&quot;GmyGzW&quot; data-default-tab=&quot;result&quot; data-user=&quot;woodghost&quot; data-embed-version=&quot;2&quot; data-pen-title=&quot;two-way-data-binding&quot; class=&quot;codepen&quot;&gt;&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;https://production-assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+</description>
+        <pubDate>Thu, 27 Apr 2017 22:43:24 +0800</pubDate>
+        <link>http://woodghost.github.io/myblog/2017/04/data-bind/</link>
+        <guid isPermaLink="true">http://woodghost.github.io/myblog/2017/04/data-bind/</guid>
+        
+        <category>javascript</category>
+        
+        
+      </item>
+    
+      <item>
         <title>面试内容总结</title>
         <description>&lt;p&gt;今天是神奇的一天，第一次知道这里居然真的有人看，原本以为只有自己会看。。。
 整理回忆一下今天面试的内容，总结学习也可以方便其他求职的小伙伴.&lt;/p&gt;
@@ -187,7 +206,7 @@ var a = 1;
 var objb = obj.b;
 
 obj.b();//20  obj里面的a变成20
-objb();//2     window的a变成2
+b();//2     window的a变成2
 obj.b.call(window);//4
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -213,6 +232,12 @@ C.prototype.a = 1;
 console.log(new A());
 console.log(new B());
 console.log(new C(2));
+
+
+/* A {}
+B {a: undefined}
+C {a: 2}
+*/
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -1544,19 +1569,6 @@ https://www.zhihu.com/question/23031215&lt;/p&gt;
         <pubDate>Wed, 15 Feb 2017 18:06:24 +0800</pubDate>
         <link>http://woodghost.github.io/myblog/2017/02/js-07/</link>
         <guid isPermaLink="true">http://woodghost.github.io/myblog/2017/02/js-07/</guid>
-        
-        <category>JavaScript</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>原型，原型链，构造函数</title>
-        <description>&lt;p&gt;&lt;img src=&quot;/myblog/assets/images/prototype.jpeg&quot; alt=&quot;protytype&quot; /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Wed, 04 Jan 2017 18:06:24 +0800</pubDate>
-        <link>http://woodghost.github.io/myblog/2017/01/js-06/</link>
-        <guid isPermaLink="true">http://woodghost.github.io/myblog/2017/01/js-06/</guid>
         
         <category>JavaScript</category>
         
